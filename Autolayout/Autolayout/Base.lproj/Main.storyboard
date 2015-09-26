@@ -40,49 +40,83 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXW-Xl-64X">
-                                <rect key="frame" x="199" y="146" width="114" height="30"/>
+                                <rect key="frame" x="94.5" y="146" width="322" height="30"/>
                                 <state key="normal" title="Change Security"/>
+                                <connections>
+                                    <action selector="toggleSecurity" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jzr-EK-rly"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FPH-aL-cMO">
-                                <rect key="frame" x="409.5" y="146" width="170.5" height="30"/>
+                                <rect key="frame" x="513" y="146" width="67" height="30"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIM-zL-d9J">
-                                <rect key="frame" x="363" y="146" width="38" height="30"/>
+                                <rect key="frame" x="466.5" y="146" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="login" destination="BYZ-38-t0r" eventType="touchUpInside" id="GD3-RY-xHh"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1a-GI-ZB3">
-                                <rect key="frame" x="20" y="146" width="171.5" height="30"/>
+                                <rect key="frame" x="20" y="146" width="67" height="30"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swift_2x" translatesAutoresizingMaskIntoConstraints="NO" id="ckF-Zf-8wk">
+                                <rect key="frame" x="20" y="324" width="360" height="256"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6be-Vm-vm7">
+                                <rect key="frame" x="387" y="498" width="70.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZf-3b-wgZ">
+                                <rect key="frame" x="387" y="441" width="43" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6be-Vm-vm7" firstAttribute="leading" secondItem="EZf-3b-wgZ" secondAttribute="leading" id="0MQ-gy-1A0"/>
                             <constraint firstAttribute="leadingMargin" secondItem="3dS-mQ-UOP" secondAttribute="leading" id="2we-X2-YBq"/>
                             <constraint firstItem="3dS-mQ-UOP" firstAttribute="width" secondItem="pul-HW-X0W" secondAttribute="width" id="7XV-Jn-aeh"/>
                             <constraint firstItem="oIM-zL-d9J" firstAttribute="leading" secondItem="WXW-Xl-64X" secondAttribute="trailing" constant="50" id="91U-5b-adf"/>
                             <constraint firstItem="FPH-aL-cMO" firstAttribute="leading" secondItem="oIM-zL-d9J" secondAttribute="trailing" constant="8" symbolic="YES" id="9gN-7s-EVj"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ckF-Zf-8wk" secondAttribute="leading" id="CBO-lc-MfA"/>
+                            <constraint firstItem="ckF-Zf-8wk" firstAttribute="top" secondItem="oIM-zL-d9J" secondAttribute="bottom" constant="148" id="E7I-2h-jHg"/>
                             <constraint firstItem="oIM-zL-d9J" firstAttribute="top" secondItem="FPH-aL-cMO" secondAttribute="top" id="EbJ-f8-joY"/>
                             <constraint firstItem="O1a-GI-ZB3" firstAttribute="bottom" secondItem="WXW-Xl-64X" secondAttribute="bottom" id="GjV-dT-lRl"/>
                             <constraint firstItem="WXW-Xl-64X" firstAttribute="leading" secondItem="O1a-GI-ZB3" secondAttribute="trailing" constant="8" symbolic="YES" id="H1c-la-4Sk"/>
                             <constraint firstItem="pul-HW-X0W" firstAttribute="baseline" secondItem="5ZY-9t-wmc" secondAttribute="baseline" id="JtJ-Vp-CbY"/>
                             <constraint firstItem="bio-CJ-G6e" firstAttribute="leading" secondItem="3dS-mQ-UOP" secondAttribute="trailing" constant="8" symbolic="YES" id="KgG-z7-WUP"/>
                             <constraint firstItem="3dS-mQ-UOP" firstAttribute="baseline" secondItem="bio-CJ-G6e" secondAttribute="baseline" id="Mkd-pb-bNX"/>
+                            <constraint firstItem="oIM-zL-d9J" firstAttribute="leading" secondItem="EZf-3b-wgZ" secondAttribute="trailing" constant="36.5" id="MvQ-GN-f9K"/>
                             <constraint firstItem="5ZY-9t-wmc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="Nv2-kL-7hx"/>
                             <constraint firstAttribute="leadingMargin" secondItem="pul-HW-X0W" secondAttribute="leading" id="OQK-rG-l4W"/>
+                            <constraint firstItem="EZf-3b-wgZ" firstAttribute="leading" secondItem="ckF-Zf-8wk" secondAttribute="trailing" constant="7" id="TCS-yz-kBa"/>
                             <constraint firstItem="oIM-zL-d9J" firstAttribute="bottom" secondItem="FPH-aL-cMO" secondAttribute="bottom" id="Tcw-i6-ZIw"/>
                             <constraint firstItem="5ZY-9t-wmc" firstAttribute="leading" secondItem="pul-HW-X0W" secondAttribute="trailing" constant="8" symbolic="YES" id="UtP-yu-SON"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5ZY-9t-wmc" secondAttribute="trailing" id="VYr-xa-5J9"/>
                             <constraint firstItem="O1a-GI-ZB3" firstAttribute="width" secondItem="FPH-aL-cMO" secondAttribute="width" id="Yax-vQ-GAq"/>
                             <constraint firstItem="bio-CJ-G6e" firstAttribute="top" secondItem="5ZY-9t-wmc" secondAttribute="bottom" constant="8" symbolic="YES" id="b5F-ax-Km1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ckF-Zf-8wk" secondAttribute="bottom" constant="20" id="dae-t6-Vp7"/>
                             <constraint firstItem="O1a-GI-ZB3" firstAttribute="top" secondItem="WXW-Xl-64X" secondAttribute="top" id="p4Y-EA-PKh"/>
+                            <constraint firstItem="6be-Vm-vm7" firstAttribute="leading" secondItem="EZf-3b-wgZ" secondAttribute="trailing" constant="-43" id="rF1-yx-5RC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FPH-aL-cMO" secondAttribute="trailing" id="t4j-V0-SMx"/>
                             <constraint firstItem="oIM-zL-d9J" firstAttribute="baseline" secondItem="WXW-Xl-64X" secondAttribute="baseline" id="t9i-gY-ca5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EZf-3b-wgZ" secondAttribute="trailing" constant="150" id="tcV-4W-LAG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bio-CJ-G6e" secondAttribute="trailing" id="uXW-vL-QmA"/>
                             <constraint firstAttribute="leadingMargin" secondItem="O1a-GI-ZB3" secondAttribute="leading" id="uvc-bo-LTf"/>
+                            <constraint firstItem="EZf-3b-wgZ" firstAttribute="centerY" secondItem="ckF-Zf-8wk" secondAttribute="centerY" id="vVX-bj-f6i"/>
                             <constraint firstItem="oIM-zL-d9J" firstAttribute="top" secondItem="bio-CJ-G6e" secondAttribute="bottom" constant="8" symbolic="YES" id="xmN-M8-Vbb"/>
+                            <constraint firstItem="6be-Vm-vm7" firstAttribute="top" secondItem="EZf-3b-wgZ" secondAttribute="bottom" constant="37" id="yop-Zi-TVS"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="loginFirld" destination="5ZY-9t-wmc" id="YbZ-9N-7Ph"/>
+                        <outlet property="companyLabel" destination="6be-Vm-vm7" id="VWl-kC-6sU"/>
+                        <outlet property="imageView" destination="ckF-Zf-8wk" id="d9a-S2-awi"/>
+                        <outlet property="loginField" destination="5ZY-9t-wmc" id="zVT-o7-8RJ"/>
+                        <outlet property="nameLabel" destination="EZf-3b-wgZ" id="cER-CI-f1Y"/>
                         <outlet property="passwordField" destination="bio-CJ-G6e" id="HDl-jW-5PS"/>
                         <outlet property="passwordLabel" destination="3dS-mQ-UOP" id="v4z-xB-cfu"/>
                     </connections>
@@ -92,4 +126,7 @@
             <point key="canvasLocation" x="547" y="110"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="swift_2x" width="256" height="256"/>
+    </resources>
 </document>
