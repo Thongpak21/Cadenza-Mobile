@@ -24,7 +24,7 @@ class FaceView: UIView {
     var faceRadius: CGFloat {
         return min(bounds.size.width, bounds.size.height) / 2 * 0.90
     }
-    var dataSource: FaceViewDataSource?
+   weak var dataSource: FaceViewDataSource?
     
     private struct Scaling {
         static let FaceRadiusToEyeRadiusRatio: CGFloat = 10
@@ -82,10 +82,12 @@ class FaceView: UIView {
         facePath.stroke()
         bezierPathForEye(.Left).stroke()
         bezierPathForEye(.Right).stroke()
-        
+//        let smiliness = 0.5
+//        let smilePath = bezierPathForSmile(smiliness)
+//        smilePath.stroke()
         let smiliness = dataSource?.smilinessForFaceView(self) ?? 0.0
         let smilePath = bezierPathForSmile(smiliness)
         smilePath.stroke()
-        
+//
     }
 }

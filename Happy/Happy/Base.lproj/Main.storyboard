@@ -19,6 +19,14 @@
                             <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hCR-gB-QQC" customClass="FaceView" customModule="Happy" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color2">
+                                        <color key="value" red="0.75125837579999999" green="0.2233073693" blue="0.86574731689999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="scale">
+                                        <real key="value" value="0.94999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -29,10 +37,13 @@
                             <constraint firstAttribute="trailing" secondItem="hCR-gB-QQC" secondAttribute="trailing" id="Kgc-5H-VTO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="faceView" destination="hCR-gB-QQC" id="mTd-K7-eAg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8uZ-bc-VOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="327"/>
+            <point key="canvasLocation" x="132" y="247"/>
         </scene>
     </scenes>
 </document>
