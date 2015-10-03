@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ChI-jh-ecl">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Psychologist View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PsychologistViewController" customModule="Psychologist" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,150 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOx-7g-by5">
+                                <rect key="frame" x="227" y="279" width="147" height="41"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="PHX-MH-l0M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Daincing Tree"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="PHX-MH-l0M"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aS-yc-xV9">
+                                <rect key="frame" x="234" y="230" width="132" height="41"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="H5U-jt-ISf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Golden Bear"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="H5U-jt-ISf"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94K-XH-b6G">
+                                <rect key="frame" x="254" y="328" width="92" height="41"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="ZGx-Lg-wDm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Buckeye"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ZGx-Lg-wDm"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you see in your dreams?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="hpe-E6-hjX">
+                                <rect key="frame" x="20" y="20" width="560" height="43"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3aS-yc-xV9" firstAttribute="centerX" secondItem="hOx-7g-by5" secondAttribute="centerX" id="0un-ze-ccI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hpe-E6-hjX" secondAttribute="bottom" constant="536" id="Cbi-51-boB"/>
+                            <constraint firstItem="94K-XH-b6G" firstAttribute="centerX" secondItem="hOx-7g-by5" secondAttribute="centerX" id="OQp-oH-us8"/>
+                            <constraint firstItem="hOx-7g-by5" firstAttribute="centerX" secondItem="hpe-E6-hjX" secondAttribute="centerX" id="P2E-oK-9dQ"/>
+                            <constraint firstItem="hpe-E6-hjX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="T8B-8p-Ko6"/>
+                            <constraint firstItem="hOx-7g-by5" firstAttribute="top" secondItem="3aS-yc-xV9" secondAttribute="bottom" constant="8" symbolic="YES" id="ZWR-LX-Stv"/>
+                            <constraint firstItem="hpe-E6-hjX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="eRS-Yi-A73"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hOx-7g-by5" secondAttribute="bottom" constant="279" id="eXP-FX-Chi"/>
+                            <constraint firstItem="hOx-7g-by5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="k6C-FS-ibE"/>
+                            <constraint firstItem="hOx-7g-by5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tRQ-DD-REe"/>
+                            <constraint firstItem="hpe-E6-hjX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="uWd-Am-R0C"/>
+                            <constraint firstItem="94K-XH-b6G" firstAttribute="top" secondItem="hOx-7g-by5" secondAttribute="bottom" constant="8" symbolic="YES" id="y6z-lV-HnO"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="P2E-oK-9dQ"/>
+                                <exclude reference="Cbi-51-boB"/>
+                                <exclude reference="eXP-FX-Chi"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="639" y="141"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="6k4-3W-8n7">
+            <objects>
+                <splitViewController id="ChI-jh-ecl" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="masterViewController" id="eD0-zO-frC"/>
+                        <segue destination="Cao-JQ-PDD" kind="relationship" relationship="detailViewController" id="chv-Lc-fGv"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dJv-lQ-Muj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-320" y="359"/>
+        </scene>
+        <!--Happiness View Controller-->
+        <scene sceneID="OdC-Ez-gHy">
+            <objects>
+                <viewController id="Cao-JQ-PDD" customClass="HappinessViewController" customModule="Psychologist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lVw-CM-ePo"/>
+                        <viewControllerLayoutGuide type="bottom" id="R4Z-up-a14"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7oe-vt-mOU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="HrQ-iI-TJb" customClass="FaceView" customModule="Psychologist" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color2">
+                                        <color key="value" red="0.75125837579999999" green="0.2233073693" blue="0.86574731689999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="scale">
+                                        <real key="value" value="0.94999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ib0-0E-JVQ" appends="YES" id="yDC-Fl-5Ne"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HrQ-iI-TJb" secondAttribute="trailing" id="MMa-Hl-9Vm"/>
+                            <constraint firstItem="HrQ-iI-TJb" firstAttribute="leading" secondItem="7oe-vt-mOU" secondAttribute="leading" id="dLJ-KN-ozu"/>
+                            <constraint firstItem="HrQ-iI-TJb" firstAttribute="top" secondItem="7oe-vt-mOU" secondAttribute="top" id="nIT-zl-sBu"/>
+                            <constraint firstItem="HrQ-iI-TJb" firstAttribute="bottom" secondItem="R4Z-up-a14" secondAttribute="top" id="yRh-AZ-bnM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="faceView" destination="HrQ-iI-TJb" id="AuE-ve-YSR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nen-lO-oAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ib0-0E-JVQ">
+                    <connections>
+                        <action selector="changeHappiness:" destination="Cao-JQ-PDD" id="g3x-VG-S16"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="651" y="923"/>
         </scene>
     </scenes>
 </document>
