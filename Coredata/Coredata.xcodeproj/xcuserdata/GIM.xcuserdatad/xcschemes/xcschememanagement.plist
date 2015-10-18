@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Psychologist.xcscheme</key>
+		<key>Coredata.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3790AF791BC136B300CDEA1E</key>
+		<key>3790AF9B1BC1BF1300CDEA1E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
