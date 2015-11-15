@@ -1,0 +1,6 @@
+framework module Pods_Cadenza {
+  umbrella header "Pods-Cadenza-umbrella.h"
+
+  export *
+  module * { export * }
+}
