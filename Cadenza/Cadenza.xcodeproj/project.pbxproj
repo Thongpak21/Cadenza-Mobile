@@ -19,6 +19,8 @@
 		379B17F71BF8F2BA00B18E12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17ED1BF8F2BA00B18E12 /* AppDelegate.swift */; };
 		379B17FB1BF8F54300B18E12 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 379B17FA1BF8F54300B18E12 /* MapKit.framework */; };
 		379B17FE1BF8F8A400B18E12 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 379B17FC1BF8F8A400B18E12 /* Model.xcdatamodeld */; };
+		37F71EEC1BF9989E004D4815 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F71EEB1BF9989E004D4815 /* MenuCell.swift */; };
+		37F71F5C1C021D1B004D4815 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F71F5B1C021D1B004D4815 /* Login.swift */; };
 		49136D6C4DC6FF4371D249C2 /* Pods_Cadenza.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7391CC4E90CD5580E54784AE /* Pods_Cadenza.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		379B17ED1BF8F2BA00B18E12 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		379B17FA1BF8F54300B18E12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		379B17FD1BF8F8A400B18E12 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		37F71EEB1BF9989E004D4815 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		37F71F5B1C021D1B004D4815 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		4D6024D7D7742B4EEDA205F0 /* Pods-Cadenza.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cadenza.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cadenza/Pods-Cadenza.release.xcconfig"; sourceTree = "<group>"; };
 		7391CC4E90CD5580E54784AE /* Pods_Cadenza.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cadenza.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDC18236B8F0A056C1441D0 /* Pods-Cadenza.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cadenza.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cadenza/Pods-Cadenza.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				379B17DB1BF8EDD800B18E12 /* SWRevealViewController */,
+				37F71F5B1C021D1B004D4815 /* Login.swift */,
 				379B17E31BF8F2BA00B18E12 /* TableView.swift */,
 				379B17E41BF8F2BA00B18E12 /* PhotoViewController.swift */,
 				379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */,
@@ -90,6 +95,7 @@
 				379B177A1BF8EC9C00B18E12 /* Info.plist */,
 				379B17D71BF8ED9000B18E12 /* Assets.xcassets */,
 				379B17FC1BF8F8A400B18E12 /* Model.xcdatamodeld */,
+				37F71EEB1BF9989E004D4815 /* MenuCell.swift */,
 			);
 			path = Cadenza;
 			sourceTree = "<group>";
@@ -98,8 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				379B17DD1BF8EE0A00B18E12 /* SWRevealViewController.m */,
-				379B17DE1BF8EE0A00B18E12 /* SWRevealViewController.h */,
 				379B17DC1BF8EE0A00B18E12 /* Cadenza-Bridging-Header.h */,
+				379B17DE1BF8EE0A00B18E12 /* SWRevealViewController.h */,
 			);
 			name = SWRevealViewController;
 			sourceTree = "<group>";
@@ -246,7 +252,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				379B17F21BF8F2BA00B18E12 /* MenuController.swift in Sources */,
+				37F71F5C1C021D1B004D4815 /* Login.swift in Sources */,
 				379B17EF1BF8F2BA00B18E12 /* PhotoViewController.swift in Sources */,
+				37F71EEC1BF9989E004D4815 /* MenuCell.swift in Sources */,
 				379B17F11BF8F2BA00B18E12 /* NewsTableViewCell.swift in Sources */,
 				379B17FE1BF8F8A400B18E12 /* Model.xcdatamodeld in Sources */,
 				379B17EE1BF8F2BA00B18E12 /* TableView.swift in Sources */,

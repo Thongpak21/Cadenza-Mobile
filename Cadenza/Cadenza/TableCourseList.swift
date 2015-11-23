@@ -15,18 +15,19 @@ class TableCourseList: UITableViewController {
     @IBOutlet var extraButton:UIBarButtonItem!
     var coursename = [String]()
     var teacher = [String]()
+
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
         if revealViewController() != nil {
-//            revealViewController().rearViewRevealWidth = 62
+          //  revealViewController().rearViewRevealWidth = 300
             menuButton.target = revealViewController()
             menuButton.action = "revealToggle:"
 
             revealViewController().rightViewRevealWidth = 150
             extraButton.target = revealViewController()
             extraButton.action = "rightRevealToggle:"
-
+            revealViewController().tapGestureRecognizer()
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         Alamofire.request(.GET, "http://cadenza.in.th/api/mobile/course" )
@@ -58,7 +59,6 @@ class TableCourseList: UITableViewController {
                 //                    }
                 //                }
         }
-
         
     }
 
@@ -108,7 +108,12 @@ class TableCourseList: UITableViewController {
         cell.postImageView.image = UIImage(named: "watchkit-intro")
         return cell
     }
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let target = segue.destinationViewController
+        if segue.identifier == "showDetail" {
+        }
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.

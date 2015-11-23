@@ -10,9 +10,24 @@ import UIKit
 
 class MenuController: UITableViewController {
 
+    @IBOutlet weak var fname: UILabel!
+    @IBOutlet weak var lname: UILabel!
+    @IBOutlet weak var profileimage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.fname.text = "Thongpak"
+        self.lname.text = "Pongsilathong"
+        
+        
+        profileimage.layer.borderWidth=1.0
+        profileimage.layer.masksToBounds = false
+        profileimage.layer.borderColor = UIColor.whiteColor().CGColor
+        profileimage.layer.cornerRadius = 13
+        profileimage.layer.cornerRadius = profileimage.frame.size.height/2
+        profileimage.clipsToBounds = true
+     //   profileimage = UIImageView(frame: CGRectMake(0, 0, 100, 100))
+        
+   //     pro.image = UIImageV
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,15 +45,14 @@ class MenuController: UITableViewController {
     // MARK: - Table view data source
 
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+    
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("profile", forIndexPath: indexPath) as! NewsTableViewCell
+//
+    
+       // return cell
+   // }
 
-        // Configure the cell...
-
-        return cell
-    }
-    */
 
     /*
     // Override to support conditional editing of the table view.
