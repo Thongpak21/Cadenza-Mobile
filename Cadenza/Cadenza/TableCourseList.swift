@@ -9,13 +9,14 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AlamofireImage
 
 class TableCourseList: UITableViewController {
     @IBOutlet var menuButton:UIBarButtonItem!
     @IBOutlet var extraButton:UIBarButtonItem!
     var coursename = [String]()
     var teacher = [String]()
-
+    var coverimg = [String]()
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,8 @@ class TableCourseList: UITableViewController {
             revealViewController().tapGestureRecognizer()
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        
         Alamofire.request(.GET, "http://cadenza.in.th/api/mobile/course" )
             .responseJSON { response in
                 let json = JSON(response.result.value!)
@@ -48,6 +51,13 @@ class TableCourseList: UITableViewController {
                         self.teacher.append(flname)
                         
                     }
+                    
+                    for index in 0...ct-1 {
+                        if let img = json["data",index,"CourseCoverFull"].string {
+                            self.coverimg.append("http://cadenza.in.th"+"\(img)")
+                          //  print(self.coverimg[index])
+                        }
+                    }
                     dispatch_async(dispatch_get_main_queue(),{
                         self.tableView.reloadData()
                     })
@@ -59,7 +69,6 @@ class TableCourseList: UITableViewController {
                 //                    }
                 //                }
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,8 +87,6 @@ class TableCourseList: UITableViewController {
         // Return the number of rows in the section.
         return coursename.count
     }
-
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! NewsTableViewCell
 
@@ -105,7 +112,14 @@ class TableCourseList: UITableViewController {
 //        }
         cell.postTitleLabel.text = coursename[indexPath.row]
         cell.authorLabel.text = teacher[indexPath.row]
-        cell.postImageView.image = UIImage(named: "watchkit-intro")
+        Alamofire.request(.GET, coverimg[indexPath.row])
+            .responseImage { response in
+                if let image = response.result.value {
+                    cell.postImageView.image = image
+                }
+        }
+      //  cell.postImageView.image = UIImage(named: "watchkit-intro")
+        
         return cell
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

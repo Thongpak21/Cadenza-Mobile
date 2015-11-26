@@ -85,9 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Cadenza/Alamofire.framework"
+  install_framework "Pods-Cadenza/AlamofireImage.framework"
   install_framework "Pods-Cadenza/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Cadenza/Alamofire.framework"
+  install_framework "Pods-Cadenza/AlamofireImage.framework"
   install_framework "Pods-Cadenza/SwiftyJSON.framework"
 fi

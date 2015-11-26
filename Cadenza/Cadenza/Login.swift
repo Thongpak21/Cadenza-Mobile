@@ -7,14 +7,32 @@
 //
 
 import UIKit
-
+import AlamofireImage
+import Alamofire
 class Login: UIViewController {
 
+    @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         LoginController()
+        Alamofire.request(.GET, "http://www.cadenza.in.th/images/Logo_Cadenza_8.png")
+            .responseImage { response in
+//                debugPrint(response)
+//                print(response.request)
+//                print(response.response)
+//                debugPrint(response.result)
+                
+                if let image = response.result.value {
+                    print("image downloaded: \(image)")
+                    self.image.image = image.af_imageWithRoundedCornerRadius(20.0)
+//                     self.image.image = image.af_imageRoundedIntoCircle()
+                    
+                }
+               
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,8 +42,6 @@ class Login: UIViewController {
     
     func LoginController() {
         password.secureTextEntry = true
-        
-        
     }
     
     

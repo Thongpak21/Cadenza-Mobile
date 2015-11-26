@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AlamofireImage
 class MenuController: UITableViewController {
 
     @IBOutlet weak var fname: UILabel!
@@ -25,6 +25,7 @@ class MenuController: UITableViewController {
         profileimage.layer.cornerRadius = 13
         profileimage.layer.cornerRadius = profileimage.frame.size.height/2
         profileimage.clipsToBounds = true
+        
      //   profileimage = UIImageView(frame: CGRectMake(0, 0, 100, 100))
         
    //     pro.image = UIImageV
