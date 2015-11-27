@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import CoreData
 class MenuController: UITableViewController {
 
     @IBOutlet weak var fname: UILabel!
@@ -15,10 +16,9 @@ class MenuController: UITableViewController {
     @IBOutlet weak var profileimage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+     //   checktoken()
         self.fname.text = "Thongpak"
         self.lname.text = "Pongsilathong"
-        
-        
         profileimage.layer.borderWidth=1.0
         profileimage.layer.masksToBounds = false
         profileimage.layer.borderColor = UIColor.whiteColor().CGColor
@@ -40,7 +40,28 @@ class MenuController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func checktoken() {
+        let appdel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        let context:NSManagedObjectContext = appdel.managedObjectContext
+        let request = NSFetchRequest(entityName: "Users")
+        request.returnsObjectsAsFaults = false;
+        do {
+            let result = try context.executeFetchRequest(request)
+           // for res in result {
+             //     print(res)
+         //   }
+         //   print(result)
+            if result.count == 0 {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login")
+                    self.presentViewController(viewController, animated: true, completion: nil)
+                })
+            }
+        } catch {
+         //   print(e rror)
+        }
 
+    }
 
     
     // MARK: - Table view data source

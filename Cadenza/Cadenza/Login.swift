@@ -17,23 +17,39 @@ class Login: UIViewController {
     @IBOutlet weak var password: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        checktoken() as! TableCourseList
         LoginController()
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func LoginController() {
         password.secureTextEntry = true
-   
-
     }
+    func checktoken() {
+        let appdel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        let context:NSManagedObjectContext = appdel.managedObjectContext
+        let request = NSFetchRequest(entityName: "Users")
+        request.returnsObjectsAsFaults = false;
+        do {
+            let result = try context.executeFetchRequest(request)
+            // for res in result {
+            //     print(res)
+            //   }
+               print(result)
+            if result.count != 0 {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home")
+                    self.presentViewController(viewController, animated: true, completion: nil)
+                })
+            }
+        } catch {
+            //   print(e rror)
+        }
+        
+    }
+
     
-    
-    @IBAction func LoginAction(sender: UIButton) {
+    @IBAction func LoginAction() {
         
         
         let data = [
@@ -61,7 +77,11 @@ class Login: UIViewController {
                         self.presentViewController(viewController, animated: true, completion: nil)
                     })
                 }
-                
+                let appdel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+                let context:NSManagedObjectContext = appdel.managedObjectContext
+                let newtoken = NSEntityDescription.insertNewObjectForEntityForName("Users", inManagedObjectContext: context) as NSManagedObject
+                newtoken.setValue("\(json["access_token"])", forKey: "token")
+                print(newtoken)
         }
         
     }

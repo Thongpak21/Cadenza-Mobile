@@ -288,8 +288,8 @@
                                                     <rect key="frame" x="18" y="4" width="35" height="35"/>
                                                     <animations/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlS-NC-x1f">
-                                                    <rect key="frame" x="61" y="6" width="11" height="31"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlS-NC-x1f">
+                                                    <rect key="frame" x="61" y="6" width="56" height="31"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -719,16 +719,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7FW-yv-1LK">
                                 <rect key="frame" x="165" y="127" width="270" height="346"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CRH-j8-dN3">
-                                        <rect key="frame" x="13" y="133" width="245" height="30"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="245" id="DFe-cc-KBy"/>
-                                            <constraint firstAttribute="height" constant="30" id="yfn-Fi-pIy"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SYI-VJ-XXr">
                                         <rect key="frame" x="13" y="80" width="245" height="30"/>
                                         <animations/>
@@ -752,7 +742,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="LoginAction:" destination="bta-6P-IH8" eventType="touchUpInside" id="kdz-CT-sEY"/>
+                                            <action selector="LoginAction" destination="bta-6P-IH8" eventType="touchUpInside" id="RF4-jn-Rvg"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cadenza" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGa-cx-mBG">
@@ -776,6 +766,16 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="yCT-ZV-u1D"/>
                                         </constraints>
                                     </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CRH-j8-dN3">
+                                        <rect key="frame" x="13" y="133" width="245" height="30"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="245" id="DFe-cc-KBy"/>
+                                            <constraint firstAttribute="height" constant="30" id="yfn-Fi-pIy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -841,8 +841,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="password" destination="CRH-j8-dN3" id="XEK-nS-f2O"/>
-                        <outlet property="username" destination="SYI-VJ-XXr" id="HGx-rZ-OO2"/>
+                        <outlet property="password" destination="CRH-j8-dN3" id="xYY-dQ-DDL"/>
+                        <outlet property="username" destination="SYI-VJ-XXr" id="GLZ-CE-Yyj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MxD-2Y-zYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -864,6 +864,6 @@
         <image name="tag" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tWZ-CD-OTO"/>
+        <segue reference="foL-zu-uHU"/>
     </inferredMetricsTieBreakers>
 </document>

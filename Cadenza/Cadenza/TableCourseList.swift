@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import AlamofireImage
+import CoreData
 
 class TableCourseList: UITableViewController {
     @IBOutlet var menuButton:UIBarButtonItem!
@@ -30,9 +31,9 @@ class TableCourseList: UITableViewController {
             extraButton.action = "rightRevealToggle:"
             revealViewController().tapGestureRecognizer()
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
         }
-        
-        
+        //checktoken()
         Alamofire.request(.GET, "http://cadenza.in.th/api/mobile/course" )
             .responseJSON { response in
                 let json = JSON(response.result.value!)
@@ -70,6 +71,28 @@ class TableCourseList: UITableViewController {
                 //                }
         }
     }
+    func checktoken() {
+        let appdel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        let context:NSManagedObjectContext = appdel.managedObjectContext
+        let request = NSFetchRequest(entityName: "Users")
+        request.returnsObjectsAsFaults = false;
+        do {
+            let result = try context.executeFetchRequest(request)
+            // for res in result {
+            //     print(res)
+            //   }
+            //   print(result)
+            if result.count == 0 {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login")
+                    self.presentViewController(viewController, animated: true, completion: nil)
+                })
+            }
+        } catch {
+               print(error)
+        }
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -90,26 +113,6 @@ class TableCourseList: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! NewsTableViewCell
 
-        // Configure the cell...
-//        if indexPath.row == 0 {
-//            cell.postImageView.image = UIImage(named: "watchkit-intro")
-//            cell.postTitleLabel.text = "WatchKit Introduction: Building a Simple Guess Game"
-//            cell.authorLabel.text = "Simon Ng"
-//            cell.authorImageView.image = UIImage(named: "author")
-//
-//        } else if indexPath.row == 1 {
-//            cell.postImageView.image = UIImage(named: "custom-segue-featured-1024")
-//            cell.postTitleLabel.text = "Building a Chat App in Swift Using Multipeer Connectivity Framework"
-//            cell.authorLabel.text = "Gabriel Theodoropoulos"
-//            cell.authorImageView.image = UIImage(named: "appcoda-300")
-//            
-//        } else {
-//            cell.postImageView.image = UIImage(named: "webkit-featured")
-//            cell.postTitleLabel.text = "A Beginner’s Guide to Animated Custom Segues in iOS 8"
-//            cell.authorLabel.text = "Gabriel Theodoropoulos"
-//            cell.authorImageView.image = UIImage(named: "appcoda-300")
-//            
-//        }
         cell.postTitleLabel.text = coursename[indexPath.row]
         cell.authorLabel.text = teacher[indexPath.row]
         Alamofire.request(.GET, coverimg[indexPath.row])
@@ -118,10 +121,10 @@ class TableCourseList: UITableViewController {
                     cell.postImageView.image = image
                 }
         }
-      //  cell.postImageView.image = UIImage(named: "watchkit-intro")
-        
         return cell
     }
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let target = segue.destinationViewController
         if segue.identifier == "showDetail" {
