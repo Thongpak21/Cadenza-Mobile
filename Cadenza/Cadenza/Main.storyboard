@@ -628,7 +628,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="tag" translatesAutoresizingMaskIntoConstraints="NO" id="1qD-XA-gGE">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tag" translatesAutoresizingMaskIntoConstraints="NO" id="1qD-XA-gGE">
                                                     <rect key="frame" x="457" y="4" width="35" height="35"/>
                                                     <animations/>
                                                     <constraints>
@@ -640,7 +640,7 @@
                                             <animations/>
                                             <constraints>
                                                 <constraint firstItem="P4d-zp-9vD" firstAttribute="centerY" secondItem="iZz-nZ-L4P" secondAttribute="centerY" id="FBv-xd-q2g"/>
-                                                <constraint firstItem="P4d-zp-9vD" firstAttribute="centerY" secondItem="1qD-XA-gGE" secondAttribute="centerY" id="Rla-bk-8Rl"/>
+                                                <constraint firstItem="P4d-zp-9vD" firstAttribute="centerY" secondItem="1qD-XA-gGE" secondAttribute="centerY" constant="1" id="Rla-bk-8Rl"/>
                                                 <constraint firstItem="P4d-zp-9vD" firstAttribute="leading" secondItem="1qD-XA-gGE" secondAttribute="trailing" constant="12" id="XU8-eD-LDt"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="P4d-zp-9vD" secondAttribute="trailing" constant="53" id="eut-UH-pzI"/>
                                             </constraints>
@@ -822,11 +822,11 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yxb-qm-iGv">
-                                <rect key="frame" x="232" y="48" width="137" height="71"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_Cadenza_8" translatesAutoresizingMaskIntoConstraints="NO" id="Yxb-qm-iGv">
+                                <rect key="frame" x="112" y="28" width="377" height="91"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="137" id="mgX-hz-pXC"/>
+                                    <constraint firstAttribute="width" constant="377" id="mgX-hz-pXC"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -837,11 +837,10 @@
                             <constraint firstAttribute="centerX" secondItem="7FW-yv-1LK" secondAttribute="centerX" id="9Nr-J0-iez"/>
                             <constraint firstItem="7FW-yv-1LK" firstAttribute="top" secondItem="Yxb-qm-iGv" secondAttribute="bottom" constant="8" id="P7G-iR-GpR"/>
                             <constraint firstItem="Yxb-qm-iGv" firstAttribute="centerX" secondItem="yhP-de-7Uu" secondAttribute="centerX" id="ctW-Bk-AaB"/>
-                            <constraint firstItem="Yxb-qm-iGv" firstAttribute="top" secondItem="EJa-8B-h3f" secondAttribute="bottom" constant="28" id="hL3-R8-VHX"/>
+                            <constraint firstItem="Yxb-qm-iGv" firstAttribute="top" secondItem="EJa-8B-h3f" secondAttribute="bottom" constant="8" id="hL3-R8-VHX"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="image" destination="Yxb-qm-iGv" id="9OK-M2-gOn"/>
                         <outlet property="password" destination="CRH-j8-dN3" id="XEK-nS-f2O"/>
                         <outlet property="username" destination="SYI-VJ-XXr" id="HGx-rZ-OO2"/>
                     </connections>
@@ -852,6 +851,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Logo_Cadenza_8" width="876" height="300"/>
         <image name="appcoda-300" width="300" height="300"/>
         <image name="bar" width="300" height="20"/>
         <image name="calendar" width="1024" height="1024"/>
