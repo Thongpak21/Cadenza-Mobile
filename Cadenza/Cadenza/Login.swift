@@ -11,17 +11,29 @@ import AlamofireImage
 import Alamofire
 import SwiftyJSON
 import CoreData
-class Login: UIViewController {
+class Login: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        checktoken() as! TableCourseList
+        checktoken()
         LoginController()
+        username.delegate = self
+        password.delegate = self
+        
         
     }
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
+    //    textField.resignFirstResponder()
+        if textField == self.username {
+            self.password.becomeFirstResponder()
+        }
+        if textField == self.password {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
     func LoginController() {
         password.secureTextEntry = true
     }
@@ -32,10 +44,11 @@ class Login: UIViewController {
         request.returnsObjectsAsFaults = false;
         do {
             let result = try context.executeFetchRequest(request)
-            // for res in result {
-            //     print(res)
-            //   }
-               print(result)
+//             for res in result {
+//                 print(res)
+//               }
+            print("login")
+            print(result)
             if result.count != 0 {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home")
@@ -43,7 +56,7 @@ class Login: UIViewController {
                 })
             }
         } catch {
-            //   print(e rror)
+               print(error)
         }
         
     }
@@ -81,7 +94,7 @@ class Login: UIViewController {
                 let context:NSManagedObjectContext = appdel.managedObjectContext
                 let newtoken = NSEntityDescription.insertNewObjectForEntityForName("Users", inManagedObjectContext: context) as NSManagedObject
                 newtoken.setValue("\(json["access_token"])", forKey: "token")
-                print(newtoken)
+             //   print(newtoken)
         }
         
     }
