@@ -21,8 +21,6 @@ class Login: UIViewController,UITextFieldDelegate {
         LoginController()
         username.delegate = self
         password.delegate = self
-        
-        
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
     //    textField.resignFirstResponder()

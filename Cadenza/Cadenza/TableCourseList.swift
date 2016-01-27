@@ -121,15 +121,29 @@ class TableCourseList: UITableViewController {
                     cell.postImageView.image = image
                 }
         }
+ //       cell.textLabel?.text = "hello from cell #\(indexPath.row)"
         return cell
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let target = segue.destinationViewController
-        if segue.identifier == "showDetail" {
+//        let target = segue.destinationViewController
+        if segue.identifier == "SendDataSegue" {
+            if let destination = segue.destinationViewController as? ShowCourseDetail {
+                let path = tableView.indexPathForSelectedRow
+                let cell = tableView.cellForRowAtIndexPath(path!) as! NewsTableViewCell
+                
+                destination.viaSegue = (cell.postTitleLabel?.text)!
+                
+            }
         }
         
+    }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        _ = tableView.indexPathForSelectedRow!
+        if let _ = tableView.cellForRowAtIndexPath(indexPath) {
+         //   self.performSegueWithIdentifier("SendDataSegue", sender: self)
+        }
     }
 
     /*

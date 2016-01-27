@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3718D0611C57F09C006F68DB /* ShowCourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3718D0601C57F09C006F68DB /* ShowCourseDetail.swift */; };
 		371FCD8A1C0884BB002406F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 379B17FA1BF8F54300B18E12 /* MapKit.framework */; };
 		371FCDAD1C0894FD002406F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FCDAC1C0894FD002406F6 /* AppDelegate.swift */; };
 		371FCE191C08D130002406F6 /* LogoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FCE181C08D130002406F6 /* LogoutController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3718D0601C57F09C006F68DB /* ShowCourseDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCourseDetail.swift; sourceTree = "<group>"; };
 		371FCDAC1C0894FD002406F6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		371FCE181C08D130002406F6 /* LogoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutController.swift; sourceTree = "<group>"; };
 		379B17681BF8EC9C00B18E12 /* Cadenza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadenza.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 				379B17E61BF8F2BA00B18E12 /* NewsTableViewCell.swift */,
 				379B17E71BF8F2BA00B18E12 /* MenuController.swift */,
 				379B17E91BF8F2BA00B18E12 /* Main.storyboard */,
+				3718D0601C57F09C006F68DB /* ShowCourseDetail.swift */,
 				379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */,
 				379B177A1BF8EC9C00B18E12 /* Info.plist */,
 				379B17D71BF8ED9000B18E12 /* Assets.xcassets */,
@@ -259,6 +262,7 @@
 				371FCE191C08D130002406F6 /* LogoutController.swift in Sources */,
 				379B17FE1BF8F8A400B18E12 /* Model.xcdatamodeld in Sources */,
 				379B17F01BF8F2BA00B18E12 /* TableCourseList.swift in Sources */,
+				3718D0611C57F09C006F68DB /* ShowCourseDetail.swift in Sources */,
 				371FCDAD1C0894FD002406F6 /* AppDelegate.swift in Sources */,
 				379B17E01BF8EE0A00B18E12 /* SWRevealViewController.m in Sources */,
 			);
