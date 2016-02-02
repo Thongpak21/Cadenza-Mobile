@@ -25,10 +25,9 @@ class TableCourseList: UITableViewController {
           //  revealViewController().rearViewRevealWidth = 300
             menuButton.target = revealViewController()
             menuButton.action = "revealToggle:"
-
             revealViewController().rightViewRevealWidth = 150
-            extraButton.target = revealViewController()
-            extraButton.action = "rightRevealToggle:"
+//            extraButton.target = revealViewController()   right side bar
+//            extraButton.action = "rightRevealToggle:"
             revealViewController().tapGestureRecognizer()
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
@@ -132,8 +131,15 @@ class TableCourseList: UITableViewController {
             if let destination = segue.destinationViewController as? ShowCourseDetail {
                 let path = tableView.indexPathForSelectedRow
                 let cell = tableView.cellForRowAtIndexPath(path!) as! NewsTableViewCell
-                
-                destination.viaSegue = (cell.postTitleLabel?.text)!
+              //  print(path?.row)
+                var x:Int = (path?.row)!
+                x = x+1
+                let xNSNumber = x as NSNumber
+                let XString: String = xNSNumber.stringValue
+                destination.viaSegue = XString
+                destination.Name = coursename[(path?.row)!]
+                destination.coveimg = coverimg[(path?.row)!]
+                destination.teacher = teacher[(path?.row)!]
                 
             }
         }

@@ -7,16 +7,49 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import AlamofireImage
 
-class ShowCourseDetail: UIViewController {
+class ShowCourseDetail: UIViewController,UIScrollViewDelegate{
 
     @IBOutlet weak var viaSegueLabel: UILabel!
+    @IBOutlet weak var DescripLabel: UILabel!
+    @IBOutlet weak var imgcov: UIImageView!
+    @IBOutlet weak var ScrollView: UIScrollView!
     var viaSegue = ""
+    var Name = ""
+    var teacher = ""
+    var coveimg = ""
+    var url = "http://cadenza.in.th/api/mobile/course/show/"
     override func viewDidLoad() {
         super.viewDidLoad()
-        viaSegueLabel.text = viaSegue
+//        ScrollView.contentSize.height = 2000
+//        ScrollView.contentSize.width = 0
+        viaSegueLabel.text = Name
+        print(viaSegue)
+        print(Name)
+        print(teacher)
+        print(coveimg)
+        url = "http://cadenza.in.th/api/mobile/course/show/"+"\(viaSegue)"
+        Alamofire.request(.GET, "\(url)")
+        .responseJSON { response in
+       //     print(response.result.value)
+            if response.result.value != nil {
+                let json = JSON(response.result.value!)
+                print(json["CourseDescription"])
+                self.DescripLabel.text = json["CourseDescription"].string
+            }
+            
+
+        }
+        Alamofire.request(.GET, coveimg)
+            .responseImage { response in
+                if let image = response.result.value {
+                    self.imgcov.image = image
+                }
+        }
         
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

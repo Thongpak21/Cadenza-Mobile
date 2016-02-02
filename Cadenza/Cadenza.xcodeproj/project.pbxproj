@@ -11,13 +11,13 @@
 		371FCD8A1C0884BB002406F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 379B17FA1BF8F54300B18E12 /* MapKit.framework */; };
 		371FCDAD1C0894FD002406F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FCDAC1C0894FD002406F6 /* AppDelegate.swift */; };
 		371FCE191C08D130002406F6 /* LogoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FCE181C08D130002406F6 /* LogoutController.swift */; };
+		37513A0E1C60CCF5009B9451 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37513A0D1C60CCF5009B9451 /* Main.storyboard */; };
 		379B17D81BF8ED9000B18E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379B17D71BF8ED9000B18E12 /* Assets.xcassets */; };
 		379B17E01BF8EE0A00B18E12 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B17DD1BF8EE0A00B18E12 /* SWRevealViewController.m */; };
 		379B17EF1BF8F2BA00B18E12 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E41BF8F2BA00B18E12 /* PhotoViewController.swift */; };
 		379B17F01BF8F2BA00B18E12 /* TableCourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */; };
 		379B17F11BF8F2BA00B18E12 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E61BF8F2BA00B18E12 /* NewsTableViewCell.swift */; };
 		379B17F21BF8F2BA00B18E12 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E71BF8F2BA00B18E12 /* MenuController.swift */; };
-		379B17F41BF8F2BA00B18E12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379B17E91BF8F2BA00B18E12 /* Main.storyboard */; };
 		379B17F51BF8F2BA00B18E12 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */; };
 		379B17FE1BF8F8A400B18E12 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 379B17FC1BF8F8A400B18E12 /* Model.xcdatamodeld */; };
 		37F71EEC1BF9989E004D4815 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F71EEB1BF9989E004D4815 /* MenuCell.swift */; };
@@ -29,6 +29,7 @@
 		3718D0601C57F09C006F68DB /* ShowCourseDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCourseDetail.swift; sourceTree = "<group>"; };
 		371FCDAC1C0894FD002406F6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		371FCE181C08D130002406F6 /* LogoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutController.swift; sourceTree = "<group>"; };
+		37513A0D1C60CCF5009B9451 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		379B17681BF8EC9C00B18E12 /* Cadenza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadenza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379B177A1BF8EC9C00B18E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		379B17D71BF8ED9000B18E12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,7 +40,6 @@
 		379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCourseList.swift; sourceTree = "<group>"; };
 		379B17E61BF8F2BA00B18E12 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		379B17E71BF8F2BA00B18E12 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
-		379B17E91BF8F2BA00B18E12 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		379B17FA1BF8F54300B18E12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		379B17FD1BF8F8A400B18E12 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -91,8 +91,8 @@
 				379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */,
 				379B17E61BF8F2BA00B18E12 /* NewsTableViewCell.swift */,
 				379B17E71BF8F2BA00B18E12 /* MenuController.swift */,
-				379B17E91BF8F2BA00B18E12 /* Main.storyboard */,
 				3718D0601C57F09C006F68DB /* ShowCourseDetail.swift */,
+				37513A0D1C60CCF5009B9451 /* Main.storyboard */,
 				379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */,
 				379B177A1BF8EC9C00B18E12 /* Info.plist */,
 				379B17D71BF8ED9000B18E12 /* Assets.xcassets */,
@@ -193,9 +193,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37513A0E1C60CCF5009B9451 /* Main.storyboard in Resources */,
 				379B17D81BF8ED9000B18E12 /* Assets.xcassets in Resources */,
 				379B17F51BF8F2BA00B18E12 /* LaunchScreen.xib in Resources */,
-				379B17F41BF8F2BA00B18E12 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
