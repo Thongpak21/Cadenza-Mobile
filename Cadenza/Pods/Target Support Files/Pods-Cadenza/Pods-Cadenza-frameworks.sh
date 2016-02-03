@@ -88,10 +88,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Cadenza/AlamofireImage.framework"
   install_framework "Pods-Cadenza/RAMAnimatedTabBarController.framework"
   install_framework "Pods-Cadenza/SwiftyJSON.framework"
+  install_framework "Pods-Cadenza/UIScrollView_InfiniteScroll.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Cadenza/Alamofire.framework"
   install_framework "Pods-Cadenza/AlamofireImage.framework"
   install_framework "Pods-Cadenza/RAMAnimatedTabBarController.framework"
   install_framework "Pods-Cadenza/SwiftyJSON.framework"
+  install_framework "Pods-Cadenza/UIScrollView_InfiniteScroll.framework"
 fi

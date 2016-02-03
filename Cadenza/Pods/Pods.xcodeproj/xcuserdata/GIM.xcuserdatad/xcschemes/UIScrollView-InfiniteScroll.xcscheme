@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'ED3AF20ADDA202B4476732F4'
-               BlueprintName = 'Alamofire'
+               BlueprintIdentifier = '2979FE7B80D1824733D690A0'
+               BlueprintName = 'UIScrollView-InfiniteScroll'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Alamofire.framework'>
+               BuildableName = 'UIScrollView_InfiniteScroll.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

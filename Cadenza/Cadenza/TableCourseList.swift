@@ -11,31 +11,55 @@ import Alamofire
 import SwiftyJSON
 import AlamofireImage
 import CoreData
-
+private let useAutosizingCells = true
 class TableCourseList: UITableViewController {
     @IBOutlet var menuButton:UIBarButtonItem!
     @IBOutlet var extraButton:UIBarButtonItem!
     var coursename = [String]()
     var teacher = [String]()
     var coverimg = [String]()
-  
+
+    private var currentPage = 0
+    private var numPages = 0
+    private var data_model = [model]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        if revealViewController() != nil {
-          //  revealViewController().rearViewRevealWidth = 300
-            menuButton.target = revealViewController()
-            menuButton.action = "revealToggle:"
-            revealViewController().rightViewRevealWidth = 150
-//            extraButton.target = revealViewController()   right side bar
-//            extraButton.action = "rightRevealToggle:"
-            revealViewController().tapGestureRecognizer()
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
+        if useAutosizingCells && tableView.respondsToSelector("layoutMargins") {
+            tableView.estimatedRowHeight = 88
+            tableView.rowHeight = UITableViewAutomaticDimension
         }
+        tableView.infiniteScrollIndicatorStyle = .White
+        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
+            let tableView = scrollView as! UITableView
+            
+            //
+            // fetch your data here, can be async operation,
+            // just make sure to call finishInfiniteScroll in the end
+            //
+            
+            // make sure you reload tableView before calling -finishInfiniteScroll
+            tableView.reloadData()
+            // finish infinite scroll animation
+            tableView.finishInfiniteScroll()
+        }
+        
+//        if revealViewController() != nil {
+//          //  revealViewController().rearViewRevealWidth = 300
+//            menuButton.target = revealViewController()
+//            menuButton.action = "revealToggle:"
+//            revealViewController().rightViewRevealWidth = 150
+////            extraButton.target = revealViewController()   right side bar
+////            extraButton.action = "rightRevealToggle:"
+//            revealViewController().tapGestureRecognizer()
+//            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+//            
+//        }
+
         //checktoken()
         Alamofire.request(.GET, "http://cadenza.in.th/api/mobile/course" )
             .responseJSON { response in
                 let json = JSON(response.result.value!)
+                
                 //   print("JSON: \(json)")
                 //   print(json["data",0,"CourseName"])
                 let num = (json["data"].array?.count)!
@@ -43,10 +67,12 @@ class TableCourseList: UITableViewController {
                     for index in 0...ct-1 {
                         if let name = json["data",index,"CourseName"].string {
                             let test:String = name
+                       //     self.data_model.title.append(test)
                             self.coursename.append(test)
                         }
                         let fname = json["data",index,"firstname"].string
                         let lname = json["data",index,"lastname"].string
+                        print(fname)
                         let flname = fname! + " " + lname!
                         self.teacher.append(flname)
                         
@@ -93,6 +119,7 @@ class TableCourseList: UITableViewController {
         
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
