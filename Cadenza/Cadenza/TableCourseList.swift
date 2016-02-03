@@ -18,8 +18,14 @@ class TableCourseList: UITableViewController {
     var coursename = [String]()
     var teacher = [String]()
     var coverimg = [String]()
+    
+    
+    private let cellIdentifier = "Cell"
+    private let showBrowserSegueIdentifier = "ShowBrowser"
+    private let JSONResultsKey = "data"
+    private let JSONNumPagesKey = "per_page"
 
-    private var currentPage = 0
+    private var currentPage = 1
     private var numPages = 0
     private var data_model = [model]()
     override func viewDidLoad() {
@@ -31,14 +37,19 @@ class TableCourseList: UITableViewController {
         tableView.infiniteScrollIndicatorStyle = .White
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView
-            
+
+            tableView.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
+                self?.fetchData() {
+                    // scrollView.finishInfiniteScroll()
+                    let tableView = scrollView as! UITableView
+                    tableView.finishInfiniteScroll()
+                }
+            }
             //
-            // fetch your data here, can be async operation,
-            // just make sure to call finishInfiniteScroll in the end
-            //
+            self.fetchData(nil)
             
-            // make sure you reload tableView before calling -finishInfiniteScroll
-            tableView.reloadData()
+            
+         //   tableView.reloadData()
             // finish infinite scroll animation
             tableView.finishInfiniteScroll()
         }
@@ -56,7 +67,7 @@ class TableCourseList: UITableViewController {
 //        }
 
         //checktoken()
-        Alamofire.request(.GET, "http://cadenza.in.th/api/mobile/course" )
+        Alamofire.request(.GET, "http://cadenza.in.th/api/mobile/course?page=1" )
             .responseJSON { response in
                 let json = JSON(response.result.value!)
                 
@@ -72,7 +83,6 @@ class TableCourseList: UITableViewController {
                         }
                         let fname = json["data",index,"firstname"].string
                         let lname = json["data",index,"lastname"].string
-                        print(fname)
                         let flname = fname! + " " + lname!
                         self.teacher.append(flname)
                         
@@ -118,8 +128,53 @@ class TableCourseList: UITableViewController {
         }
         
     }
-
-    
+    private func apiURL(page:Int) -> NSURL {
+        let string = "http://cadenza.in.th/api/mobile/course?page=\(page)"
+        let url = NSURL(string: string)
+        return url!
+    }
+    private func fetchData(handler:((Void) -> Void)?){
+        print("page : \(currentPage)" )
+        let requestURL = apiURL(currentPage)
+        let task = Alamofire.request(.GET, requestURL)
+            .responseJSON{ response in
+            //    print(response.result.value)
+                if let _ = response.result.error {
+                    self.showAlertWithError(response.result.error!)
+                    return;
+                }
+                var jsonError: NSError?
+             //   print(response.result.value)
+                if let jsonError = jsonError {
+                    self.showAlertWithError(jsonError)
+                    return
+                }
+           //     print(response.result.value?["per_page"])
+                if let pages = response.result.value?[self.JSONNumPagesKey] as? NSNumber {
+                    self.numPages = pages as Int
+                    print(self.numPages)
+                }
+              //  print(response.result.value?[self.JSONResultsKey] as? [[String: AnyObject]])
+                if let results = response.result.value?[self.JSONResultsKey] as? [[String: AnyObject]] {
+                    self.currentPage++
+                    for i in results {
+                        print("\(model(i).title)   --->  \(model(i).courseID)")
+                        self.data_model.append(model(i))
+                    }
+                    self.tableView.reloadData()
+                }
+                UIApplication.sharedApplication().stopNetworkActivity()
+                handler?()
+        }
+        UIApplication.sharedApplication().startNetworkActivity()
+        
+        let delay = (data_model.count == 0 ? 0 : 5) * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue(), {
+            task.resume()
+        })
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -178,50 +233,17 @@ class TableCourseList: UITableViewController {
          //   self.performSegueWithIdentifier("SendDataSegue", sender: self)
         }
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    private func showAlertWithError(error: NSError) {
+        let alert = UIAlertController(title: NSLocalizedString("Error fetching data", comment: ""), message: error.localizedDescription, preferredStyle: .Alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: ""), style: .Cancel, handler: { (action) -> Void in
+        }))
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Retry", comment: ""), style: .Default, handler: { (action) -> Void in
+            self.fetchData(nil)
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
