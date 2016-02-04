@@ -16,7 +16,7 @@ class webview: UIViewController {
     @IBOutlet weak var web: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        Alamofire.request(.POST, "http://www.cadenza.in.th/api/mobile/v2/markdown", parameters:data)
+        Alamofire.request(.GET, "http://www.google.co.th")
             .response { request, response, data, error in
         self.web.loadRequest(request!)
         }

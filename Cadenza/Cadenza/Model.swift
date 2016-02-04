@@ -16,6 +16,7 @@ class model : NSObject {
     var courseCoverFull : String?
     var courseCoverThumb : String?
     var test : String?
+    var numpage :Int?
     init(_ dictionary:[String: AnyObject]) {
         super.init()
         title = dictionary["CourseName"] as? String
@@ -26,5 +27,6 @@ class model : NSObject {
         courseCoverFull = dictionary["CourseCoverFull"] as? String
         courseCoverThumb = dictionary["CourseCoverThumbnail"] as? String
         test = dictionary["coursecategory"] as? String
+        numpage = dictionary["last_page"] as? Int
     }
 }

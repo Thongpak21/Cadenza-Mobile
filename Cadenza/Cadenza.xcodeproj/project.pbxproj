@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3705626E1C63944C00EF65E3 /* CourseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3705626D1C63944C00EF65E3 /* CourseCollectionViewController.swift */; };
 		3718D0611C57F09C006F68DB /* ShowCourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3718D0601C57F09C006F68DB /* ShowCourseDetail.swift */; };
 		371FCD8A1C0884BB002406F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 379B17FA1BF8F54300B18E12 /* MapKit.framework */; };
 		371FCDAD1C0894FD002406F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FCDAC1C0894FD002406F6 /* AppDelegate.swift */; };
 		371FCE191C08D130002406F6 /* LogoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FCE181C08D130002406F6 /* LogoutController.swift */; };
 		37513A0E1C60CCF5009B9451 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37513A0D1C60CCF5009B9451 /* Main.storyboard */; };
+		377A8ADA1C6338260070426B /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */; };
 		379B17D81BF8ED9000B18E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379B17D71BF8ED9000B18E12 /* Assets.xcassets */; };
 		379B17E01BF8EE0A00B18E12 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B17DD1BF8EE0A00B18E12 /* SWRevealViewController.m */; };
 		379B17EF1BF8F2BA00B18E12 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E41BF8F2BA00B18E12 /* PhotoViewController.swift */; };
@@ -29,10 +31,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3705626D1C63944C00EF65E3 /* CourseCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCollectionViewController.swift; sourceTree = "<group>"; };
 		3718D0601C57F09C006F68DB /* ShowCourseDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCourseDetail.swift; sourceTree = "<group>"; };
 		371FCDAC1C0894FD002406F6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		371FCE181C08D130002406F6 /* LogoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutController.swift; sourceTree = "<group>"; };
 		37513A0D1C60CCF5009B9451 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfiniteIndicator.swift; sourceTree = "<group>"; };
 		379B17681BF8EC9C00B18E12 /* Cadenza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadenza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379B177A1BF8EC9C00B18E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		379B17D71BF8ED9000B18E12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 				379B17E71BF8F2BA00B18E12 /* MenuController.swift */,
 				3718D0601C57F09C006F68DB /* ShowCourseDetail.swift */,
 				37513A0D1C60CCF5009B9451 /* Main.storyboard */,
+				3705626D1C63944C00EF65E3 /* CourseCollectionViewController.swift */,
 				379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */,
 				379B177A1BF8EC9C00B18E12 /* Info.plist */,
 				379B17D71BF8ED9000B18E12 /* Assets.xcassets */,
@@ -108,6 +113,7 @@
 				37C465C61C625BC0002F64E7 /* webview.swift */,
 				37DB2B3E1C629E5A000A39AE /* uiapp+networkindicator.swift */,
 				37DB2B3C1C62971B000A39AE /* Model.swift */,
+				377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */,
 			);
 			path = Cadenza;
 			sourceTree = "<group>";
@@ -282,6 +288,8 @@
 				371FCE191C08D130002406F6 /* LogoutController.swift in Sources */,
 				37DB2B3F1C629E5A000A39AE /* uiapp+networkindicator.swift in Sources */,
 				379B17FE1BF8F8A400B18E12 /* Model.xcdatamodeld in Sources */,
+				377A8ADA1C6338260070426B /* CustomInfiniteIndicator.swift in Sources */,
+				3705626E1C63944C00EF65E3 /* CourseCollectionViewController.swift in Sources */,
 				379B17F01BF8F2BA00B18E12 /* TableCourseList.swift in Sources */,
 				3718D0611C57F09C006F68DB /* ShowCourseDetail.swift in Sources */,
 				371FCDAD1C0894FD002406F6 /* AppDelegate.swift in Sources */,

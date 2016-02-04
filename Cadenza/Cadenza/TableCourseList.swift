@@ -19,7 +19,7 @@ class TableCourseList: UITableViewController {
     var teacher = [String]()
     var coverimg = [String]()
     
-    
+
     private let cellIdentifier = "Cell"
     private let showBrowserSegueIdentifier = "ShowBrowser"
     private let JSONResultsKey = "data"
@@ -30,29 +30,20 @@ class TableCourseList: UITableViewController {
     private var data_model = [model]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        if useAutosizingCells && tableView.respondsToSelector("layoutMargins") {
-            tableView.estimatedRowHeight = 88
-            tableView.rowHeight = UITableViewAutomaticDimension
-        }
-        tableView.infiniteScrollIndicatorStyle = .White
-        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
-            let tableView = scrollView as! UITableView
+        
+        tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
+        
+        tableView.infiniteScrollIndicatorMargin = 40
 
-            tableView.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
-                self?.fetchData() {
-                    // scrollView.finishInfiniteScroll()
-                    let tableView = scrollView as! UITableView
-                    tableView.finishInfiniteScroll()
-                }
+        tableView.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
+            self?.fetchData() {
+                // scrollView.finishInfiniteScroll()
+                let tableView = scrollView as! UITableView
+                tableView.finishInfiniteScroll()
             }
-            //
-            self.fetchData(nil)
-            
-            
-         //   tableView.reloadData()
-            // finish infinite scroll animation
-            tableView.finishInfiniteScroll()
         }
+        
+        self.fetchData(nil)
         
 //        if revealViewController() != nil {
 //          //  revealViewController().rearViewRevealWidth = 300
@@ -128,26 +119,20 @@ class TableCourseList: UITableViewController {
         }
         
     }
-    private func apiURL(page:Int) -> NSURL {
+    private func apiURL(page:Int) ->  NSURL{
         let string = "http://cadenza.in.th/api/mobile/course?page=\(page)"
-        let url = NSURL(string: string)
+        let url = NSURL(string:string)
         return url!
     }
     private func fetchData(handler:((Void) -> Void)?){
         print("page : \(currentPage)" )
         let requestURL = apiURL(currentPage)
         let task = Alamofire.request(.GET, requestURL)
-            .responseJSON{ response in
+                .responseJSON{ response in
             //    print(response.result.value)
                 if let _ = response.result.error {
                     self.showAlertWithError(response.result.error!)
                     return;
-                }
-                var jsonError: NSError?
-             //   print(response.result.value)
-                if let jsonError = jsonError {
-                    self.showAlertWithError(jsonError)
-                    return
                 }
            //     print(response.result.value?["per_page"])
                 if let pages = response.result.value?[self.JSONNumPagesKey] as? NSNumber {
@@ -165,6 +150,7 @@ class TableCourseList: UITableViewController {
                 }
                 UIApplication.sharedApplication().stopNetworkActivity()
                 handler?()
+
         }
         UIApplication.sharedApplication().startNetworkActivity()
         
@@ -189,20 +175,20 @@ class TableCourseList: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return coursename.count
+        return data_model.count
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! NewsTableViewCell
-
-        cell.postTitleLabel.text = coursename[indexPath.row]
-        cell.authorLabel.text = teacher[indexPath.row]
-        Alamofire.request(.GET, coverimg[indexPath.row])
+        let data_cell = data_model[indexPath.row]
+        cell.postTitleLabel.text = data_cell.title
+        cell.authorLabel.text = "\(data_cell.author_fname!) \(data_cell.author_lname!)"
+     //   print("http://cadenza.in.th"+"\(data_cell.courseCoverFull!)")
+        Alamofire.request(.GET, "http://cadenza.in.th"+"\(data_cell.courseCoverFull!)")
             .responseImage { response in
                 if let image = response.result.value {
                     cell.postImageView.image = image
                 }
         }
- //       cell.textLabel?.text = "hello from cell #\(indexPath.row)"
         return cell
     }
     
