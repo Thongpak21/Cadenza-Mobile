@@ -58,44 +58,44 @@ class TableCourseList: UITableViewController {
 //        }
 
         //checktoken()
-        Alamofire.request(.GET, "http://cadenza.in.th/api/mobile/course?page=1" )
-            .responseJSON { response in
-                let json = JSON(response.result.value!)
-                
-                //   print("JSON: \(json)")
-                //   print(json["data",0,"CourseName"])
-                let num = (json["data"].array?.count)!
-                if let ct:Int = num {
-                    for index in 0...ct-1 {
-                        if let name = json["data",index,"CourseName"].string {
-                            let test:String = name
-                       //     self.data_model.title.append(test)
-                            self.coursename.append(test)
-                        }
-                        let fname = json["data",index,"firstname"].string
-                        let lname = json["data",index,"lastname"].string
-                        let flname = fname! + " " + lname!
-                        self.teacher.append(flname)
-                        
-                    }
-                    
-                    for index in 0...ct-1 {
-                        if let img = json["data",index,"CourseCoverFull"].string {
-                            self.coverimg.append("http://cadenza.in.th"+"\(img)")
-                          //  print(self.coverimg[index])
-                        }
-                    }
-                    dispatch_async(dispatch_get_main_queue(),{
-                        self.tableView.reloadData()
-                    })
-                }
-                //                for (key,json):(String, JSON) in json {
-                //                    print("\(key) -> \(json)")
-                //                    if key == "data" {
-                //                        print("\(key) -> \(json)")
-                //                    }
-                //                }
-        }
+//        Alamofire.request(.GET, "http://cadenza.in.th/api/mobile/course?page=1" )
+//            .responseJSON { response in
+//                let json = JSON(response.result.value!)
+//                
+//                //   print("JSON: \(json)")
+//                //   print(json["data",0,"CourseName"])
+//                let num = (json["data"].array?.count)!
+//                if let ct:Int = num {
+//                    for index in 0...ct-1 {
+//                        if let name = json["data",index,"CourseName"].string {
+//                            let test:String = name
+//                       //     self.data_model.title.append(test)
+//                            self.coursename.append(test)
+//                        }
+//                        let fname = json["data",index,"firstname"].string
+//                        let lname = json["data",index,"lastname"].string
+//                        let flname = fname! + " " + lname!
+//                        self.teacher.append(flname)
+//                        
+//                    }
+//                    
+//                    for index in 0...ct-1 {
+//                        if let img = json["data",index,"CourseCoverFull"].string {
+//                            self.coverimg.append("http://cadenza.in.th"+"\(img)")
+//                          //  print(self.coverimg[index])
+//                        }
+//                    }
+//                    dispatch_async(dispatch_get_main_queue(),{
+//                        self.tableView.reloadData()
+//                    })
+//                }
+//                //                for (key,json):(String, JSON) in json {
+//                //                    print("\(key) -> \(json)")
+//                //                    if key == "data" {
+//                //                        print("\(key) -> \(json)")
+//                //                    }
+//                //                }
+//        }
     }
     func checktoken() {
         let appdel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
@@ -198,16 +198,17 @@ class TableCourseList: UITableViewController {
         if segue.identifier == "SendDataSegue" {
             if let destination = segue.destinationViewController as? ShowCourseDetail {
                 let path = tableView.indexPathForSelectedRow
-                let cell = tableView.cellForRowAtIndexPath(path!) as! NewsTableViewCell
+         //       let cell = tableView.cellForRowAtIndexPath(path!) as! NewsTableViewCell
+                let data_cell = data_model[(path?.row)!]
               //  print(path?.row)
                 var x:Int = (path?.row)!
                 x = x+1
                 let xNSNumber = x as NSNumber
                 let XString: String = xNSNumber.stringValue
                 destination.viaSegue = XString
-                destination.Name = coursename[(path?.row)!]
-                destination.coveimg = coverimg[(path?.row)!]
-                destination.teacher = teacher[(path?.row)!]
+                destination.Name = data_cell.title!
+                destination.coveimg = "http://cadenza.in.th\(data_cell.courseCoverFull!)"
+                destination.teacher = "\(data_cell.author_fname!) \(data_cell.author_lname!)"
                 
             }
         }

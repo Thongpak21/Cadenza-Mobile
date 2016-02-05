@@ -67,10 +67,10 @@ class Login: UIViewController,UITextFieldDelegate {
             "grant_type": "password",
             "client_id":"client1id",
             "client_secret":"client1secret",
-            //  "username":"demo3@cadenza.in.th",
-             // "password":"demo3"
-            "username":username.text!,
-            "password":password.text!
+              "username":"demo3@cadenza.in.th",
+              "password":"demo3"
+    //        "username":username.text!,
+      //      "password":password.text!
         ]
         Alamofire.request(.POST, "http://cadenza.in.th/oauth/access_token",parameters:data )
             .responseJSON { response in
