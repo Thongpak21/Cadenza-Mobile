@@ -19,7 +19,7 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
     private struct Storyboard {
         static let CellIdentifier = "CollectionViewCell"
     }
-    private let LeftAndRightPadding: CGFloat = 28.0
+    private let LeftAndRightPadding: CGFloat = 24.0
     private let numberOfItemsPerRow: CGFloat = 2.0
     private let heightAdjustment:CGFloat = 30.0
     
@@ -38,10 +38,9 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         
         // Set custom indicator
         collectionView?.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
-        
         // Set custom indicator margin
         collectionView?.infiniteScrollIndicatorMargin = 40
-        
+        collectionView?.infiniteScrollIndicatorView.autoresizesSubviews
         // Add infinite scroll handler
         collectionView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
             self?.fetchData() {
@@ -52,6 +51,26 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         fetchData(nil)
 
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "PassCourse" {
+            if let indexPath = collectionView?.indexPathForCell(sender as! UICollectionViewCell) {
+                let controller = segue.destinationViewController as! ShowCourseDetail
+                let data_cell = data_model[(indexPath.row)]
+                //  print(path?.row)
+                var x:Int = (indexPath.row)
+                x = x+1
+                let xNSNumber = x as NSNumber
+                let XString: String = xNSNumber.stringValue
+                controller.viaSegue = XString
+                controller.Name = data_cell.title!
+                controller.coveimg = "http://cadenza.in.th\(data_cell.courseCoverFull!)"
+                controller.teacher = "\(data_cell.author_fname!) \(data_cell.author_lname!)"
+
+            }
+        
+        }
+    }
+
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         
