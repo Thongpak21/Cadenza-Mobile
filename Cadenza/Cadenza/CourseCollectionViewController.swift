@@ -15,6 +15,7 @@ import CoreData
 
 class CourseCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var abc: CourseCell!
     private var data_model = [model]()
     private struct Storyboard {
         static let CellIdentifier = "CollectionViewCell"
@@ -28,10 +29,10 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
     
     private var currentPage = 1
     private var numPages = 0
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+ 
         let width = (CGRectGetWidth((collectionView?.bounds)!) - LeftAndRightPadding) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSizeMake(width, width + heightAdjustment)
@@ -40,7 +41,6 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         collectionView?.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
         // Set custom indicator margin
         collectionView?.infiniteScrollIndicatorMargin = 40
-        collectionView?.infiniteScrollIndicatorView.autoresizesSubviews
         // Add infinite scroll handler
         collectionView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
             self?.fetchData() {
@@ -51,6 +51,13 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         fetchData(nil)
 
     }
+    
+//    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+//        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+//        
+//        collectionViewLayout.invalidateLayout()
+//    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "PassCourse" {
             if let indexPath = collectionView?.indexPathForCell(sender as! UICollectionViewCell) {
@@ -65,17 +72,13 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
                 controller.Name = data_cell.title!
                 controller.coveimg = "http://cadenza.in.th\(data_cell.courseCoverFull!)"
                 controller.teacher = "\(data_cell.author_fname!) \(data_cell.author_lname!)"
+                controller.des = data_cell.courseDes!
 
             }
         
         }
     }
 
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        
-        collectionViewLayout.invalidateLayout()
-    }
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
         
@@ -93,8 +96,20 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
             .responseImage { response in
                 if let image = response.result.value {
                     cell.imagecell.image = image
+//                    cell.imagecell.layer.borderWidth = 1
+//                    cell.imagecell.layer.borderColor = UIColor(red:012/255.0, green:012/255.0, blue:012/255.0, alpha: 1.0).CGColor
                 }
         }
+        cell.contentView.layer.cornerRadius = 1.0
+        cell.contentView.layer.borderWidth = 1
+        cell.contentView.layer.borderColor = UIColor.clearColor().CGColor
+        cell.contentView.layer.masksToBounds = true
+        
+        cell.layer.shadowColor = UIColor.blackColor().CGColor
+        cell.layer.shadowOffset = CGSizeMake(0, 1)
+        cell.layer.shadowRadius = 1.0
+        cell.layer.shadowOpacity = 1.0
+        cell.layer.masksToBounds = false
         return cell
 
     }
@@ -108,6 +123,8 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
     private func fetchData(handler:((Void) -> Void)?){
         print("page : \(currentPage)" )
         let requestURL = apiURL(currentPage)
+        var indexPaths = [NSIndexPath]()
+        let firstIndex = data_model.count
         let task = Alamofire.request(.GET, requestURL)
             .responseJSON{ response in
                 //    print(response.result.value)
@@ -118,17 +135,26 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
                 //     print(response.result.value?["per_page"])
                 if let pages = response.result.value?[self.JSONNumPagesKey] as? NSNumber {
                     self.numPages = pages as Int
-                    print(self.numPages)
+                //    print(self.numPages)
                 }
                 //  print(response.result.value?[self.JSONResultsKey] as? [[String: AnyObject]])
                 if let results = response.result.value?[self.JSONResultsKey] as? [[String: AnyObject]] {
                     self.currentPage++
+              //      print(results.enumerate())
+//                    for (i,a) in results.enumerate() {
+//                      //  print(i)
+//                        let indexPath = NSIndexPath(forItem: firstIndex + i, inSection: 0)
+//                        print(model(a).title)
+//                        self.data_model.append(model(a))
+//                        indexPaths.append(indexPath)
+//                    }
                     for i in results {
                         print("\(model(i).title)   --->  \(model(i).courseID)")
                         self.data_model.append(model(i))
                     }
              //       self.scrollView.reloadData()
                     self.collectionView?.reloadData()
+                    self.collectionView?.insertItemsAtIndexPaths(indexPaths)
                 }
                 UIApplication.sharedApplication().stopNetworkActivity()
                 handler?()
@@ -142,6 +168,9 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
             task.resume()
         })
         
+    }
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
     }
 
     private func showAlertWithError(error: NSError) {

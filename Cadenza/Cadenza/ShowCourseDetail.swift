@@ -16,16 +16,14 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate{
     @IBOutlet weak var viaSegueLabel: UILabel!
     @IBOutlet weak var DescripLabel: UILabel!
     @IBOutlet weak var imgcov: UIImageView!
-    @IBOutlet weak var ScrollView: UIScrollView!
     var viaSegue = ""
     var Name = ""
     var teacher = ""
     var coveimg = ""
+    var des = ""
     var url = "http://cadenza.in.th/api/mobile/course/show/"
     override func viewDidLoad() {
         super.viewDidLoad()
-//        ScrollView.contentSize.height = 2000
-//        ScrollView.contentSize.width = 0
         viaSegueLabel.text = Name
         print(viaSegue)
         print(Name)
@@ -38,7 +36,7 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate{
             if response.result.value != nil {
                 let json = JSON(response.result.value!)
                 print(json["CourseDescription"])
-                self.DescripLabel.text = json["CourseDescription"].string
+             //   self.DescripLabel.text = json["CourseDescription"].string
             }
             
 
