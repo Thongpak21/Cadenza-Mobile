@@ -15,7 +15,6 @@ import CoreData
 
 class CourseCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
 
-    @IBOutlet weak var abc: CourseCell!
     private var data_model = [model]()
     private struct Storyboard {
         static let CellIdentifier = "CollectionViewCell"
@@ -32,7 +31,7 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+
         let width = (CGRectGetWidth((collectionView?.bounds)!) - LeftAndRightPadding) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSizeMake(width, width + heightAdjustment)
@@ -51,6 +50,9 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         fetchData(nil)
 
     }
+    
+
+
     
 //    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
 //        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
@@ -149,7 +151,7 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
 //                        indexPaths.append(indexPath)
 //                    }
                     for i in results {
-                        print("\(model(i).title)   --->  \(model(i).courseID)")
+                //        print("\(model(i).title)   --->  \(model(i).courseID)")
                         self.data_model.append(model(i))
                     }
              //       self.scrollView.reloadData()

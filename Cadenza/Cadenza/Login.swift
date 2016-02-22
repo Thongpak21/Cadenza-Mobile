@@ -90,9 +90,16 @@ class Login: UIViewController,UITextFieldDelegate {
                 }
                 let appdel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
                 let context:NSManagedObjectContext = appdel.managedObjectContext
-                let newtoken = NSEntityDescription.insertNewObjectForEntityForName("Users", inManagedObjectContext: context) as NSManagedObject
+                
+                let newtoken = NSEntityDescription.insertNewObjectForEntityForName("Users", inManagedObjectContext: context) // as NSManagedObject
                 newtoken.setValue("\(json["access_token"])", forKey: "token")
-             //   print(newtoken)
+                
+                do {
+                    try context.save()
+                } catch let error as NSError {
+                    print("could not save \(error)")
+                }
+                print(newtoken)
         }
         
     }

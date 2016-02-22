@@ -13,6 +13,8 @@
 		371FCD8A1C0884BB002406F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 379B17FA1BF8F54300B18E12 /* MapKit.framework */; };
 		371FCDAD1C0894FD002406F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FCDAC1C0894FD002406F6 /* AppDelegate.swift */; };
 		371FCE191C08D130002406F6 /* LogoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FCE181C08D130002406F6 /* LogoutController.swift */; };
+		373B04691C7AFE9C00150958 /* MyCourseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373B04681C7AFE9C00150958 /* MyCourseCollectionViewController.swift */; };
+		373B046B1C7B2A4300150958 /* MyCourseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373B046A1C7B2A4300150958 /* MyCourseTableViewController.swift */; };
 		37513A0E1C60CCF5009B9451 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37513A0D1C60CCF5009B9451 /* Main.storyboard */; };
 		377A8ADA1C6338260070426B /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */; };
 		379B17D81BF8ED9000B18E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379B17D71BF8ED9000B18E12 /* Assets.xcassets */; };
@@ -23,8 +25,6 @@
 		379B17F21BF8F2BA00B18E12 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E71BF8F2BA00B18E12 /* MenuController.swift */; };
 		379B17F51BF8F2BA00B18E12 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */; };
 		379B17FE1BF8F8A400B18E12 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 379B17FC1BF8F8A400B18E12 /* Model.xcdatamodeld */; };
-		37A1FF8C1C65325B00222C7F /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A1FF8B1C65325B00222C7F /* Publisher.swift */; };
-		37A1FF8E1C6533EC00222C7F /* Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A1FF8D1C6533EC00222C7F /* Publishers.swift */; };
 		37C465C71C625BC0002F64E7 /* webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C465C61C625BC0002F64E7 /* webview.swift */; };
 		37DB2B3D1C62971B000A39AE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DB2B3C1C62971B000A39AE /* Model.swift */; };
 		37DB2B3F1C629E5A000A39AE /* uiapp+networkindicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DB2B3E1C629E5A000A39AE /* uiapp+networkindicator.swift */; };
@@ -39,6 +39,8 @@
 		3718D0601C57F09C006F68DB /* ShowCourseDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCourseDetail.swift; sourceTree = "<group>"; };
 		371FCDAC1C0894FD002406F6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		371FCE181C08D130002406F6 /* LogoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutController.swift; sourceTree = "<group>"; };
+		373B04681C7AFE9C00150958 /* MyCourseCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCourseCollectionViewController.swift; sourceTree = "<group>"; };
+		373B046A1C7B2A4300150958 /* MyCourseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCourseTableViewController.swift; sourceTree = "<group>"; };
 		37513A0D1C60CCF5009B9451 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfiniteIndicator.swift; sourceTree = "<group>"; };
 		379B17681BF8EC9C00B18E12 /* Cadenza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadenza.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,8 +56,6 @@
 		379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		379B17FA1BF8F54300B18E12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		379B17FD1BF8F8A400B18E12 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		37A1FF8B1C65325B00222C7F /* Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
-		37A1FF8D1C6533EC00222C7F /* Publishers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
 		37C465C61C625BC0002F64E7 /* webview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webview.swift; sourceTree = "<group>"; };
 		37DB2B3C1C62971B000A39AE /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		37DB2B3E1C629E5A000A39AE /* uiapp+networkindicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "uiapp+networkindicator.swift"; sourceTree = "<group>"; };
@@ -121,6 +121,8 @@
 				377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */,
 				3705626F1C639DD700EF65E3 /* CourseCell.swift */,
 				3700ADF31C63CF6300EF757D /* CourseCollectionViewController.swift */,
+				373B04681C7AFE9C00150958 /* MyCourseCollectionViewController.swift */,
+				373B046A1C7B2A4300150958 /* MyCourseTableViewController.swift */,
 			);
 			path = Cadenza;
 			sourceTree = "<group>";
@@ -139,8 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				37DB2B3C1C62971B000A39AE /* Model.swift */,
-				37A1FF8B1C65325B00222C7F /* Publisher.swift */,
-				37A1FF8D1C6533EC00222C7F /* Publishers.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -286,13 +286,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37A1FF8C1C65325B00222C7F /* Publisher.swift in Sources */,
+				373B046B1C7B2A4300150958 /* MyCourseTableViewController.swift in Sources */,
 				379B17F21BF8F2BA00B18E12 /* MenuController.swift in Sources */,
 				37C465C71C625BC0002F64E7 /* webview.swift in Sources */,
 				37F71F5C1C021D1B004D4815 /* Login.swift in Sources */,
+				373B04691C7AFE9C00150958 /* MyCourseCollectionViewController.swift in Sources */,
 				379B17EF1BF8F2BA00B18E12 /* PhotoViewController.swift in Sources */,
 				37F71EEC1BF9989E004D4815 /* MenuCell.swift in Sources */,
-				37A1FF8E1C6533EC00222C7F /* Publishers.swift in Sources */,
 				379B17F11BF8F2BA00B18E12 /* NewsTableViewCell.swift in Sources */,
 				37DB2B3D1C62971B000A39AE /* Model.swift in Sources */,
 				3700ADF41C63CF6300EF757D /* CourseCollectionViewController.swift in Sources */,
