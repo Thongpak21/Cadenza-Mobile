@@ -24,7 +24,6 @@
 		379B17F11BF8F2BA00B18E12 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E61BF8F2BA00B18E12 /* NewsTableViewCell.swift */; };
 		379B17F21BF8F2BA00B18E12 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E71BF8F2BA00B18E12 /* MenuController.swift */; };
 		379B17F51BF8F2BA00B18E12 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */; };
-		379B17FE1BF8F8A400B18E12 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 379B17FC1BF8F8A400B18E12 /* Model.xcdatamodeld */; };
 		37C465C71C625BC0002F64E7 /* webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C465C61C625BC0002F64E7 /* webview.swift */; };
 		37DB2B3D1C62971B000A39AE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DB2B3C1C62971B000A39AE /* Model.swift */; };
 		37DB2B3F1C629E5A000A39AE /* uiapp+networkindicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DB2B3E1C629E5A000A39AE /* uiapp+networkindicator.swift */; };
@@ -55,7 +54,6 @@
 		379B17E71BF8F2BA00B18E12 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		379B17FA1BF8F54300B18E12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		379B17FD1BF8F8A400B18E12 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		37C465C61C625BC0002F64E7 /* webview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webview.swift; sourceTree = "<group>"; };
 		37DB2B3C1C62971B000A39AE /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		37DB2B3E1C629E5A000A39AE /* uiapp+networkindicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "uiapp+networkindicator.swift"; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 				379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */,
 				379B177A1BF8EC9C00B18E12 /* Info.plist */,
 				379B17D71BF8ED9000B18E12 /* Assets.xcassets */,
-				379B17FC1BF8F8A400B18E12 /* Model.xcdatamodeld */,
 				37F71EEB1BF9989E004D4815 /* MenuCell.swift */,
 				371FCE181C08D130002406F6 /* LogoutController.swift */,
 				37C465C61C625BC0002F64E7 /* webview.swift */,
@@ -298,7 +295,6 @@
 				3700ADF41C63CF6300EF757D /* CourseCollectionViewController.swift in Sources */,
 				371FCE191C08D130002406F6 /* LogoutController.swift in Sources */,
 				37DB2B3F1C629E5A000A39AE /* uiapp+networkindicator.swift in Sources */,
-				379B17FE1BF8F8A400B18E12 /* Model.xcdatamodeld in Sources */,
 				377A8ADA1C6338260070426B /* CustomInfiniteIndicator.swift in Sources */,
 				379B17F01BF8F2BA00B18E12 /* TableCourseList.swift in Sources */,
 				370562701C639DD700EF65E3 /* CourseCell.swift in Sources */,
@@ -447,19 +443,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		379B17FC1BF8F8A400B18E12 /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				379B17FD1BF8F8A400B18E12 /* Model.xcdatamodel */,
-			);
-			currentVersion = 379B17FD1BF8F8A400B18E12 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 379B17601BF8EC9C00B18E12 /* Project object */;
 }

@@ -11,45 +11,90 @@ import Alamofire
 import SwiftyJSON
 import AlamofireImage
 
-class ShowCourseDetail: UIViewController,UIScrollViewDelegate{
+class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
 
+    @IBOutlet weak var height: NSLayoutConstraint!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet weak var WebCourseDes: UIWebView!
+    @IBOutlet weak var viewbar: UIView!
     @IBOutlet weak var viaSegueLabel: UILabel!
-    @IBOutlet weak var DescripLabel: UILabel!
     @IBOutlet weak var imgcov: UIImageView!
-    var viaSegue = ""
-    var Name = ""
-    var teacher = ""
-    var coveimg = ""
-    var des = ""
-    var url = "http://cadenza.in.th/api/mobile/course/show/"
+    var Name=""
+    var myContext = 0
+    var teacher:String?
+    var coveimg:String?
+    var des:String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        layout()
+        webview()
+ //       WebCourseDes.scrollView.scrollEnabled = false
+  //      height.constant = WebCourseDes.scrollView.contentSize.height
+//        height.constant = 50
+//        WebCourseDes.scrollView.contentSize.height = 50
         viaSegueLabel.text = Name
-        print(viaSegue)
-        print(Name)
-        print(teacher)
-        print(coveimg)
-        url = "http://cadenza.in.th/api/mobile/course/show/"+"\(viaSegue)"
-        Alamofire.request(.GET, "\(url)")
-        .responseJSON { response in
-       //     print(response.result.value)
-            if response.result.value != nil {
-                let json = JSON(response.result.value!)
-                print(json["CourseDescription"])
-             //   self.DescripLabel.text = json["CourseDescription"].string
-            }
-            
-
-        }
-        Alamofire.request(.GET, coveimg)
+//        print(Name)
+//        print(teacher)
+//        print(coveimg)
+//        print(des)
+        Alamofire.request(.GET, coveimg!)
             .responseImage { response in
                 if let image = response.result.value {
                     self.imgcov.image = image
                 }
         }
+        WebCourseDes.delegate = self
+        
+
+//        self.WebCourseDes.addObserver(self, forKeyPath: "contentSize", options: .New, context: &myContext)
+
+    }
+//      override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+//        if context == &myContext {
+//         //   height.constant = WebCourseDes.scrollView.contentSize.height
+//            //call layout update if needed
+//        } else {
+//            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+//        }
+//    }
+    func webViewDidStartLoad(webView: UIWebView){
+        
+        activity.hidden = false
+        activity.startAnimating()
         
     }
+    func webViewDidFinishLoad(webView: UIWebView){
+        
+        activity.hidden = true
+        activity.stopAnimating()
+    //    height.constant = WebCourseDes.scrollView.contentSize.height
+        print(WebCourseDes.scrollView.contentSize.height)
+    }
 
+    func webview() {
+        Alamofire.request(.POST, "http://www.cadenza.in.th/v2/api/mobile/markdown", parameters:["markdown":des!])
+            .response { request, response, data, error in
+                self.WebCourseDes.loadRequest(request!)
+                        print(self.WebCourseDes.scrollView.contentSize.height)
+            UIApplication.sharedApplication().stopNetworkActivity()
+        }
+        
+        UIApplication.sharedApplication().startNetworkActivity()
+        
+    }
+    
+    func layout() {
+        viewbar.layer.cornerRadius = 1.0
+        viewbar.layer.borderWidth = 1
+        viewbar.layer.borderColor = UIColor.clearColor().CGColor
+        viewbar.layer.masksToBounds = true
+        
+        viewbar.layer.shadowColor = UIColor.blackColor().CGColor
+        viewbar.layer.shadowOffset = CGSizeMake(0, 1)
+        viewbar.layer.shadowRadius = 1.0
+        viewbar.layer.shadowOpacity = 1.0
+        viewbar.layer.masksToBounds = false
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

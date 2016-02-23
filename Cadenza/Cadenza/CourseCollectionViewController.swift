@@ -68,9 +68,9 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
                 //  print(path?.row)
                 var x:Int = (indexPath.row)
                 x = x+1
-                let xNSNumber = x as NSNumber
-                let XString: String = xNSNumber.stringValue
-                controller.viaSegue = XString
+         //       let xNSNumber = x as NSNumber
+   //             let XString: String = xNSNumber.stringValue
+              //  controller.viaSegue = XString
                 controller.Name = data_cell.title!
                 controller.coveimg = "http://cadenza.in.th\(data_cell.courseCoverFull!)"
                 controller.teacher = "\(data_cell.author_fname!) \(data_cell.author_lname!)"
@@ -125,8 +125,8 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
     private func fetchData(handler:((Void) -> Void)?){
         print("page : \(currentPage)" )
         let requestURL = apiURL(currentPage)
-        var indexPaths = [NSIndexPath]()
-        let firstIndex = data_model.count
+        let indexPaths = [NSIndexPath]()
+  //      let firstIndex = data_model.count
         let task = Alamofire.request(.GET, requestURL)
             .responseJSON{ response in
                 //    print(response.result.value)

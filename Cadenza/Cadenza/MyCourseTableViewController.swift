@@ -35,7 +35,7 @@ class MyCourseTableViewController: UITableViewController {
         self.gettoken = checktoken()
         self.gettoken = token_coredata.valueForKey("token")
       //  print(gettoken![0])
-        token = gettoken![0] as! String
+        token = gettoken![0] as? String
         print(token!)
         data(token!)
 //        tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
@@ -222,9 +222,9 @@ class MyCourseTableViewController: UITableViewController {
                 //  print(path?.row)
                 var x:Int = (path?.row)!
                 x = x+1
-                let xNSNumber = x as NSNumber
-                let XString: String = xNSNumber.stringValue
-                destination.viaSegue = XString
+          //      let xNSNumber = x as NSNumber
+         //       let XString: String = xNSNumber.stringValue
+         //       destination.viaSegue = XString
                 destination.Name = data_cell.title!
                 destination.coveimg = "http://cadenza.in.th\(data_cell.courseCoverFull!)"
                 destination.teacher = "\(data_cell.author_fname!) \(data_cell.author_lname!)"
