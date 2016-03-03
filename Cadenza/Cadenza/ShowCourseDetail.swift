@@ -12,7 +12,6 @@ import SwiftyJSON
 import AlamofireImage
 
 class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
-
     @IBOutlet weak var height: NSLayoutConstraint!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var WebCourseDes: UIWebView!
@@ -28,8 +27,10 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         super.viewDidLoad()
         layout()
         webview()
- //       WebCourseDes.scrollView.scrollEnabled = false
-  //      height.constant = WebCourseDes.scrollView.contentSize.height
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+    //    imgcov.frame = CGRectMake(0,0, screenSize.height, 50)
+        WebCourseDes.scrollView.scrollEnabled = false
+        height.constant = WebCourseDes.scrollView.contentSize.height
 //        height.constant = 50
 //        WebCourseDes.scrollView.contentSize.height = 50
         viaSegueLabel.text = Name
@@ -43,20 +44,22 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
                     self.imgcov.image = image
                 }
         }
-        WebCourseDes.delegate = self
+ 
         
 
-//        self.WebCourseDes.addObserver(self, forKeyPath: "contentSize", options: .New, context: &myContext)
+  //      self.WebCourseDes.addObserver(self, forKeyPath: "contentSize", options: .New, context: &myContext)
+        WebCourseDes.delegate = self
 
     }
-//      override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-//        if context == &myContext {
-//         //   height.constant = WebCourseDes.scrollView.contentSize.height
-//            //call layout update if needed
-//        } else {
-//            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
-//        }
-//    }
+      override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if context == &myContext {
+            height.constant = WebCourseDes.scrollView.contentSize.height
+            //call layout update if needed
+        } else {
+            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+        }
+    }
+    
     func webViewDidStartLoad(webView: UIWebView){
         
         activity.hidden = false
@@ -67,9 +70,10 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         
         activity.hidden = true
         activity.stopAnimating()
-    //    height.constant = WebCourseDes.scrollView.contentSize.height
+        height.constant = WebCourseDes.scrollView.contentSize.height
         print(WebCourseDes.scrollView.contentSize.height)
     }
+
 
     func webview() {
         Alamofire.request(.POST, "http://www.cadenza.in.th/v2/api/mobile/markdown", parameters:["markdown":des!])
