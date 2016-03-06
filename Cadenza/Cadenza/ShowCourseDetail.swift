@@ -13,26 +13,24 @@ import AlamofireImage
 
 class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
     @IBOutlet weak var height: NSLayoutConstraint!
-    @IBOutlet weak var activity: UIActivityIndicatorView!
+   // @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var WebCourseDes: UIWebView!
     @IBOutlet weak var viewbar: UIView!
     @IBOutlet weak var viaSegueLabel: UILabel!
     @IBOutlet weak var imgcov: UIImageView!
     var Name=""
+    @IBOutlet weak var coursedeslabel: UILabel!
     var myContext = 0
     var teacher:String?
     var coveimg:String?
     var des:String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        layout()
-        webview()
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-    //    imgcov.frame = CGRectMake(0,0, screenSize.height, 50)
-        WebCourseDes.scrollView.scrollEnabled = false
-        height.constant = WebCourseDes.scrollView.contentSize.height
-//        height.constant = 50
-//        WebCourseDes.scrollView.contentSize.height = 50
+     //   layout()
+  //      webview()
+        coursedeslabel.text = des! + des! + des!
+      //  WebCourseDes.scrollView.scrollEnabled = false
+  //      height.constant = WebCourseDes.scrollView.contentSize.height
         viaSegueLabel.text = Name
 //        print(Name)
 //        print(teacher)
@@ -47,8 +45,9 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
  
         
 
-  //      self.WebCourseDes.addObserver(self, forKeyPath: "contentSize", options: .New, context: &myContext)
-        WebCourseDes.delegate = self
+        
+   //     WebCourseDes.delegate = self
+   //     self.WebCourseDes.addObserver(self, forKeyPath: "contentSize", options: .New, context: &myContext)
 
     }
       override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
@@ -62,14 +61,14 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
     
     func webViewDidStartLoad(webView: UIWebView){
         
-        activity.hidden = false
-        activity.startAnimating()
+     //   activity.hidden = false
+   //     activity.startAnimating()
         
     }
     func webViewDidFinishLoad(webView: UIWebView){
         
-        activity.hidden = true
-        activity.stopAnimating()
+     //   activity.hidden = true
+      //  activity.stopAnimating()
         height.constant = WebCourseDes.scrollView.contentSize.height
         print(WebCourseDes.scrollView.contentSize.height)
     }
@@ -86,7 +85,6 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         UIApplication.sharedApplication().startNetworkActivity()
         
     }
-    
     func layout() {
         viewbar.layer.cornerRadius = 1.0
         viewbar.layer.borderWidth = 1
