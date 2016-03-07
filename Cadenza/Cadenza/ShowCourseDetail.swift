@@ -10,27 +10,28 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import AlamofireImage
-
 class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
+    @IBOutlet weak var imgheight: NSLayoutConstraint!
     @IBOutlet weak var height: NSLayoutConstraint!
    // @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet weak var height_layout: NSLayoutConstraint!
     @IBOutlet weak var WebCourseDes: UIWebView!
     @IBOutlet weak var viewbar: UIView!
     @IBOutlet weak var viaSegueLabel: UILabel!
     @IBOutlet weak var imgcov: UIImageView!
     var Name=""
-    @IBOutlet weak var coursedeslabel: UILabel!
     var myContext = 0
     var teacher:String?
     var coveimg:String?
     var des:String?
     override func viewDidLoad() {
         super.viewDidLoad()
-     //   layout()
-  //      webview()
-        coursedeslabel.text = des! + des! + des!
-      //  WebCourseDes.scrollView.scrollEnabled = false
-  //      height.constant = WebCourseDes.scrollView.contentSize.height
+        layout()
+        webview()
+        print(height_layout.constant)
+        imgheight.constant = 150
+        height_layout.constant = height_layout.constant - 300
+        WebCourseDes.scrollView.scrollEnabled = false
         viaSegueLabel.text = Name
 //        print(Name)
 //        print(teacher)
@@ -46,13 +47,13 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         
 
         
-   //     WebCourseDes.delegate = self
+        WebCourseDes.delegate = self
    //     self.WebCourseDes.addObserver(self, forKeyPath: "contentSize", options: .New, context: &myContext)
 
     }
       override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if context == &myContext {
-            height.constant = WebCourseDes.scrollView.contentSize.height
+       //     height.constant = WebCourseDes.scrollView.contentSize.height
             //call layout update if needed
         } else {
             super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
@@ -70,6 +71,7 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
      //   activity.hidden = true
       //  activity.stopAnimating()
         height.constant = WebCourseDes.scrollView.contentSize.height
+
         print(WebCourseDes.scrollView.contentSize.height)
     }
 
