@@ -14,6 +14,7 @@
 		2B47DDC9B6614958727681461235CCE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFCE8A3DC08536A2B19894C1FF3E86D /* Foundation.framework */; };
 		2C5450AC69398958CF6F7539EF7D99E5 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 78489DBDB50AB2E4A36500B138C7DC21 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		306AC54086F0AA4642D4867294729231 /* RAMFumeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74DBBACDCC7753D0A9377C493A4C31 /* RAMFumeAnimation.swift */; };
+		3767F7901C8E073A000C2446 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706C7AFFE37BA158C3553250F4B5FAED /* Alamofire.framework */; };
 		4A4F407F5D102CF0257ADE3F88CE94F3 /* RAMBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4881701769464340FB805149B25E891 /* RAMBadge.swift */; };
 		4DE5FCC41D100B113B6645EA64410F16 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F10A82956449DC961E52B3A6F907CA /* ParameterEncoding.swift */; };
 		4FA90A7E391FA41319CE86CFBA038585 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFCE8A3DC08536A2B19894C1FF3E86D /* Foundation.framework */; };
@@ -39,7 +40,6 @@
 		AAB3A2E1596C0E0CF4251CDF33B9CFD6 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B0D30F5EF13148AEB89CF094AF0CC3 /* ImageDownloader.swift */; };
 		B0FB4B01682814B9E3D32F9DC4A5E762 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7304C2616595C67CCB5537C2493B7AF /* Alamofire.swift */; };
 		B6D2DC3E3DA44CD382B9B425F40E11C1 /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F913BA324EA2E97303E0B64DF1059CA /* Alamofire-dummy.m */; };
-		B7D31748638994F6C00CCE274E6441EA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706C7AFFE37BA158C3553250F4B5FAED /* Alamofire.framework */; };
 		BA7E08A1916D00C3D7A447C052B28B93 /* AlamofireImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B9173388D131D99AE1A7E71FE50203 /* AlamofireImage-dummy.m */; };
 		C75519F0450166A6F28126ECC7664E9C /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9303A78AFEB8E14E5162EB2A46001CF2 /* Validation.swift */; };
 		CA0F772032391379472EA3EE3216B730 /* RAMAnimatedTabBarController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE94C1625A58952E8BF4E829041059E3 /* RAMAnimatedTabBarController-dummy.m */; };
@@ -202,8 +202,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7D31748638994F6C00CCE274E6441EA /* Alamofire.framework in Frameworks */,
 				F38445AFB9C489A2D928C7D1C29BBBE2 /* Foundation.framework in Frameworks */,
+				3767F7901C8E073A000C2446 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
