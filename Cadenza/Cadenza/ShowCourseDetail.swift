@@ -18,6 +18,7 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
     @IBOutlet weak var WebCourseDes: UIWebView!
     @IBOutlet weak var viewbar: UIView!
     @IBOutlet weak var viaSegueLabel: UILabel!
+    @IBOutlet weak var viewbar2: UIView!
     @IBOutlet weak var imgcov: UIImageView!
     var Name=""
     var myContext = 0
@@ -30,7 +31,7 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         webview()
         print(height_layout.constant)
         imgheight.constant = 150
-        height_layout.constant = height_layout.constant - 300
+        height_layout.constant = height_layout.constant - 270
         WebCourseDes.scrollView.scrollEnabled = false
         viaSegueLabel.text = Name
 //        print(Name)
@@ -72,7 +73,7 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
       //  activity.stopAnimating()
         height.constant = WebCourseDes.scrollView.contentSize.height
 
-        print(WebCourseDes.scrollView.contentSize.height)
+//        print(WebCourseDes.scrollView.contentSize.height)
     }
 
 
@@ -80,7 +81,7 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         Alamofire.request(.POST, "http://www.cadenza.in.th/v2/api/mobile/markdown", parameters:["markdown":des!])
             .response { request, response, data, error in
                 self.WebCourseDes.loadRequest(request!)
-                        print(self.WebCourseDes.scrollView.contentSize.height)
+                       // print(self.WebCourseDes.scrollView.contentSize.height)
             UIApplication.sharedApplication().stopNetworkActivity()
         }
         
@@ -98,6 +99,17 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         viewbar.layer.shadowRadius = 1.0
         viewbar.layer.shadowOpacity = 1.0
         viewbar.layer.masksToBounds = false
+        
+        viewbar2.layer.cornerRadius = 1.0
+        viewbar2.layer.borderWidth = 1
+        viewbar2.layer.borderColor = UIColor.clearColor().CGColor
+        viewbar2.layer.masksToBounds = true
+        
+        viewbar2.layer.shadowColor = UIColor.blackColor().CGColor
+        viewbar2.layer.shadowOffset = CGSizeMake(0, 1)
+        viewbar2.layer.shadowRadius = 1.0
+        viewbar2.layer.shadowOpacity = 1.0
+        viewbar2.layer.masksToBounds = false
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
