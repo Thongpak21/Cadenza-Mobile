@@ -11,33 +11,37 @@ import Alamofire
 import SwiftyJSON
 import AlamofireImage
 class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
+    @IBOutlet var tableview: UITableView!
     @IBOutlet weak var imgheight: NSLayoutConstraint!
     @IBOutlet weak var height: NSLayoutConstraint!
-   // @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var height_layout: NSLayoutConstraint!
     @IBOutlet weak var WebCourseDes: UIWebView!
     @IBOutlet weak var viewbar: UIView!
     @IBOutlet weak var viaSegueLabel: UILabel!
     @IBOutlet weak var viewbar2: UIView!
+    @IBOutlet weak var viewbar3: UIView!
     @IBOutlet weak var imgcov: UIImageView!
+    
+   private var section_model = [model]()
     var Name=""
     var myContext = 0
     var teacher:String?
     var coveimg:String?
     var des:String?
+    var courseID:Int?
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
+        
         webview()
         print(height_layout.constant)
+        print(courseID!)
+
         imgheight.constant = 150
-        height_layout.constant = height_layout.constant - 270
+        height_layout.constant = height_layout.constant
         WebCourseDes.scrollView.scrollEnabled = false
         viaSegueLabel.text = Name
-//        print(Name)
-//        print(teacher)
-//        print(coveimg)
-//        print(des)
         Alamofire.request(.GET, coveimg!)
             .responseImage { response in
                 if let image = response.result.value {
@@ -45,35 +49,50 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
                 }
         }
  
-        
-
+        tableview.delegate = self
+        tableview.dataSource = self
+        tableview.backgroundView = nil
+    //    view.addSubview(tableview!)
+    //    tableview.reloadData()
         
         WebCourseDes.delegate = self
-   //     self.WebCourseDes.addObserver(self, forKeyPath: "contentSize", options: .New, context: &myContext)
+    }
+    func getSection() {
+        Alamofire.request(.GET, "http://cadenza.in.th/api/mobile/course/show/\(courseID!)")
+            .responseJSON{ response in
+            //    print(response.result.value![0])
+                if let results = response.result.value!["section"] as? [[String: AnyObject]] {
+                    //                    for (i,a) in results.enumerate() {
+                    //                      //  print(i)
+                    //                        let indexPath = NSIndexPath(forItem: firstIndex + i, inSection: 0)
+                    //                        print(model(a).title)
+                    //                        self.data_model.append(model(a))
+                    //                        indexPaths.append(indexPath)
+                    //                    }
+                    dispatch_async(dispatch_get_main_queue(),{
+                        self.tableview.reloadData()
+                    })
+                    for i in results {
+                        print("\(model(i).sectionName)   --->  \(model(i).courseID)")
+                        self.section_model.append(model(i))
+                    }
+              //      print(self.section_model.count)
 
+                }
+            }
     }
-      override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        if context == &myContext {
-       //     height.constant = WebCourseDes.scrollView.contentSize.height
-            //call layout update if needed
-        } else {
-            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
-        }
-    }
-    
-    func webViewDidStartLoad(webView: UIWebView){
-        
-     //   activity.hidden = false
-   //     activity.startAnimating()
+   
+    func webViewDidStartLoad(webview: UIWebView){
+        activity.hidden = false
+        activity.startAnimating()
         
     }
-    func webViewDidFinishLoad(webView: UIWebView){
+    func webViewDidFinishLoad(webview: UIWebView){
         
-     //   activity.hidden = true
-      //  activity.stopAnimating()
+        activity.hidden = true
+        activity.stopAnimating()
         height.constant = WebCourseDes.scrollView.contentSize.height
-
-//        print(WebCourseDes.scrollView.contentSize.height)
+        getSection()
     }
 
 
@@ -81,7 +100,6 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         Alamofire.request(.POST, "http://www.cadenza.in.th/v2/api/mobile/markdown", parameters:["markdown":des!])
             .response { request, response, data, error in
                 self.WebCourseDes.loadRequest(request!)
-                       // print(self.WebCourseDes.scrollView.contentSize.height)
             UIApplication.sharedApplication().stopNetworkActivity()
         }
         
@@ -110,21 +128,40 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         viewbar2.layer.shadowRadius = 1.0
         viewbar2.layer.shadowOpacity = 1.0
         viewbar2.layer.masksToBounds = false
+        
+        viewbar3.layer.cornerRadius = 1.0
+        viewbar3.layer.borderWidth = 1
+        viewbar3.layer.borderColor = UIColor.clearColor().CGColor
+        viewbar3.layer.masksToBounds = true
+        
+        viewbar3.layer.shadowColor = UIColor.blackColor().CGColor
+        viewbar3.layer.shadowOffset = CGSizeMake(0, 1)
+        viewbar3.layer.shadowRadius = 1.0
+        viewbar3.layer.shadowOpacity = 1.0
+        viewbar3.layer.masksToBounds = false
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+  
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+}
+extension ShowCourseDetail : UITableViewDataSource{
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      //  print(section_model.count)
+        return section_model.count
     }
-    */
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let data_cell = section_model[indexPath.row]
+        cell.textLabel?.text = data_cell.sectionName
+        
+        return cell
+    }
+}
 
+extension ShowCourseDetail: UITableViewDelegate {
+    
 }
