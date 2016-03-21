@@ -60,9 +60,9 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
         Alamofire.request(.GET,"http://www.cadenza.in.th/v2/api/mobile/mycourses?access_token=\(token)")
             .responseJSON{ response in
                  UIApplication.sharedApplication().startNetworkActivity()
-                if let results = response.result.value?[self.JSONResultsKey] as? [[String: AnyObject]] {
+                if let results = response.result.value as? [[String: AnyObject]] {
                     for i in results {
-                        print("\(model(i).title)")
+                     //   print("\(model(i).title)")
                         self.data_model.append(model(i))
                          UIApplication.sharedApplication().stopNetworkActivity()
                     }
@@ -132,13 +132,11 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
         let data_cell = data_model[indexPath.row]
         cell.titleLabel.text = data_cell.title
         cell.authorLabel.text = "\(data_cell.author_fname!) \(data_cell.author_lname!)"
-        print(cell.authorLabel.text)
+       // print(cell.authorLabel.text)
         Alamofire.request(.GET, "http://cadenza.in.th"+"\(data_cell.courseCoverFull!)")
             .responseImage { response in
                 if let image = response.result.value {
                     cell.imagecell.image = image
-                    //                    cell.imagecell.layer.borderWidth = 1
-                    //                    cell.imagecell.layer.borderColor = UIColor(red:012/255.0, green:012/255.0, blue:012/255.0, alpha: 1.0).CGColor
                 }
         }
         cell.contentView.layer.cornerRadius = 1.0

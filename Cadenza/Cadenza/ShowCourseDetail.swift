@@ -33,10 +33,11 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        
+//        tableview.scrollEnabled = false
+//        print(tableview.scrollEnabled.hashValue)
         webview()
-        print(height_layout.constant)
-        print(courseID!)
+//        print(height_layout.constant)
+//        print(courseID!)
 
         imgheight.constant = 150
         height_layout.constant = height_layout.constant
@@ -62,18 +63,11 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
             .responseJSON{ response in
             //    print(response.result.value![0])
                 if let results = response.result.value!["section"] as? [[String: AnyObject]] {
-                    //                    for (i,a) in results.enumerate() {
-                    //                      //  print(i)
-                    //                        let indexPath = NSIndexPath(forItem: firstIndex + i, inSection: 0)
-                    //                        print(model(a).title)
-                    //                        self.data_model.append(model(a))
-                    //                        indexPaths.append(indexPath)
-                    //                    }
                     dispatch_async(dispatch_get_main_queue(),{
                         self.tableview.reloadData()
                     })
                     for i in results {
-                        print("\(model(i).sectionName)   --->  \(model(i).courseID)")
+                  //      print("\(model(i).sectionName)   --->  \(model(i).courseID)")
                         self.section_model.append(model(i))
                     }
               //      print(self.section_model.count)
@@ -84,11 +78,12 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
    
     func webViewDidStartLoad(webview: UIWebView){
         activity.hidden = false
+        UIApplication.sharedApplication().startNetworkActivity()
         activity.startAnimating()
         
     }
     func webViewDidFinishLoad(webview: UIWebView){
-        
+        UIApplication.sharedApplication().stopNetworkActivity()
         activity.hidden = true
         activity.stopAnimating()
         height.constant = WebCourseDes.scrollView.contentSize.height
@@ -100,11 +95,7 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         Alamofire.request(.POST, "http://www.cadenza.in.th/v2/api/mobile/markdown", parameters:["markdown":des!])
             .response { request, response, data, error in
                 self.WebCourseDes.loadRequest(request!)
-            UIApplication.sharedApplication().stopNetworkActivity()
         }
-        
-        UIApplication.sharedApplication().startNetworkActivity()
-        
     }
     func layout() {
         viewbar.layer.cornerRadius = 1.0
@@ -150,15 +141,52 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
 }
 extension ShowCourseDetail : UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      //  print(section_model.count)
         return section_model.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let data_cell = section_model[indexPath.row]
         cell.textLabel?.text = data_cell.sectionName
+        cell.detailTextLabel?.text = "Enroll"
+       // print(data_cell.sectionID)
         
         return cell
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let data_cell = section_model[indexPath.row]
+        var tLabel: UILabel!
+        var tField: UITextField!
+        func configTextField(textField: UITextField!){
+            textField.placeholder = data_cell.sectionName
+            tField = textField
+        }
+        func LabelText(Label:UILabel!){
+            tLabel.text = data_cell.sectionName
+        }
+        
+        
+ //       let mes = [data_cell.sectionName!,data_cell.sectionToken!]
+        print(data_cell.sectionID)
+        print(data_cell.sectionName)
+        print(data_cell.sectionToken)
+        let alert = UIAlertController(title: viaSegueLabel.text, message:"Sec : \(data_cell.sectionName!)",preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+//        alert.addTextFieldWithConfigurationHandler(configTextField)
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        alert.addAction(UIAlertAction(title: "Enroll", style: .Default, handler: { action in
+            switch action.style{
+            case .Default:
+                print("hello")
+                
+            case .Cancel:
+                print("cancel")
+                
+            case .Destructive:
+                print("destructive")
+            }
+        }))
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
 

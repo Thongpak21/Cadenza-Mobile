@@ -18,6 +18,8 @@ class model : NSObject {
     var test : String?
     var numpage :Int?
     var sectionName: String?
+    var sectionID:Int?
+    var sectionToken:String?
     init(_ dictionary:[String: AnyObject]) {
         super.init()
         title = dictionary["CourseName"] as? String
@@ -30,5 +32,7 @@ class model : NSObject {
         test = dictionary["coursecategory"] as? String
         numpage = dictionary["last_page"] as? Int
         sectionName = dictionary["SectionName"] as? String
+        sectionID = dictionary["SectionID"] as? Int
+        sectionToken = dictionary["SectionToken"] as? String
     } 
 }

@@ -10,5 +10,6 @@ pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'AlamofireImage', '~> 2.0'
 pod 'RAMAnimatedTabBarController', '~> 1.0.6'
 pod 'UIScrollView-InfiniteScroll'
+pod ‘SwiftSpinner’
 end
 

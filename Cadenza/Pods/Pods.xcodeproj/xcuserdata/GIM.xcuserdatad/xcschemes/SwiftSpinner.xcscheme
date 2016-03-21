@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0323F74EB9DF1E5C6DC9E33A'
-               BlueprintName = 'UIScrollView-InfiniteScroll'
+               BlueprintIdentifier = '43D36BB873448A7F34CF586B'
+               BlueprintName = 'SwiftSpinner'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'UIScrollView_InfiniteScroll.framework'>
+               BuildableName = 'SwiftSpinner.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -19,16 +19,14 @@
 		377A8ADA1C6338260070426B /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */; };
 		379B17D81BF8ED9000B18E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379B17D71BF8ED9000B18E12 /* Assets.xcassets */; };
 		379B17E01BF8EE0A00B18E12 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B17DD1BF8EE0A00B18E12 /* SWRevealViewController.m */; };
-		379B17EF1BF8F2BA00B18E12 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E41BF8F2BA00B18E12 /* PhotoViewController.swift */; };
 		379B17F01BF8F2BA00B18E12 /* TableCourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */; };
-		379B17F11BF8F2BA00B18E12 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E61BF8F2BA00B18E12 /* NewsTableViewCell.swift */; };
-		379B17F21BF8F2BA00B18E12 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E71BF8F2BA00B18E12 /* MenuController.swift */; };
 		379B17F51BF8F2BA00B18E12 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */; };
 		37C465C71C625BC0002F64E7 /* webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C465C61C625BC0002F64E7 /* webview.swift */; };
 		37DB2B3D1C62971B000A39AE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DB2B3C1C62971B000A39AE /* Model.swift */; };
 		37DB2B3F1C629E5A000A39AE /* uiapp+networkindicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DB2B3E1C629E5A000A39AE /* uiapp+networkindicator.swift */; };
 		37F71EEC1BF9989E004D4815 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F71EEB1BF9989E004D4815 /* MenuCell.swift */; };
 		37F71F5C1C021D1B004D4815 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F71F5B1C021D1B004D4815 /* Login.swift */; };
+		37FA39021C994C6F0037D521 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FA39011C994C6F0037D521 /* NewsTableViewCell.swift */; };
 		49136D6C4DC6FF4371D249C2 /* Pods_Cadenza.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7391CC4E90CD5580E54784AE /* Pods_Cadenza.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,10 +46,7 @@
 		379B17DC1BF8EE0A00B18E12 /* Cadenza-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cadenza-Bridging-Header.h"; sourceTree = "<group>"; };
 		379B17DD1BF8EE0A00B18E12 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		379B17DE1BF8EE0A00B18E12 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		379B17E41BF8F2BA00B18E12 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCourseList.swift; sourceTree = "<group>"; };
-		379B17E61BF8F2BA00B18E12 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
-		379B17E71BF8F2BA00B18E12 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		379B17FA1BF8F54300B18E12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		37C465C61C625BC0002F64E7 /* webview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webview.swift; sourceTree = "<group>"; };
@@ -59,6 +54,7 @@
 		37DB2B3E1C629E5A000A39AE /* uiapp+networkindicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "uiapp+networkindicator.swift"; sourceTree = "<group>"; };
 		37F71EEB1BF9989E004D4815 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		37F71F5B1C021D1B004D4815 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Login.swift; path = /Users/GIM/Documents/Xcode/Cadenza/Cadenza/Login.swift; sourceTree = "<absolute>"; };
+		37FA39011C994C6F0037D521 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		4D6024D7D7742B4EEDA205F0 /* Pods-Cadenza.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cadenza.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cadenza/Pods-Cadenza.release.xcconfig"; sourceTree = "<group>"; };
 		7391CC4E90CD5580E54784AE /* Pods_Cadenza.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cadenza.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDC18236B8F0A056C1441D0 /* Pods-Cadenza.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cadenza.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cadenza/Pods-Cadenza.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,11 +97,9 @@
 				37A1FF8A1C6530E200222C7F /* Model */,
 				379B17DB1BF8EDD800B18E12 /* SWRevealViewController */,
 				37F71F5B1C021D1B004D4815 /* Login.swift */,
+				37FA39011C994C6F0037D521 /* NewsTableViewCell.swift */,
 				371FCDAC1C0894FD002406F6 /* AppDelegate.swift */,
-				379B17E41BF8F2BA00B18E12 /* PhotoViewController.swift */,
 				379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */,
-				379B17E61BF8F2BA00B18E12 /* NewsTableViewCell.swift */,
-				379B17E71BF8F2BA00B18E12 /* MenuController.swift */,
 				3718D0601C57F09C006F68DB /* ShowCourseDetail.swift */,
 				37513A0D1C60CCF5009B9451 /* Main.storyboard */,
 				379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */,
@@ -284,13 +278,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				373B046B1C7B2A4300150958 /* MyCourseTableViewController.swift in Sources */,
-				379B17F21BF8F2BA00B18E12 /* MenuController.swift in Sources */,
 				37C465C71C625BC0002F64E7 /* webview.swift in Sources */,
+				37FA39021C994C6F0037D521 /* NewsTableViewCell.swift in Sources */,
 				37F71F5C1C021D1B004D4815 /* Login.swift in Sources */,
 				373B04691C7AFE9C00150958 /* MyCourseCollectionViewController.swift in Sources */,
-				379B17EF1BF8F2BA00B18E12 /* PhotoViewController.swift in Sources */,
 				37F71EEC1BF9989E004D4815 /* MenuCell.swift in Sources */,
-				379B17F11BF8F2BA00B18E12 /* NewsTableViewCell.swift in Sources */,
 				37DB2B3D1C62971B000A39AE /* Model.swift in Sources */,
 				3700ADF41C63CF6300EF757D /* CourseCollectionViewController.swift in Sources */,
 				371FCE191C08D130002406F6 /* LogoutController.swift in Sources */,
@@ -403,6 +395,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cadenza/Cadenza-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -420,6 +413,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = gim.Cadenza;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cadenza/Cadenza-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

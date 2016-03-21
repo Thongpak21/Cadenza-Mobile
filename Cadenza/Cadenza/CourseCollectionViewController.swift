@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import AlamofireImage
 import CoreData
-//private let reuseIdentifier = "Cell"
+import SwiftSpinner
 
 class CourseCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
 
@@ -31,7 +31,6 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let width = (CGRectGetWidth((collectionView?.bounds)!) - LeftAndRightPadding) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSizeMake(width, width + heightAdjustment)
@@ -46,7 +45,6 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
                 scrollView.finishInfiniteScroll()
             }
         }
-        
         fetchData(nil)
 
     }
@@ -54,31 +52,23 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
 
 
     
-//    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-//        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-//        
-//        collectionViewLayout.invalidateLayout()
-//    }
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        collectionViewLayout.invalidateLayout()
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "PassCourse" {
             if let indexPath = collectionView?.indexPathForCell(sender as! UICollectionViewCell) {
                 let controller = segue.destinationViewController as! ShowCourseDetail
                 let data_cell = data_model[(indexPath.row)]
-                //  print(path?.row)
-                var x:Int = (indexPath.row)
-                x = x+1
-         //       let xNSNumber = x as NSNumber
-   //             let XString: String = xNSNumber.stringValue
-              //  controller.viaSegue = XString
                 controller.Name = data_cell.title!
                 controller.coveimg = "http://cadenza.in.th\(data_cell.courseCoverFull!)"
                 controller.teacher = "\(data_cell.author_fname!) \(data_cell.author_lname!)"
                 controller.des = data_cell.courseDes!
                 controller.courseID = data_cell.courseID!
-
             }
-        
         }
     }
 
@@ -115,7 +105,7 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         return cell
 
     }
-    
+
     
     private func apiURL(page:Int) ->  NSURL{
         let string = "http://cadenza.in.th/api/mobile/course?page=\(page)"
@@ -142,14 +132,6 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
               //    print(response.result.value?[self.JSONResultsKey] as? [[String: AnyObject]])
                 if let results = response.result.value?[self.JSONResultsKey] as? [[String: AnyObject]] {
                     self.currentPage++
-              //      print(results.enumerate())
-//                    for (i,a) in results.enumerate() {
-//                      //  print(i)
-//                        let indexPath = NSIndexPath(forItem: firstIndex + i, inSection: 0)
-//                        print(model(a).title)
-//                        self.data_model.append(model(a))
-//                        indexPaths.append(indexPath)
-//                    }
                     for i in results {
                 //        print("\(model(i).title)   --->  \(model(i).courseID)")
                         self.data_model.append(model(i))
@@ -170,10 +152,12 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         })
         
     }
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-    }
-
+//    override func viewDidAppear(animated: Bool) {
+//        SwiftSpinner.hide()
+//    }
+//    override func viewWillAppear(animated: Bool) {
+//        SwiftSpinner.show("Connecting...")
+//    }
     private func showAlertWithError(error: NSError) {
         let alert = UIAlertController(title: NSLocalizedString("Error fetching data", comment: ""), message: error.localizedDescription, preferredStyle: .Alert)
         
