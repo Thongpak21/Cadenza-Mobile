@@ -60,7 +60,7 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
         Alamofire.request(.GET,"http://www.cadenza.in.th/v2/api/mobile/mycourses?access_token=\(token)")
             .responseJSON{ response in
                  UIApplication.sharedApplication().startNetworkActivity()
-                if let results = response.result.value as? [[String: AnyObject]] {
+                if let results = response.result.value![self.JSONResultsKey] as? [[String: AnyObject]] {
                     for i in results {
                      //   print("\(model(i).title)")
                         self.data_model.append(model(i))
