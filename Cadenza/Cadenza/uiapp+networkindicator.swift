@@ -20,8 +20,8 @@ extension UIApplication {
         if networkActivityCount < 1 {
             return;
         }
-        
-        if --networkActivityCount == 0 {
+        networkActivityCount -= 1
+        if networkActivityCount == 0 {
             networkActivityIndicatorVisible = false
         }
     }

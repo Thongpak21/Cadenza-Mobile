@@ -12,7 +12,10 @@ import SwiftyJSON
 import AlamofireImage
 import CoreData
 //private let reuseIdentifier = "Cell"
-
+//struct mystruct {
+//    static var courseID = ""
+//
+//}
 class MyCourseCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
     var gettoken:AnyObject?
     var token:String?
@@ -31,6 +34,7 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
     private var numPages = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarItem.badgeValue = "5"
         data(Token().getToken())
         let width = (CGRectGetWidth((collectionView?.bounds)!) - LeftAndRightPadding) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
@@ -38,7 +42,7 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
         
 //        // Set custom indicator
 //        collectionView?.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
-//        // Set custom indicator margin
+//        // Set 1custom indicator margin
 //        collectionView?.infiniteScrollIndicatorMargin = 40
 //        // Add infinite scroll handler
 //        collectionView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
@@ -54,9 +58,17 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
         Alamofire.request(.GET,"http://www.cadenza.in.th/v2/api/mobile/mycourses?access_token=\(token)")
             .responseJSON{ response in
                  UIApplication.sharedApplication().startNetworkActivity()
+       //         let json = JSON(response.result.value!)
+             //   print(json["courseName"])
+              //  let asd = Course(cid: 5,sid: 10)
+//                for (key,subJson):(String, JSON) in json {
+//                    print("\(key) --->>> \(subJson)")
+//                }
+           //         print(json["data",3,"courseenroll",0,"UserID"])
+            //     print(response.result.value![self.JSONResultsKey])
                 if let results = response.result.value![self.JSONResultsKey] as? [[String: AnyObject]] {
                     for i in results {
-                     //   print("\(model(i).title)")
+              //          print("\(model(i).courseID)")
                         self.data_model.append(model(i))
                          UIApplication.sharedApplication().stopNetworkActivity()
                     }
@@ -76,25 +88,31 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
 //            collectionViewLayout.invalidateLayout()
 //        }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "PassCourse" {
-            if let indexPath = collectionView?.indexPathForCell(sender as! UICollectionViewCell) {
-                let controller = segue.destinationViewController as! ShowCourseDetail
-                let data_cell = data_model[(indexPath.row)]
-                //  print(path?.row)
-                var x:Int = (indexPath.row)
-                x = x+1
-         //       let xNSNumber = x as NSNumber
-          //      let XString: String = xNSNumber.stringValue
-              //  controller.viaSegue = XString
-                controller.Name = data_cell.title!
-                controller.coveimg = "http://cadenza.in.th\(data_cell.courseCoverFull!)"
-                controller.teacher = "\(data_cell.author_fname!) \(data_cell.author_lname!)"
-                controller.des = data_cell.courseDes!
-                
-            }
-            
-        }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "PassCourse" {
+//            if let indexPath = collectionView?.indexPathForCell(sender as! UICollectionViewCell) {
+//                let controller = segue.destinationViewController as! ShowCourseDetail
+//                let data_cell = data_model[(indexPath.row)]
+//                print(data_cell.title)
+//                //  print(path?.row)
+//                var x:Int = (indexPath.row)
+//                x = x+1
+//         //       let xNSNumber = x as NSNumber
+//          //      let XString: String = xNSNumber.stringValue
+//              //  controller.viaSegue = XString
+//                controller.Name = data_cell.title!
+//                controller.coveimg = "http://cadenza.in.th\(data_cell.courseCoverFull!)"
+//                controller.teacher = "\(data_cell.author_fname!) \(data_cell.author_lname!)"
+//                controller.des = data_cell.courseDes!
+//                
+//            }
+//            
+//        }
+//    }
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let data_cell = data_model[indexPath.row]
+        mystruct.courseID = data_cell.courseID
+       // print(data_cell.courseID)
     }
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -130,61 +148,6 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
         
     }
     
-    
-//    private func apiURL(page:Int) ->  NSURL{
-//        let string = "http://www.cadenza.in.th/v2/api/mobile/mycourses?access_token=\(page)"
-//        let url = NSURL(string:string)
-//        return url!
-//    }
-//    private func fetchData(handler:((Void) -> Void)?){
-//        print("page : \(currentPage)" )
-//        let requestURL = apiURL(currentPage)
-//        var indexPaths = [NSIndexPath]()
-//        let firstIndex = data_model.count
-//        let task = Alamofire.request(.GET, requestURL)
-//            .responseJSON{ response in
-//                //    print(response.result.value)
-//                if let _ = response.result.error {
-//                    self.showAlertWithError(response.result.error!)
-//                    return;
-//                }
-//                //     print(response.result.value?["per_page"])
-//                if let pages = response.result.value?[self.JSONNumPagesKey] as? NSNumber {
-//                    self.numPages = pages as Int
-//                    //    print(self.numPages)
-//                }
-//                //  print(response.result.value?[self.JSONResultsKey] as? [[String: AnyObject]])
-//                if let results = response.result.value?[self.JSONResultsKey] as? [[String: AnyObject]] {
-//                    self.currentPage++
-//                    //      print(results.enumerate())
-//                    //                    for (i,a) in results.enumerate() {
-//                    //                      //  print(i)
-//                    //                        let indexPath = NSIndexPath(forItem: firstIndex + i, inSection: 0)
-//                    //                        print(model(a).title)
-//                    //                        self.data_model.append(model(a))
-//                    //                        indexPaths.append(indexPath)
-//                    //                    }
-//                    for i in results {
-//                   //     print("\(model(i).title)   --->  \(model(i).courseID)")
-//                        self.data_model.append(model(i))
-//                    }
-//                    //       self.scrollView.reloadData()
-//                    self.collectionView?.reloadData()
-//                    self.collectionView?.insertItemsAtIndexPaths(indexPaths)
-//                }
-//                UIApplication.sharedApplication().stopNetworkActivity()
-//                handler?()
-//                
-//        }
-//        UIApplication.sharedApplication().startNetworkActivity()
-//        
-//        let delay = (data_model.count == 0 ? 0 : 5) * Double(NSEC_PER_SEC)
-//        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-//        dispatch_after(time, dispatch_get_main_queue(), {
-//            task.resume()
-//        })
-//        
-//    }
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
     }

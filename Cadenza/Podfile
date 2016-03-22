@@ -11,5 +11,6 @@ pod 'AlamofireImage', '~> 2.0'
 pod 'RAMAnimatedTabBarController', '~> 1.0.6'
 pod 'UIScrollView-InfiniteScroll'
 pod ‘SwiftSpinner’
+pod 'CarbonKit', '~>2.1'
 end
 

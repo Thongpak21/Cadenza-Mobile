@@ -2,6 +2,7 @@ PODS:
   - Alamofire (3.1.2)
   - AlamofireImage (2.1.1):
     - Alamofire (~> 3.1)
+  - CarbonKit (2.1.4)
   - RAMAnimatedTabBarController (1.0.7)
   - SwiftSpinner (0.8.0)
   - SwiftyJSON (2.3.1)
@@ -10,6 +11,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - AlamofireImage (~> 2.0)
+  - CarbonKit (~> 2.1)
   - RAMAnimatedTabBarController (~> 1.0.6)
   - SwiftSpinner
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
@@ -27,6 +29,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
   AlamofireImage: 31f7c4e9f516183e0ef2d2da18318de28a4628b8
+  CarbonKit: 2ed5bf84961234bc1ed01b2dd825ff299efafe27
   RAMAnimatedTabBarController: f779af4c652e3b609e7f068b12ac8dab46909aa7
   SwiftSpinner: 11c2c5ec7443d92f3026d3067ca8a91d4adef13f
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3

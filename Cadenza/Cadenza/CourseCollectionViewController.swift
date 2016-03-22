@@ -31,6 +31,8 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    //    tabBarItem.badgeValue = "2"
+   //    tabBarController?.tabBar.items?[1].badgeValue = "1"
         let width = (CGRectGetWidth((collectionView?.bounds)!) - LeftAndRightPadding) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSizeMake(width, width + heightAdjustment)

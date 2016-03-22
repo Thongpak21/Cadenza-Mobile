@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '979D6529848A7EF37EA43351'
-               BlueprintName = 'AlamofireImage'
+               BlueprintIdentifier = '4120171002B6246753D6476D'
+               BlueprintName = 'CarbonKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'AlamofireImage.framework'>
+               BuildableName = 'CarbonKit.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

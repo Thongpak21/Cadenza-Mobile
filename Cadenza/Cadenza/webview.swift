@@ -15,7 +15,6 @@ class webview: UIViewController,UIWebViewDelegate {
     ]
     var myContext = 0
     
-    @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var web: UIWebView!
     override func viewDidLoad() {
@@ -27,14 +26,10 @@ class webview: UIViewController,UIWebViewDelegate {
     }
 
     func webViewDidStartLoad(_: UIWebView){
-        activity.hidden = false
-        activity.startAnimating()
         
     }
     func webViewDidFinishLoad(_: UIWebView){
         
-        activity.hidden = true
-        activity.stopAnimating()
         //        print(WebCourseDes.scrollView.contentSize.height)
     }
 

@@ -24,6 +24,9 @@
 		379B17F01BF8F2BA00B18E12 /* TableCourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */; };
 		379B17F51BF8F2BA00B18E12 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */; };
 		37C465C71C625BC0002F64E7 /* webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C465C61C625BC0002F64E7 /* webview.swift */; };
+		37D4F6531CA16ABC0037EE87 /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D4F6521CA16ABC0037EE87 /* SegmentViewController.swift */; };
+		37D4F6551CA1AE9F0037EE87 /* LectureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D4F6541CA1AE9F0037EE87 /* LectureTableViewController.swift */; };
+		37D4F6581CA1B92B0037EE87 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D4F6571CA1B92B0037EE87 /* Course.swift */; };
 		37DB2B3D1C62971B000A39AE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DB2B3C1C62971B000A39AE /* Model.swift */; };
 		37DB2B3F1C629E5A000A39AE /* uiapp+networkindicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DB2B3E1C629E5A000A39AE /* uiapp+networkindicator.swift */; };
 		37F71EEC1BF9989E004D4815 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F71EEB1BF9989E004D4815 /* MenuCell.swift */; };
@@ -53,6 +56,9 @@
 		379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		379B17FA1BF8F54300B18E12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		37C465C61C625BC0002F64E7 /* webview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webview.swift; sourceTree = "<group>"; };
+		37D4F6521CA16ABC0037EE87 /* SegmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentViewController.swift; sourceTree = "<group>"; };
+		37D4F6541CA1AE9F0037EE87 /* LectureTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureTableViewController.swift; sourceTree = "<group>"; };
+		37D4F6571CA1B92B0037EE87 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		37DB2B3C1C62971B000A39AE /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		37DB2B3E1C629E5A000A39AE /* uiapp+networkindicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "uiapp+networkindicator.swift"; sourceTree = "<group>"; };
 		37F71EEB1BF9989E004D4815 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
@@ -96,26 +102,27 @@
 		379B176A1BF8EC9C00B18E12 /* Cadenza */ = {
 			isa = PBXGroup;
 			children = (
-				37A1FF8A1C6530E200222C7F /* Model */,
 				379B17DB1BF8EDD800B18E12 /* SWRevealViewController */,
-				37F71F5B1C021D1B004D4815 /* Login.swift */,
+				37A1FF8A1C6530E200222C7F /* Model */,
 				37FA39011C994C6F0037D521 /* NewsTableViewCell.swift */,
 				371FCDAC1C0894FD002406F6 /* AppDelegate.swift */,
+				37F71F5B1C021D1B004D4815 /* Login.swift */,
 				379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */,
 				3718D0601C57F09C006F68DB /* ShowCourseDetail.swift */,
 				37513A0D1C60CCF5009B9451 /* Main.storyboard */,
 				379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */,
 				379B177A1BF8EC9C00B18E12 /* Info.plist */,
-				379B17D71BF8ED9000B18E12 /* Assets.xcassets */,
 				37F71EEB1BF9989E004D4815 /* MenuCell.swift */,
 				371FCE181C08D130002406F6 /* LogoutController.swift */,
 				37C465C61C625BC0002F64E7 /* webview.swift */,
+				37D4F6561CA1AEB70037EE87 /* Course Group */,
 				37DB2B3E1C629E5A000A39AE /* uiapp+networkindicator.swift */,
 				377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */,
 				3705626F1C639DD700EF65E3 /* CourseCell.swift */,
 				373B04681C7AFE9C00150958 /* MyCourseCollectionViewController.swift */,
 				373B046A1C7B2A4300150958 /* MyCourseTableViewController.swift */,
 				374385D21CA0BD2E00FA90C8 /* CourseCollectionViewController.swift */,
+				379B17D71BF8ED9000B18E12 /* Assets.xcassets */,
 			);
 			path = Cadenza;
 			sourceTree = "<group>";
@@ -135,8 +142,18 @@
 			children = (
 				37DB2B3C1C62971B000A39AE /* Model.swift */,
 				3785EDAA1CA156BC00A4A641 /* Token.swift */,
+				37D4F6571CA1B92B0037EE87 /* Course.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		37D4F6561CA1AEB70037EE87 /* Course Group */ = {
+			isa = PBXGroup;
+			children = (
+				37D4F6521CA16ABC0037EE87 /* SegmentViewController.swift */,
+				37D4F6541CA1AE9F0037EE87 /* LectureTableViewController.swift */,
+			);
+			name = "Course Group";
 			sourceTree = "<group>";
 		};
 		B9A90D7F8C4F228F6A54F985 /* Frameworks */ = {
@@ -288,8 +305,11 @@
 				37F71EEC1BF9989E004D4815 /* MenuCell.swift in Sources */,
 				37DB2B3D1C62971B000A39AE /* Model.swift in Sources */,
 				371FCE191C08D130002406F6 /* LogoutController.swift in Sources */,
+				37D4F6551CA1AE9F0037EE87 /* LectureTableViewController.swift in Sources */,
 				37DB2B3F1C629E5A000A39AE /* uiapp+networkindicator.swift in Sources */,
 				377A8ADA1C6338260070426B /* CustomInfiniteIndicator.swift in Sources */,
+				37D4F6531CA16ABC0037EE87 /* SegmentViewController.swift in Sources */,
+				37D4F6581CA1B92B0037EE87 /* Course.swift in Sources */,
 				379B17F01BF8F2BA00B18E12 /* TableCourseList.swift in Sources */,
 				374385D31CA0BD2E00FA90C8 /* CourseCollectionViewController.swift in Sources */,
 				370562701C639DD700EF65E3 /* CourseCell.swift in Sources */,
