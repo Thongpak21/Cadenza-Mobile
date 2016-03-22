@@ -35,7 +35,7 @@ class MyCourseTableViewController: UITableViewController {
         self.gettoken = checktoken()
         self.gettoken = token_coredata.valueForKey("token")
       //  print(gettoken![0])
-        token = gettoken![0] as? String
+        token = ""
         print(token!)
         data(token!)
 //        tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))

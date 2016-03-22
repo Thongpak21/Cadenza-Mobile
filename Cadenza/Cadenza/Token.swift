@@ -28,7 +28,7 @@ class Token: NSObject {
     func getToken() -> String {
         let gToken:AnyObject = Token().checktoken()
         var token = gToken.valueForKey("token")
-        token = token![0] as! String
+        token = token![0]
         return token! as! String
     }
 
