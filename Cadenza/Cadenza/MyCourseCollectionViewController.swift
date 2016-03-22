@@ -31,13 +31,7 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
     private var numPages = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        let token_coredata = checktoken()
-        self.gettoken = checktoken()
-        self.gettoken = token_coredata.valueForKey("token")
-        //  print(gettoken![0])
-        token = gettoken![0] as? String
-    //    print(token!)
-        data(token!)
+        data(Token().getToken())
         let width = (CGRectGetWidth((collectionView?.bounds)!) - LeftAndRightPadding) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSizeMake(width, width + heightAdjustment)
@@ -76,23 +70,6 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
                 
         }
     }
-    func checktoken() -> AnyObject {
-        let appdel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let context:NSManagedObjectContext = appdel.managedObjectContext
-        let request = NSFetchRequest(entityName: "Users")
-        request.returnsObjectsAsFaults = false;
-        do {
-            let result = try context.executeFetchRequest(request)
-            
-            // print(result)
-            return result
-        } catch {
-            print(error)
-        }
-        return "no"
-        
-    }
-    
 //        override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
 //            super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
 //    

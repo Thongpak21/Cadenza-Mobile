@@ -163,9 +163,11 @@ extension ShowCourseDetail : UITableViewDataSource{
         func LabelText(Label:UILabel!){
             tLabel.text = data_cell.sectionName
         }
-        
-        
- //       let mes = [data_cell.sectionName!,data_cell.sectionToken!]
+        let gToken:String = Token().getToken()
+        let data = [
+            "access_token":gToken,
+            "EnrollToken":data_cell.sectionToken!
+        ]
         print(data_cell.sectionID)
         print(data_cell.sectionName)
         print(data_cell.sectionToken)
@@ -178,7 +180,22 @@ extension ShowCourseDetail : UITableViewDataSource{
             switch action.style{
             case .Default:
                 print("hello")
-                
+                Alamofire.request(.POST, "http://www.cadenza.in.th/v2/api/mobile/courses/\(self.courseID!)/sections/\(data_cell.sectionID!)/enroll", parameters: data)
+                    .responseJSON{ response in
+                        print(response.result.value!)
+//                        if let results = response.result.value!["section"] as? [[String: AnyObject]] {
+//                            dispatch_async(dispatch_get_main_queue(),{
+//                                self.tableview.reloadData()
+//                            })
+//                            for i in results {
+//                                //      print("\(model(i).sectionName)   --->  \(model(i).courseID)")
+//                                self.section_model.append(model(i))
+//                            }
+//                            //      print(self.section_model.count)
+//                            
+//                        }
+                }
+
             case .Cancel:
                 print("cancel")
                 
