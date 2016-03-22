@@ -14,7 +14,7 @@ import CoreData
 import SwiftSpinner
 
 class CourseCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
-
+    
     private var data_model = [model]()
     private struct Storyboard {
         static let CellIdentifier = "CollectionViewCell"
@@ -28,7 +28,7 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
     
     private var currentPage = 1
     private var numPages = 0
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let width = (CGRectGetWidth((collectionView?.bounds)!) - LeftAndRightPadding) / numberOfItemsPerRow
@@ -42,16 +42,14 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         // Add infinite scroll handler
         collectionView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
             self?.fetchData() {
-                scrollView.finishInfiniteScroll()
+                self!.collectionView?.finishInfiniteScroll()
+
             }
         }
         fetchData(nil)
-
+        
     }
-    
 
-
-    
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         
@@ -71,7 +69,7 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
             }
         }
     }
-
+    
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
         
@@ -103,9 +101,9 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         cell.layer.shadowOpacity = 1.0
         cell.layer.masksToBounds = false
         return cell
-
+        
     }
-
+    
     
     private func apiURL(page:Int) ->  NSURL{
         let string = "http://cadenza.in.th/api/mobile/course?page=\(page)"
@@ -116,7 +114,7 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         print("page : \(currentPage)" )
         let requestURL = apiURL(currentPage)
         let indexPaths = [NSIndexPath]()
-  //      let firstIndex = data_model.count
+        //      let firstIndex = data_model.count
         let task = Alamofire.request(.GET, requestURL)
             .responseJSON{ response in
                 //    print(response.result.value)
@@ -127,13 +125,13 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
                 //     print(response.result.value?["per_page"])
                 if let pages = response.result.value?[self.JSONNumPagesKey] as? NSNumber {
                     self.numPages = pages as Int
-                //    print(self.numPages)
+                    //    print(self.numPages)
                 }
-              //    print(response.result.value?[self.JSONResultsKey] as? [[String: AnyObject]])
+                //    print(response.result.value?[self.JSONResultsKey] as? [[String: AnyObject]])
                 if let results = response.result.value?[self.JSONResultsKey] as? [[String: AnyObject]] {
-                    self.currentPage++
+                    self.currentPage += 1
                     for i in results {
-                //        print("\(model(i).title)   --->  \(model(i).courseID)")
+                        //        print("\(model(i).title)   --->  \(model(i).courseID)")
                         self.data_model.append(model(i))
                     }
                     self.collectionView?.reloadData()

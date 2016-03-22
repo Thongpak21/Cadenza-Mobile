@@ -12,7 +12,7 @@ private var networkActivityCount = 0
 extension UIApplication {
     
     func startNetworkActivity() {
-        networkActivityCount++
+        networkActivityCount += 1
         networkActivityIndicatorVisible = true
     }
     

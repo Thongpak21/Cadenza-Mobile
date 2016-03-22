@@ -141,7 +141,7 @@ class TableCourseList: UITableViewController {
                 }
               //  print(response.result.value?[self.JSONResultsKey] as? [[String: AnyObject]])
                 if let results = response.result.value?[self.JSONResultsKey] as? [[String: AnyObject]] {
-                    self.currentPage++
+                    self.currentPage += 1
                     for i in results {
                         print("\(model(i).title)   --->  \(model(i).courseID)")
                         self.data_model.append(model(i))
