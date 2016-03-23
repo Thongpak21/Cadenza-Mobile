@@ -46,7 +46,9 @@ class LectureTableViewController: UITableViewController {
                     }
           //          mystruct.json_lecture = json
                 }else {
-                    mystruct.json_lecture = nil
+                  //  mystruct.json_lecture = nil
+                    self.Lecture.append("No Lecture ")
+                    self.update.append(" ")
                 }
                 UIApplication.sharedApplication().stopNetworkActivity()
                 

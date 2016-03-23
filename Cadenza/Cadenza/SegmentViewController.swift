@@ -13,7 +13,7 @@ class SegmentViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let items = ["Lecture","Lesson","Video","Student","Announcement","Assignment"]
+        let items = ["Lecture","Video","Student","Announcement","Assignment"]
         let carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: items, delegate: self)
         carbonTabSwipeNavigation.insertIntoRootViewController(self)
       //  print(mystruct.courseID)
