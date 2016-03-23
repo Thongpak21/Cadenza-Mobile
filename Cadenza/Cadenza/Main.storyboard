@@ -40,7 +40,7 @@
                                 <rect key="frame" x="0.0" y="86" width="600" height="243"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m7N-Q8-5h6" id="uxv-3b-FYp">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="242.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="243"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0fY-zV-g8m">
@@ -675,7 +675,7 @@
                                 <rect key="frame" x="0.0" y="22" width="600" height="179"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9xX-mg-8e8" id="y8w-Z5-qKi">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="178.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="179"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nnA-2g-2hD">
@@ -1007,35 +1007,17 @@
             </objects>
             <point key="canvasLocation" x="3471" y="1934"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="BP6-Jr-C7r">
-            <objects>
-                <viewController storyboardIdentifier="Lecture" id="hXN-gi-Bi3" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Qbg-hM-33Q"/>
-                        <viewControllerLayoutGuide type="bottom" id="Q4F-ga-VEX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="b6I-40-9XC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hwn-Nf-ygm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4207" y="1934"/>
-        </scene>
         <!--Lecture Table View Controller-->
         <scene sceneID="FZb-ET-XiX">
             <objects>
-                <tableViewController id="QuI-B1-Z1i" customClass="LectureTableViewController" customModule="Cadenza" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Lecture" id="QuI-B1-Z1i" customClass="LectureTableViewController" customModule="Cadenza" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="oOM-6c-QC9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="1XC-sF-hne" detailTextLabel="FlM-mZ-9DP" style="IBUITableViewCellStyleSubtitle" id="E9s-yY-nbx">
-                                <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="1XC-sF-hne" detailTextLabel="FlM-mZ-9DP" style="IBUITableViewCellStyleSubtitle" id="E9s-yY-nbx">
+                                <rect key="frame" x="0.0" y="50" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E9s-yY-nbx" id="ugP-LT-iJN">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>

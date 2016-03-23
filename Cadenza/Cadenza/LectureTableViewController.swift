@@ -8,33 +8,53 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class LectureTableViewController: UITableViewController {
     var data_model = [model]()
+    var Lecture = [String]()
+    var update = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
+       // print(mystruct.secID)
+ //       print(mystruct.json_instruct![0,"SectionID"])
+        if mystruct.secID == nil {
+            alamo_Lecture("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.json_instruct![0,"SectionID"])/lectures?access_token=\(Token().getToken())")
 
-//        Alamofire.request(.GET, "")
-//            .responseJSON{ response in
-//                //    print(response.result.value![0])
-//                if let results = response.result.value!["section"] as? [[String: AnyObject]] {
-//                    dispatch_async(dispatch_get_main_queue(),{
-//                        self.tableView.reloadData()
-//                    })
-//                    for i in results {
-//                        //      print("\(model(i).sectionName)   --->  \(model(i).courseID)")
-//                     //   self.section_model.append(model(i))
-//                    }
-//                    //      print(self.section_model.count)
-//                    
-//                }
-//        }
-
+        }else{
+            alamo_Lecture("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.secID!)/lectures?access_token=\(Token().getToken())")
+        }
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+         self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+//         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    func alamo_Lecture(url:String){
+        Alamofire.request(.GET,url)
+            .responseJSON{ response in
+                UIApplication.sharedApplication().startNetworkActivity()
+                let json:JSON = JSON(response.result.value!)
+                //   print(json)
+                
+                if json[0,"SectionID"] != nil {
+                    print(json.count)
+                    for i in 0...json.count-1 {
+                        let user: Dictionary<String, JSON> = json[i].dictionaryValue
+                        self.Lecture.append((user["LectureTitle"]?.string)!)
+                        self.update.append((user["updated_at"]?.string)!)
+                    }
+          //          mystruct.json_lecture = json
+                }else {
+                    mystruct.json_lecture = nil
+                }
+                UIApplication.sharedApplication().stopNetworkActivity()
+                
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.tableView.reloadData()
+                })
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,23 +66,25 @@ class LectureTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Lecture.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        cell.textLabel?.text = Lecture[indexPath.row]
+        cell.detailTextLabel?.text = update[indexPath.row]
         return cell
     }
-    */
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+ 
 
     /*
     // Override to support conditional editing of the table view.

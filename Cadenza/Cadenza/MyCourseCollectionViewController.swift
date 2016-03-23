@@ -11,11 +11,7 @@ import Alamofire
 import SwiftyJSON
 import AlamofireImage
 import CoreData
-//private let reuseIdentifier = "Cell"
-//struct mystruct {
-//    static var courseID = ""
-//
-//}
+
 class MyCourseCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
     var gettoken:AnyObject?
     var token:String?
@@ -58,7 +54,8 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
         Alamofire.request(.GET,"http://www.cadenza.in.th/v2/api/mobile/mycourses?access_token=\(token)")
             .responseJSON{ response in
                  UIApplication.sharedApplication().startNetworkActivity()
-       //         let json = JSON(response.result.value!)
+                let json = JSON(response.result.value!)
+                mystruct.json = json
              //   print(json["courseName"])
               //  let asd = Course(cid: 5,sid: 10)
 //                for (key,subJson):(String, JSON) in json {
@@ -70,9 +67,10 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
                     for i in results {
               //          print("\(model(i).courseID)")
                         self.data_model.append(model(i))
-                         UIApplication.sharedApplication().stopNetworkActivity()
+                        UIApplication.sharedApplication().stopNetworkActivity()
                     }
                     
+                   
                 }
                 dispatch_async(dispatch_get_main_queue(),{
                     self.collectionView?.reloadData()
@@ -112,7 +110,13 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let data_cell = data_model[indexPath.row]
         mystruct.courseID = data_cell.courseID
-       // print(data_cell.courseID)
+        if let json:JSON = mystruct.json {
+      //      print(json["data",indexPath.row,"courseenroll"].count)
+     //       print(json["data",indexPath.row,"courseenroll",0,"SectionID"])
+            mystruct.secID = json["data",indexPath.row,"courseenroll",0,"SectionID"].int
+            mystruct.json_instruct = json["data",indexPath.row,"sectioninstructor"]
+        }
+     //   print(data_cell.title)
     }
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
