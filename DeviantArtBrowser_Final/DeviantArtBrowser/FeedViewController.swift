@@ -41,7 +41,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
   }
   
   func deselectAllRows() {
-    if let selectedRows = tableView.indexPathsForSelectedRows() as? [NSIndexPath] {
+    if let selectedRows = tableView.indexPathsForSelectedRows as [NSIndexPath]? {
       for indexPath in selectedRows {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
       }
@@ -71,12 +71,12 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
       }, failure: {(let error:NSError!) -> Void in
         
         self.hideProgressHUD()
-        println("Error: \(error)")
+        print("Error: \(error)")
     })
   }
   
   func showProgressHUD() {
-    var hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+    let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
     hud.labelText = "Loading"
   }
   
@@ -190,7 +190,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
   func setSubtitleForCell(cell:BasicCell, indexPath:NSIndexPath) {
     let item = items[indexPath.row] as RSSItem
-    var subtitle: NSString? = item.mediaText ?? item.mediaDescription
+    let subtitle: NSString? = item.mediaText ?? item.mediaDescription
     
     if let subtitle = subtitle {
       
@@ -231,8 +231,8 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
   // MARK: Navigation
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    let indexPath = tableView.indexPathForSelectedRow()
-    let item = items[indexPath!.row]
+    let indexPath = tableView.indexPathForSelectedRow!
+    let item = items[indexPath.row]
     
     let detailViewController = segue.destinationViewController as! DetailViewController
     detailViewController.item = item

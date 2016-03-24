@@ -64,7 +64,7 @@ class DetailViewController: UIViewController {
     
     var title = item?.title
     
-    if title == nil || count(title!) == 0 {
+    if title == nil || (title!).characters.count == 0 {
       title = NSLocalizedString("[No Title]", comment: "")
     }
     
