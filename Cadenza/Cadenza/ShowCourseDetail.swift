@@ -10,11 +10,11 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import AlamofireImage
+import MBProgressHUD
 class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
     @IBOutlet var tableview: UITableView!
     @IBOutlet weak var imgheight: NSLayoutConstraint!
     @IBOutlet weak var height: NSLayoutConstraint!
-    @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var height_layout: NSLayoutConstraint!
     @IBOutlet weak var WebCourseDes: UIWebView!
     @IBOutlet weak var viewbar: UIView!
@@ -23,6 +23,7 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
     @IBOutlet weak var viewbar3: UIView!
     @IBOutlet weak var imgcov: UIImageView!
     
+    @IBOutlet weak var table_height: NSLayoutConstraint!
    private var section_model = [model]()
     var Name=""
     var myContext = 0
@@ -33,14 +34,16 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-//        tableview.scrollEnabled = false
-//        print(tableview.scrollEnabled.hashValue)
+//        print(tableview.layer)
+        tableview.scrollEnabled = false
+
         webview()
+        
 //        print(height_layout.constant)
 //        print(courseID!)
 
         imgheight.constant = 150
-        height_layout.constant = height_layout.constant
+        height_layout.constant = height_layout.constant - 30
         WebCourseDes.scrollView.scrollEnabled = false
         viaSegueLabel.text = Name
         Alamofire.request(.GET, coveimg!)
@@ -55,7 +58,8 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         tableview.backgroundView = nil
     //    view.addSubview(tableview!)
     //    tableview.reloadData()
-        
+  //      print(table_height.constant)
+       
         WebCourseDes.delegate = self
     }
     func getSection() {
@@ -77,15 +81,14 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
     }
    
     func webViewDidStartLoad(webview: UIWebView){
-        activity.hidden = false
+        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        hud.labelText = "Loading"
         UIApplication.sharedApplication().startNetworkActivity()
-        activity.startAnimating()
         
     }
     func webViewDidFinishLoad(webview: UIWebView){
         UIApplication.sharedApplication().stopNetworkActivity()
-        activity.hidden = true
-        activity.stopAnimating()
+        MBProgressHUD.hideAllHUDsForView(view, animated: true)
         height.constant = WebCourseDes.scrollView.contentSize.height
         getSection()
     }
@@ -139,6 +142,7 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
   
 
 }
+
 extension ShowCourseDetail : UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section_model.count
@@ -148,8 +152,10 @@ extension ShowCourseDetail : UITableViewDataSource{
         let data_cell = section_model[indexPath.row]
         cell.textLabel?.text = data_cell.sectionName
         cell.detailTextLabel?.text = "Enroll"
+       // cell.detailTextLabel?.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.5)
        // print(data_cell.sectionID)
-        
+        table_height.constant = tableview.contentSize.height
+                      //          print(tableview.contentSize.height)
         return cell
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -160,6 +166,7 @@ extension ShowCourseDetail : UITableViewDataSource{
             textField.placeholder = data_cell.sectionName
             tField = textField
         }
+
         func LabelText(Label:UILabel!){
             tLabel.text = data_cell.sectionName
         }
@@ -183,17 +190,6 @@ extension ShowCourseDetail : UITableViewDataSource{
                 Alamofire.request(.POST, "http://www.cadenza.in.th/v2/api/mobile/courses/\(self.courseID!)/sections/\(data_cell.sectionID!)/enroll", parameters: data)
                     .responseJSON{ response in
                         print(response.result.value!)
-//                        if let results = response.result.value!["section"] as? [[String: AnyObject]] {
-//                            dispatch_async(dispatch_get_main_queue(),{
-//                                self.tableview.reloadData()
-//                            })
-//                            for i in results {
-//                                //      print("\(model(i).sectionName)   --->  \(model(i).courseID)")
-//                                self.section_model.append(model(i))
-//                            }
-//                            //      print(self.section_model.count)
-//                            
-//                        }
                 }
 
             case .Cancel:
@@ -208,5 +204,4 @@ extension ShowCourseDetail : UITableViewDataSource{
 }
 
 extension ShowCourseDetail: UITableViewDelegate {
-    
 }

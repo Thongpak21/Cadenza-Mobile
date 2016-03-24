@@ -21,19 +21,13 @@ struct mystruct {
     static var json_lecture:JSON?
 }
 class getAPI {
-    func alamo_Lecture(url:String){
+    func alamo_Anno(url:String) {
          let task = Alamofire.request(.GET,url)
             .responseJSON{ response in
                 UIApplication.sharedApplication().startNetworkActivity()
                 let json:JSON = JSON(response.result.value!)
              //   print(json)
                 
-                if json[0,"SectionID"] != nil {
-            //        print(json[0,"SectionID"])
-                    mystruct.json_lecture = json
-                }else {
-                    mystruct.json_lecture = nil
-                }
                 UIApplication.sharedApplication().stopNetworkActivity()
 
         }

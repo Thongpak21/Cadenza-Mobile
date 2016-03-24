@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F40B7C61F5432229E012131D'
+               BlueprintIdentifier = '0632D438EEA0A1E3C6A1AD0E'
                BlueprintName = 'Pods-Cadenza'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_Cadenza.framework'>

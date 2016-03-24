@@ -983,7 +983,9 @@
                             <outlet property="delegate" destination="TbR-8F-5aY" id="YSS-sq-Dje"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="My Course" id="Y8n-lH-ygK"/>
+                    <navigationItem key="navigationItem" title="My Course" id="Y8n-lH-ygK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="bu1-SO-LN0"/>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnl-fU-K5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1014,13 +1016,13 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="74" sectionHeaderHeight="18" sectionFooterHeight="18" id="oOM-6c-QC9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="1XC-sF-hne" detailTextLabel="FlM-mZ-9DP" rowHeight="74" style="IBUITableViewCellStyleSubtitle" id="E9s-yY-nbx">
                                 <rect key="frame" x="0.0" y="50" width="600" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E9s-yY-nbx" id="ugP-LT-iJN">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="74"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="73.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1XC-sF-hne">
@@ -1070,7 +1072,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JJM-gg-TEV">
-                                                <rect key="frame" x="8" y="8" width="584" height="341"/>
+                                                <rect key="frame" x="8" y="8" width="584" height="315"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Sb-rH-xOa" userLabel="View3">
                                                         <rect key="frame" x="0.0" y="0.0" width="584" height="88"/>
@@ -1105,10 +1107,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iuq-Ih-icj" userLabel="View4">
-                                                        <rect key="frame" x="0.0" y="98" width="584" height="124"/>
+                                                        <rect key="frame" x="0.0" y="98" width="584" height="98"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="D1b-YX-iM1">
-                                                                <rect key="frame" x="0.0" y="8" width="584" height="107"/>
+                                                                <rect key="frame" x="0.0" y="8" width="584" height="81"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RJr-q3-bqZ">
                                                                         <rect key="frame" x="0.0" y="0.0" width="584" height="25"/>
@@ -1125,11 +1127,8 @@
                                                                             </label>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4CN-qy-Sfo">
-                                                                        <rect key="frame" x="0.0" y="31" width="584" height="20"/>
-                                                                    </activityIndicatorView>
                                                                     <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zk2-bg-aMK">
-                                                                        <rect key="frame" x="0.0" y="57" width="584" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="31" width="584" height="50"/>
                                                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="nb7-YX-cUs"/>
@@ -1152,7 +1151,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0M-gv-WQu" userLabel="View5">
-                                                        <rect key="frame" x="0.0" y="232" width="584" height="109"/>
+                                                        <rect key="frame" x="0.0" y="206" width="584" height="109"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="44b-3P-scL">
                                                                 <rect key="frame" x="0.0" y="0.0" width="584" height="105"/>
@@ -1229,7 +1228,7 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="JJM-gg-TEV" secondAttribute="bottom" constant="138" id="1vt-1v-FDi"/>
+                                            <constraint firstAttribute="bottom" secondItem="JJM-gg-TEV" secondAttribute="bottom" constant="164" id="1vt-1v-FDi"/>
                                             <constraint firstItem="JJM-gg-TEV" firstAttribute="leading" secondItem="sO0-xX-1Hp" secondAttribute="leading" constant="8" id="MwS-08-m1H"/>
                                             <constraint firstAttribute="trailing" secondItem="JJM-gg-TEV" secondAttribute="trailing" constant="8" id="PxP-ce-8qB"/>
                                             <constraint firstItem="JJM-gg-TEV" firstAttribute="top" secondItem="sO0-xX-1Hp" secondAttribute="top" constant="8" id="omG-Mr-BmX"/>
@@ -1255,11 +1254,11 @@
                     </view>
                     <connections>
                         <outlet property="WebCourseDes" destination="Zk2-bg-aMK" id="QVB-f1-jcy"/>
-                        <outlet property="activity" destination="4CN-qy-Sfo" id="iuK-vB-1CN"/>
                         <outlet property="height" destination="nb7-YX-cUs" id="LWU-nh-zjg"/>
                         <outlet property="height_layout" destination="1vt-1v-FDi" id="bWa-G6-YhG"/>
                         <outlet property="imgcov" destination="5DZ-wi-GqU" id="1wH-Rk-q1x"/>
                         <outlet property="imgheight" destination="Vcy-TX-vGD" id="VlO-fL-pHJ"/>
+                        <outlet property="table_height" destination="9lh-Q8-NgX" id="U3g-do-Px6"/>
                         <outlet property="tableview" destination="akb-0f-PW7" id="jBn-ap-Dc5"/>
                         <outlet property="viaSegueLabel" destination="7iA-2a-TYb" id="pEQ-KK-kWA"/>
                         <outlet property="viewbar" destination="8Sb-rH-xOa" id="rky-xc-g2N"/>

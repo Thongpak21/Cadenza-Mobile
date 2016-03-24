@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import AlamofireImage
 import CoreData
+import MBProgressHUD
 
 class MyCourseCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
     var gettoken:AnyObject?

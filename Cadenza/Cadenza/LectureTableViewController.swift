@@ -30,6 +30,9 @@ class LectureTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 //         self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    
+    
     func alamo_Lecture(url:String){
         Alamofire.request(.GET,url)
             .responseJSON{ response in
@@ -38,7 +41,7 @@ class LectureTableViewController: UITableViewController {
                 //   print(json)
                 
                 if json[0,"SectionID"] != nil {
-                    print(json.count)
+                  //  print(json.count)
                     for i in 0...json.count-1 {
                         let user: Dictionary<String, JSON> = json[i].dictionaryValue
                         self.Lecture.append((user["LectureTitle"]?.string)!)
