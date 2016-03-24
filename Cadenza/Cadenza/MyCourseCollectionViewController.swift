@@ -119,7 +119,10 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
         }
      //   print(data_cell.title)
     }
-    
+    override func viewWillAppear(animated: Bool) {
+      //   viewDidLoad()
+      //  collectionView?.reloadData()
+    }
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
         

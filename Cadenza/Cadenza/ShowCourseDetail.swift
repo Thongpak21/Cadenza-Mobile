@@ -34,14 +34,10 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-//        print(tableview.layer)
         tableview.scrollEnabled = false
 
         webview()
         
-
-//        print(courseID!)
-
         imgheight.constant = 150
       //  print(height_layout.constant)
         height_layout.constant = height_layout.constant - 70
@@ -57,10 +53,6 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         tableview.delegate = self
         tableview.dataSource = self
         tableview.backgroundView = nil
-    //    view.addSubview(tableview!)
-    //    tableview.reloadData()
-  //      print(table_height.constant)
-       
         WebCourseDes.delegate = self
     }
     func getSection() {

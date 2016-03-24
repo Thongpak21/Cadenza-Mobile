@@ -16,7 +16,8 @@ class SegmentViewController: UIViewController{
         let items = ["Lecture","Video","Student","Announcement","Assignment"]
         let carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: items, delegate: self)
         carbonTabSwipeNavigation.insertIntoRootViewController(self)
-      //  print(mystruct.courseID)
+        print(mystruct.courseID)
+        print(mystruct.json_instruct![0,"SectionID"])
     }
 
     override func didReceiveMemoryWarning() {
