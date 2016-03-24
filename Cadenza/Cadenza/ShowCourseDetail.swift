@@ -39,11 +39,12 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
 
         webview()
         
-//        print(height_layout.constant)
+
 //        print(courseID!)
 
         imgheight.constant = 150
-        height_layout.constant = height_layout.constant - 30
+      //  print(height_layout.constant)
+        height_layout.constant = height_layout.constant - 70
         WebCourseDes.scrollView.scrollEnabled = false
         viaSegueLabel.text = Name
         Alamofire.request(.GET, coveimg!)
