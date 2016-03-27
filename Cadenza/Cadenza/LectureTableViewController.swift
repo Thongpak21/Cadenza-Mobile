@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-
+import CarbonKit
 class LectureTableViewController: UITableViewController {
     var data_model = [model]()
     var Lecture = [String]()

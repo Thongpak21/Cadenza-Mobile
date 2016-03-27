@@ -40,5 +40,5 @@ class model : NSObject {
         lectureID = dictionary["LectureID"] as? Int
         lectureTitle = dictionary["LectureTitle"] as? String
         courseEnroll = dictionary["courseenroll"] as? String
-    } 
+    }
 }
