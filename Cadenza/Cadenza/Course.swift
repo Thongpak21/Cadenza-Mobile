@@ -26,7 +26,7 @@ class getAPI {
             .responseJSON{ response in
                 UIApplication.sharedApplication().startNetworkActivity()
                 let json:JSON = JSON(response.result.value!)
-             //   print(json)
+                print(json)
                 
                 UIApplication.sharedApplication().stopNetworkActivity()
 

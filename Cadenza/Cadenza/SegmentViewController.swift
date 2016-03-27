@@ -13,11 +13,12 @@ class SegmentViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let items = ["Lecture","Video","Student","Announcement","Assignment"]
+        let items = ["Lecture","Announcement","Video","Student","Assignment"]
         let carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: items, delegate: self)
         carbonTabSwipeNavigation.insertIntoRootViewController(self)
         print(mystruct.courseID)
         print(mystruct.json_instruct![0,"SectionID"])
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,11 +32,10 @@ class SegmentViewController: UIViewController{
         case 0:
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Lecture")
            return  viewController
-            //   return [self.storyboard instantiateViewControllerWithIdentifier:"ViewControllerOne"]
             
-//        case 1:
-//            return [self.storyboard instantiateViewControllerWithIdentifier:@"ViewControllerTwo"];
-//            
+        case 1:
+            return UIStoryboard(name: "Main",bundle: nil).instantiateViewControllerWithIdentifier("Anno")
+//
         default:
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home")
             return  viewController

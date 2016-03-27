@@ -10,6 +10,7 @@
 		370562701C639DD700EF65E3 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3705626F1C639DD700EF65E3 /* CourseCell.swift */; };
 		370CC9751CA7FBB60050D6B7 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370CC9731CA7FBB60050D6B7 /* Fabric.framework */; };
 		370CC9761CA7FBB60050D6B7 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370CC9741CA7FBB60050D6B7 /* Crashlytics.framework */; };
+		370CC9781CA83B0E0050D6B7 /* AnnoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370CC9771CA83B0E0050D6B7 /* AnnoTableViewCell.swift */; };
 		3718D0611C57F09C006F68DB /* ShowCourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3718D0601C57F09C006F68DB /* ShowCourseDetail.swift */; };
 		371FCD8A1C0884BB002406F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 379B17FA1BF8F54300B18E12 /* MapKit.framework */; };
 		371FCDAD1C0894FD002406F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FCDAC1C0894FD002406F6 /* AppDelegate.swift */; };
@@ -41,6 +42,7 @@
 		3705626F1C639DD700EF65E3 /* CourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		370CC9731CA7FBB60050D6B7 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		370CC9741CA7FBB60050D6B7 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		370CC9771CA83B0E0050D6B7 /* AnnoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnoTableViewCell.swift; sourceTree = "<group>"; };
 		3718D0601C57F09C006F68DB /* ShowCourseDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCourseDetail.swift; sourceTree = "<group>"; };
 		371FCDAC1C0894FD002406F6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		371FCE181C08D130002406F6 /* LogoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				37D4F6521CA16ABC0037EE87 /* SegmentViewController.swift */,
 				37D4F6541CA1AE9F0037EE87 /* LectureTableViewController.swift */,
 				372F6A151CA3D490008FB3A9 /* AnnouncementTableViewController.swift */,
+				370CC9771CA83B0E0050D6B7 /* AnnoTableViewCell.swift */,
 			);
 			name = "Course Group";
 			sourceTree = "<group>";
@@ -200,7 +203,7 @@
 				379B17661BF8EC9C00B18E12 /* Resources */,
 				D1A6D04B4966D810C725EE45 /* Embed Pods Frameworks */,
 				0580A0A75E06D4658DDD5CD4 /* Copy Pods Resources */,
-				370CC9721CA7FAD90050D6B7 /* ShellScript */,
+				370CC9721CA7FAD90050D6B7 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -274,13 +277,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cadenza/Pods-Cadenza-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		370CC9721CA7FAD90050D6B7 /* ShellScript */ = {
+		370CC9721CA7FAD90050D6B7 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,6 +333,7 @@
 				37FA39021C994C6F0037D521 /* NewsTableViewCell.swift in Sources */,
 				37F71F5C1C021D1B004D4815 /* Login.swift in Sources */,
 				373B04691C7AFE9C00150958 /* MyCourseCollectionViewController.swift in Sources */,
+				370CC9781CA83B0E0050D6B7 /* AnnoTableViewCell.swift in Sources */,
 				37F71EEC1BF9989E004D4815 /* MenuCell.swift in Sources */,
 				37DB2B3D1C62971B000A39AE /* Model.swift in Sources */,
 				371FCE191C08D130002406F6 /* LogoutController.swift in Sources */,
@@ -440,6 +445,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -463,6 +469,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
