@@ -7,20 +7,45 @@
 //
 
 import UIKit
+import Alamofire
 
 class LessonTableViewController: UITableViewController {
 
+    var data_model = [model]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(mystruct.courseID)
-        print(mystruct.secID)
-        print(mystruct.lectureID)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+//        print(mystruct.courseID)
+//        print(mystruct.secID)
+//        print(mystruct.lectureID)
+        if mystruct.secID == nil {
+            alamo_Lesson("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.json_instruct![0,"SectionID"])/lectures/\(mystruct.lectureID!)/lessons?access_token=\(Token().getToken())")
+            
+        }else{
+            alamo_Lesson("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.secID!)/lectures/\(mystruct.lectureID!)/lessons?access_token=\(Token().getToken())")
+        }
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    func alamo_Lesson(url:String){
+        Alamofire.request(.GET,url)
+            .responseJSON{ response in
+                UIApplication.sharedApplication().startNetworkActivity()
+                if let results = response.result.value as? [[String: AnyObject]] {
+                    for i in results {
+             //           print("\(model(i).LessonID)   --->  \(model(i).LessonTitle)")
+                        self.data_model.append(model(i))
+                    }
+                    self.tableView.reloadData()
+                }
+                
+                UIApplication.sharedApplication().stopNetworkActivity()
+                
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.tableView.reloadData()
+                })
+        }
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -30,24 +55,22 @@ class LessonTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return data_model.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let data_cell = data_model[indexPath.row]
+        cell.textLabel?.text = data_cell.LessonTitle
+        cell.detailTextLabel?.text = data_cell.LessonDes
         return cell
     }
-    */
+ 
 
 
 }
