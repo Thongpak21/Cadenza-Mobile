@@ -19,6 +19,7 @@ struct mystruct {
     static var update_lec = [String]()
     static var lecturetitle = [String]()
     static var json_lecture:JSON?
+    static var lectureID:Int?
 }
 class getAPI {
     func alamo_Anno(url:String) {

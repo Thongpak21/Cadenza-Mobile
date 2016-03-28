@@ -14,6 +14,7 @@ class LectureTableViewController: UITableViewController {
     var data_model = [model]()
     var Lecture = [String]()
     var update = [String]()
+    var lectureID = [Int]()
     override func viewDidLoad() {
         super.viewDidLoad()
        // print(mystruct.secID)
@@ -46,6 +47,7 @@ class LectureTableViewController: UITableViewController {
                         let user: Dictionary<String, JSON> = json[i].dictionaryValue
                         self.Lecture.append((user["LectureTitle"]?.string)!)
                         self.update.append((user["updated_at"]?.string)!)
+                        self.lectureID.append((user["LectureID"]?.int)!)
                     }
           //          mystruct.json_lecture = json
                 }else {
@@ -83,13 +85,15 @@ class LectureTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         cell.textLabel?.text = Lecture[indexPath.row]
+        
         cell.detailTextLabel?.text = update[indexPath.row]
         return cell
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        mystruct.lectureID = lectureID[indexPath.row]
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
- 
+
 
     /*
     // Override to support conditional editing of the table view.

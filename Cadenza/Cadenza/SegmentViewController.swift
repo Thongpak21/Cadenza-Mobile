@@ -8,16 +8,17 @@
 
 import UIKit
 import CarbonKit
-import Alamofire 
+import Alamofire
 class SegmentViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      //  self.tabBarController?.tabBar.hidden = true
         let items = ["Lecture","Announcement","Video","Student","Assignment"]
         let carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: items, delegate: self)
         carbonTabSwipeNavigation.insertIntoRootViewController(self)
-        print(mystruct.courseID)
-        print(mystruct.json_instruct![0,"SectionID"])
+//        print(mystruct.courseID)
+//        print(mystruct.json_instruct![0,"SectionID"])
 
     }
 

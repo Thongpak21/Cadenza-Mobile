@@ -10,13 +10,13 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class AnnouncementTableViewController: UITableViewController {
+class AnnouncementTableViewController: UITableViewController,UIWebViewDelegate {
 
     private let cellIdentifier = "Cell"
     private let showBrowserSegueIdentifier = "ShowBrowser"
     private let JSONResultsKey = "data"
     private let JSONNumPagesKey = "per_page"
-    
+
     private var currentPage = 1
     private var numPages = 0
     private var data_model = [model]()
@@ -24,7 +24,6 @@ class AnnouncementTableViewController: UITableViewController {
     var selectedIndexPath:NSIndexPath?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
         
         tableView.infiniteScrollIndicatorMargin = 40
@@ -48,7 +47,6 @@ class AnnouncementTableViewController: UITableViewController {
         }else{
             string = "http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.secID!)/announcement?access_token=\(Token().getToken())&page=\(page)"
         }
-
         let url = NSURL(string:string)
         return url!
     }
@@ -109,11 +107,13 @@ class AnnouncementTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cellAnno", forIndexPath: indexPath) as! AnnoTableViewCell
         let data_cell = data_model[indexPath.row]
         cell.Title.text = data_cell.annoTitle
-        cell.web.scrollView.scrollEnabled = false
-        cell.loadwebview(data_cell.annoDes!)
+      //  cell.web.scrollView.scrollEnabled = false
+    //    cell.loadwebview(data_cell.annoDes!)
+       // cell.height_web.constant = 500
+        print(tableView.rowHeight)
+//        print(cell.web.scrollView.contentSize.height)
         return cell
     }
-    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let pre = selectedIndexPath
         if indexPath == selectedIndexPath {
@@ -132,6 +132,7 @@ class AnnouncementTableViewController: UITableViewController {
             tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
+
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath == selectedIndexPath {

@@ -13,7 +13,7 @@ class AnnoTableViewCell: UITableViewCell,UIScrollViewDelegate,UIWebViewDelegate 
     @IBOutlet weak var height_web: NSLayoutConstraint!
     @IBOutlet weak var Title: UILabel!
     class var expandedHeight: CGFloat { get { return 300 } }
-    class var defaultHeight: CGFloat { get { return 70 } }
+    class var defaultHeight: CGFloat { get { return 188 } }
     func checkheight() {
         web.hidden = (frame.size.height < AnnoTableViewCell.expandedHeight)
     }
@@ -32,8 +32,8 @@ class AnnoTableViewCell: UITableViewCell,UIScrollViewDelegate,UIWebViewDelegate 
     }
     func webViewDidFinishLoad(webview: UIWebView){
         UIApplication.sharedApplication().stopNetworkActivity()
-        print(web.scrollView.contentSize.height)
-        height_web.constant = web.scrollView.contentSize.height
+   //     print(web.scrollView.contentSize.height)
+    //    height_web.constant = web.scrollView.contentSize.height
     }
 
 
