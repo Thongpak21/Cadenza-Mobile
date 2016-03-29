@@ -20,6 +20,8 @@ struct mystruct {
     static var lecturetitle = [String]()
     static var json_lecture:JSON?
     static var lectureID:Int?
+    static var video = [String]()
+    static var indexpath_video:Int?
 }
 class getAPI {
     func alamo_Anno(url:String) {

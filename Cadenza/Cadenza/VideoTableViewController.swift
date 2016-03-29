@@ -1,0 +1,96 @@
+//
+//  LessonTableViewController.swift
+//  Cadenza
+//
+//  Created by Thongpak on 3/28/2559 BE.
+//  Copyright © 2559 Thongpak. All rights reserved.
+//
+
+import UIKit
+import Alamofire
+import AVKit
+import AVFoundation
+
+class VideoTableViewController: UITableViewController {
+    
+    var data_model = [model]()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //        print(mystruct.courseID)
+        //        print(mystruct.secID)
+        //        print(mystruct.lectureID)
+        if mystruct.secID == nil {
+            alamo_Video("http://www.cadenza.in.th/v2/api/mobile/courses/1/sections/7/videos?access_token=\(Token().getToken())")
+            
+        }else{
+            alamo_Video("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.secID!)/videos?access_token=\(Token().getToken())")
+        }
+        
+    }
+    func alamo_Video(url:String){
+        Alamofire.request(.GET,url)
+            .responseJSON{ response in
+                UIApplication.sharedApplication().startNetworkActivity()
+                if let results = response.result.value as? [[String: AnyObject]] {
+                    for i in results {
+                        //           print("\(model(i).LessonID)   --->  \(model(i).LessonTitle)")
+                        self.data_model.append(model(i))
+                    }
+                    self.tableView.reloadData()
+                }
+                
+                UIApplication.sharedApplication().stopNetworkActivity()
+                
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.tableView.reloadData()
+                })
+        }
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Table view data source
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data_model.count
+    }
+    
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let data_cell = data_model[indexPath.row]
+        cell.textLabel?.text = data_cell.videoTitle
+        if data_cell.videoType == 1 {
+            mystruct.video.append("https://www.youtube.com/watch?v=\(data_cell.videoURL!)")
+        } else {
+            mystruct.video.append("https://vimeo.com/channels/staffpicks/\(data_cell.videoURL!)")
+        }
+        return cell
+    }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        mystruct.indexpath_video = indexPath.row
+        
+//        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Avplayer")
+//        self.presentViewController(viewController, animated: true, completion: nil)
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destination = segue.destinationViewController as! AVPlayerViewController
+        self.tabBarController!.tabBar.hidden = true
+//        destination.
+//        self.navigationController!.navigationBar.hidden = true
+//        self.tabBarController?.tabBar.items
+        let url = NSURL(string:
+            "http://www.ebookfrenzy.com/ios_book/movie/movie.mov")
+        destination.player = AVPlayer(URL: url!)
+    }
+    
+    
+}

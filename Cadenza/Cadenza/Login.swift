@@ -76,7 +76,7 @@ class Login: UIViewController,UITextFieldDelegate {
             .responseJSON { response in
 //                print("Response JSON: \(response.result.value)")
                 let json = JSON(response.result.value!)
-                print(json["access_token"])
+          //      print(json["access_token"])
 //                for (key,json):(String, JSON) in json {
 //                    print("\(key) -> \(json)")
 //                }

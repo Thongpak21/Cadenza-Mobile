@@ -28,7 +28,6 @@ class SegmentViewController: UIViewController{
     }
     
     func carbonTabSwipeNavigation(carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAtIndex index: UInt) -> UIViewController {
-        // return viewController at index
         switch (index) {
         case 0:
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Lecture")
@@ -36,20 +35,12 @@ class SegmentViewController: UIViewController{
             
         case 1:
             return UIStoryboard(name: "Main",bundle: nil).instantiateViewControllerWithIdentifier("Anno")
-//
+            
+        case 2:
+            return UIStoryboard(name: "Main",bundle: nil).instantiateViewControllerWithIdentifier("video")
         default:
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home")
             return  viewController
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

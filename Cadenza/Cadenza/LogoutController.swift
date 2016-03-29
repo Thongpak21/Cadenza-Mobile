@@ -38,7 +38,7 @@ class LogoutController: UIViewController {
             result.removeAll(keepCapacity: false)
             
             print("Logout")
-            print(result.count)
+        //    print(result.count)
             if result.count == 0 {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login")

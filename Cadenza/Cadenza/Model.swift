@@ -23,12 +23,17 @@ class model : NSObject {
     var lectureID:Int?
     var lectureTitle:String?
     var courseEnroll : String?
+    var update:String?
     var annoID: Int?
     var annoTitle:String?
     var annoDes:String?
     var LessonID:Int?
     var LessonTitle:String?
     var LessonDes:String?
+    var videoID:Int?
+    var videoTitle:String?
+    var videoURL:String?
+    var videoType:Int?
     init(_ dictionary:[String: AnyObject]) {
         super.init()
         title = dictionary["CourseName"] as? String
@@ -52,5 +57,10 @@ class model : NSObject {
         LessonID = dictionary["LessonID"] as? Int
         LessonTitle = dictionary["LessonTitle"] as? String
         LessonDes = dictionary["LessonDescription"] as? String
+        videoID = dictionary["VideoID"] as? Int
+        videoTitle = dictionary["VideoTitle"] as? String
+        videoURL = dictionary["VideoURL"] as? String
+        videoType = dictionary["VideoType"] as? Int
+        update = dictionary["updated_at"] as? String
     }
 }

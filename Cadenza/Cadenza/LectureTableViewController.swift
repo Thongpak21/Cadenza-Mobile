@@ -38,23 +38,13 @@ class LectureTableViewController: UITableViewController {
         Alamofire.request(.GET,url)
             .responseJSON{ response in
                 UIApplication.sharedApplication().startNetworkActivity()
-                let json:JSON = JSON(response.result.value!)
-                //   print(json)
-                
-                if json[0,"SectionID"] != nil {
-                  //  print(json.count)
-                    for i in 0...json.count-1 {
-                        let user: Dictionary<String, JSON> = json[i].dictionaryValue
-                        self.Lecture.append((user["LectureTitle"]?.string)!)
-                        self.update.append((user["updated_at"]?.string)!)
-                        self.lectureID.append((user["LectureID"]?.int)!)
+                if let results = response.result.value as? [[String: AnyObject]] {
+                    for i in results {
+                    //    print("\(model(i).LessonID)   --->  \(model(i).LessonTitle)")
+                        self.data_model.append(model(i))
                     }
-          //          mystruct.json_lecture = json
-                }else {
-                  //  mystruct.json_lecture = nil
-                    self.Lecture.append("No Lecture ")
-                    self.update.append(" ")
                 }
+                
                 UIApplication.sharedApplication().stopNetworkActivity()
                 
                 dispatch_async(dispatch_get_main_queue(),{
@@ -78,19 +68,19 @@ class LectureTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Lecture.count
+        return data_model.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        cell.textLabel?.text = Lecture[indexPath.row]
+        cell.textLabel?.text = data_model[indexPath.row].lectureTitle
         
-        cell.detailTextLabel?.text = update[indexPath.row]
+        cell.detailTextLabel?.text = data_model[indexPath.row].update
         return cell
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        mystruct.lectureID = lectureID[indexPath.row]
+        mystruct.lectureID = data_model[indexPath.row].lectureID
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 

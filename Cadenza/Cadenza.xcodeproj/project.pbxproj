@@ -21,6 +21,8 @@
 		374385D31CA0BD2E00FA90C8 /* CourseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374385D21CA0BD2E00FA90C8 /* CourseCollectionViewController.swift */; };
 		37513A0E1C60CCF5009B9451 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37513A0D1C60CCF5009B9451 /* Main.storyboard */; };
 		3765319D1CA0B9530073A54F /* Pods_Cadenza.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3765319C1CA0B9530073A54F /* Pods_Cadenza.framework */; };
+		376597471CAABE6A00D9542F /* VideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376597461CAABE6A00D9542F /* VideoTableViewController.swift */; };
+		376597491CAAC7D600D9542F /* AvPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376597481CAAC7D600D9542F /* AvPlayerViewController.swift */; };
 		377A8ADA1C6338260070426B /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */; };
 		3785EDAB1CA156BC00A4A641 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3785EDAA1CA156BC00A4A641 /* Token.swift */; };
 		379B17D81BF8ED9000B18E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379B17D71BF8ED9000B18E12 /* Assets.xcassets */; };
@@ -52,6 +54,10 @@
 		374385D21CA0BD2E00FA90C8 /* CourseCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCollectionViewController.swift; sourceTree = "<group>"; };
 		37513A0D1C60CCF5009B9451 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3765319C1CA0B9530073A54F /* Pods_Cadenza.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Cadenza.framework; path = "../../../Library/Developer/Xcode/DerivedData/Cadenza-dpilcmdqxfwyocggmjiduuoueshw/Build/Products/Debug-iphonesimulator/Pods_Cadenza.framework"; sourceTree = "<group>"; };
+		376597461CAABE6A00D9542F /* VideoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewController.swift; sourceTree = "<group>"; };
+		376597481CAAC7D600D9542F /* AvPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvPlayerViewController.swift; sourceTree = "<group>"; };
+		3765974A1CAAD12E00D9542F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3765974C1CAAD13500D9542F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfiniteIndicator.swift; sourceTree = "<group>"; };
 		3785EDAA1CA156BC00A4A641 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		379B17681BF8EC9C00B18E12 /* Cadenza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadenza.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +167,8 @@
 				372F6A151CA3D490008FB3A9 /* AnnouncementTableViewController.swift */,
 				370CC9771CA83B0E0050D6B7 /* AnnoTableViewCell.swift */,
 				372D0EF51CA96E760024CD14 /* LessonTableViewController.swift */,
+				376597461CAABE6A00D9542F /* VideoTableViewController.swift */,
+				376597481CAAC7D600D9542F /* AvPlayerViewController.swift */,
 			);
 			name = "Course Group";
 			sourceTree = "<group>";
@@ -168,6 +176,8 @@
 		B9A90D7F8C4F228F6A54F985 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3765974C1CAAD13500D9542F /* AVKit.framework */,
+				3765974A1CAAD12E00D9542F /* AVFoundation.framework */,
 				370CC9731CA7FBB60050D6B7 /* Fabric.framework */,
 				370CC9741CA7FBB60050D6B7 /* Crashlytics.framework */,
 				37EC1AF81CA7F78E001176CB /* Fabric.app */,
@@ -342,7 +352,9 @@
 				37D4F6581CA1B92B0037EE87 /* Course.swift in Sources */,
 				379B17F01BF8F2BA00B18E12 /* TableCourseList.swift in Sources */,
 				374385D31CA0BD2E00FA90C8 /* CourseCollectionViewController.swift in Sources */,
+				376597491CAAC7D600D9542F /* AvPlayerViewController.swift in Sources */,
 				370562701C639DD700EF65E3 /* CourseCell.swift in Sources */,
+				376597471CAABE6A00D9542F /* VideoTableViewController.swift in Sources */,
 				3718D0611C57F09C006F68DB /* ShowCourseDetail.swift in Sources */,
 				371FCDAD1C0894FD002406F6 /* AppDelegate.swift in Sources */,
 				3785EDAB1CA156BC00A4A641 /* Token.swift in Sources */,

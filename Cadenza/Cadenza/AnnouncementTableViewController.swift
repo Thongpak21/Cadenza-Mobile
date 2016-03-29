@@ -51,7 +51,7 @@ class AnnouncementTableViewController: UITableViewController,UIWebViewDelegate {
         return url!
     }
     private func fetchData(handler:((Void) -> Void)?){
-        print("page : \(currentPage)" )
+      //  print("page : \(currentPage)" )
         let requestURL = apiURL(currentPage)
         let task = Alamofire.request(.GET, requestURL)
             .responseJSON{ response in
@@ -110,7 +110,7 @@ class AnnouncementTableViewController: UITableViewController,UIWebViewDelegate {
       //  cell.web.scrollView.scrollEnabled = false
     //    cell.loadwebview(data_cell.annoDes!)
        // cell.height_web.constant = 500
-        print(tableView.rowHeight)
+     //   print(tableView.rowHeight)
 //        print(cell.web.scrollView.contentSize.height)
         return cell
     }
@@ -134,13 +134,13 @@ class AnnouncementTableViewController: UITableViewController,UIWebViewDelegate {
     }
 
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath == selectedIndexPath {
-            return AnnoTableViewCell.expandedHeight
-        } else {
-            return AnnoTableViewCell.defaultHeight
-        }
-    }
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if indexPath == selectedIndexPath {
+//            return AnnoTableViewCell.expandedHeight
+//        } else {
+//            return AnnoTableViewCell.defaultHeight
+//        }
+//    }
 
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
      //   (cell as! AnnoTableViewCell).
