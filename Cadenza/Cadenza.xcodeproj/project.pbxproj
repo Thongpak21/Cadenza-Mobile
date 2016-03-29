@@ -12,7 +12,6 @@
 		370CC9761CA7FBB60050D6B7 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370CC9741CA7FBB60050D6B7 /* Crashlytics.framework */; };
 		370CC9781CA83B0E0050D6B7 /* AnnoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370CC9771CA83B0E0050D6B7 /* AnnoTableViewCell.swift */; };
 		3718D0611C57F09C006F68DB /* ShowCourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3718D0601C57F09C006F68DB /* ShowCourseDetail.swift */; };
-		371FCD8A1C0884BB002406F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 379B17FA1BF8F54300B18E12 /* MapKit.framework */; };
 		371FCDAD1C0894FD002406F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FCDAC1C0894FD002406F6 /* AppDelegate.swift */; };
 		371FCE191C08D130002406F6 /* LogoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FCE181C08D130002406F6 /* LogoutController.swift */; };
 		372D0EF61CA96E760024CD14 /* LessonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372D0EF51CA96E760024CD14 /* LessonTableViewController.swift */; };
@@ -25,7 +24,6 @@
 		377A8ADA1C6338260070426B /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */; };
 		3785EDAB1CA156BC00A4A641 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3785EDAA1CA156BC00A4A641 /* Token.swift */; };
 		379B17D81BF8ED9000B18E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379B17D71BF8ED9000B18E12 /* Assets.xcassets */; };
-		379B17E01BF8EE0A00B18E12 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B17DD1BF8EE0A00B18E12 /* SWRevealViewController.m */; };
 		379B17F01BF8F2BA00B18E12 /* TableCourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */; };
 		379B17F51BF8F2BA00B18E12 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */; };
 		37C465C71C625BC0002F64E7 /* webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C465C61C625BC0002F64E7 /* webview.swift */; };
@@ -60,8 +58,6 @@
 		379B177A1BF8EC9C00B18E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		379B17D71BF8ED9000B18E12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		379B17DC1BF8EE0A00B18E12 /* Cadenza-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cadenza-Bridging-Header.h"; sourceTree = "<group>"; };
-		379B17DD1BF8EE0A00B18E12 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		379B17DE1BF8EE0A00B18E12 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCourseList.swift; sourceTree = "<group>"; };
 		379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		379B17FA1BF8F54300B18E12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -85,7 +81,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3765319D1CA0B9530073A54F /* Pods_Cadenza.framework in Frameworks */,
-				371FCD8A1C0884BB002406F6 /* MapKit.framework in Frameworks */,
 				370CC9761CA7FBB60050D6B7 /* Crashlytics.framework in Frameworks */,
 				370CC9751CA7FBB60050D6B7 /* Fabric.framework in Frameworks */,
 			);
@@ -115,7 +110,7 @@
 		379B176A1BF8EC9C00B18E12 /* Cadenza */ = {
 			isa = PBXGroup;
 			children = (
-				379B17DB1BF8EDD800B18E12 /* SWRevealViewController */,
+				379B17DB1BF8EDD800B18E12 /* Header */,
 				37A1FF8A1C6530E200222C7F /* Model */,
 				37FA39011C994C6F0037D521 /* NewsTableViewCell.swift */,
 				371FCDAC1C0894FD002406F6 /* AppDelegate.swift */,
@@ -140,14 +135,12 @@
 			path = Cadenza;
 			sourceTree = "<group>";
 		};
-		379B17DB1BF8EDD800B18E12 /* SWRevealViewController */ = {
+		379B17DB1BF8EDD800B18E12 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				379B17DD1BF8EE0A00B18E12 /* SWRevealViewController.m */,
 				379B17DC1BF8EE0A00B18E12 /* Cadenza-Bridging-Header.h */,
-				379B17DE1BF8EE0A00B18E12 /* SWRevealViewController.h */,
 			);
-			name = SWRevealViewController;
+			name = Header;
 			sourceTree = "<group>";
 		};
 		37A1FF8A1C6530E200222C7F /* Model */ = {
@@ -353,7 +346,6 @@
 				3718D0611C57F09C006F68DB /* ShowCourseDetail.swift in Sources */,
 				371FCDAD1C0894FD002406F6 /* AppDelegate.swift in Sources */,
 				3785EDAB1CA156BC00A4A641 /* Token.swift in Sources */,
-				379B17E01BF8EE0A00B18E12 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
