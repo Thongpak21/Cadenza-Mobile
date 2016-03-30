@@ -106,7 +106,7 @@ class AnnouncementTableViewController: UITableViewController,UIWebViewDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cellAnno", forIndexPath: indexPath) as! AnnoTableViewCell
         let data_cell = data_model[indexPath.row]
-        cell.Title.text = data_cell.annoTitle
+        cell.textLabel?.text = data_cell.annoTitle
       //  cell.web.scrollView.scrollEnabled = false
     //    cell.loadwebview(data_cell.annoDes!)
        // cell.height_web.constant = 500
@@ -115,22 +115,22 @@ class AnnouncementTableViewController: UITableViewController,UIWebViewDelegate {
         return cell
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let pre = selectedIndexPath
-        if indexPath == selectedIndexPath {
-            selectedIndexPath = nil
-        } else {
-            selectedIndexPath = indexPath
-        }
-        var indexPaths: Array<NSIndexPath> = []
-        if let prev = pre {
-            indexPaths += [prev]
-        }
-        if let current = selectedIndexPath {
-            indexPaths += [current]
-        }
-        if indexPaths.count > 0 {
-            tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
-        }
+//        let pre = selectedIndexPath
+//        if indexPath == selectedIndexPath {
+//            selectedIndexPath = nil
+//        } else {
+//            selectedIndexPath = indexPath
+//        }
+//        var indexPaths: Array<NSIndexPath> = []
+//        if let prev = pre {
+//            indexPaths += [prev]
+//        }
+//        if let current = selectedIndexPath {
+//            indexPaths += [current]
+//        }
+//        if indexPaths.count > 0 {
+//            tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
+//        }
     }
 
     

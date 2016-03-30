@@ -23,6 +23,7 @@
 		3765319D1CA0B9530073A54F /* Pods_Cadenza.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3765319C1CA0B9530073A54F /* Pods_Cadenza.framework */; };
 		376597471CAABE6A00D9542F /* VideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376597461CAABE6A00D9542F /* VideoTableViewController.swift */; };
 		376597491CAAC7D600D9542F /* AvPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376597481CAAC7D600D9542F /* AvPlayerViewController.swift */; };
+		376F32A41CAC09FE000F1725 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F32A31CAC09FE000F1725 /* VideoTableViewCell.swift */; };
 		377A8ADA1C6338260070426B /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */; };
 		3785EDAB1CA156BC00A4A641 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3785EDAA1CA156BC00A4A641 /* Token.swift */; };
 		379B17D81BF8ED9000B18E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379B17D71BF8ED9000B18E12 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		376597481CAAC7D600D9542F /* AvPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvPlayerViewController.swift; sourceTree = "<group>"; };
 		3765974A1CAAD12E00D9542F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3765974C1CAAD13500D9542F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		376F32A31CAC09FE000F1725 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfiniteIndicator.swift; sourceTree = "<group>"; };
 		3785EDAA1CA156BC00A4A641 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		379B17681BF8EC9C00B18E12 /* Cadenza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadenza.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +171,7 @@
 				372D0EF51CA96E760024CD14 /* LessonTableViewController.swift */,
 				376597461CAABE6A00D9542F /* VideoTableViewController.swift */,
 				376597481CAAC7D600D9542F /* AvPlayerViewController.swift */,
+				376F32A31CAC09FE000F1725 /* VideoTableViewCell.swift */,
 			);
 			name = "Course Group";
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				37C465C71C625BC0002F64E7 /* webview.swift in Sources */,
 				37FA39021C994C6F0037D521 /* NewsTableViewCell.swift in Sources */,
 				37F71F5C1C021D1B004D4815 /* Login.swift in Sources */,
+				376F32A41CAC09FE000F1725 /* VideoTableViewCell.swift in Sources */,
 				373B04691C7AFE9C00150958 /* MyCourseCollectionViewController.swift in Sources */,
 				370CC9781CA83B0E0050D6B7 /* AnnoTableViewCell.swift in Sources */,
 				37F71EEC1BF9989E004D4815 /* MenuCell.swift in Sources */,

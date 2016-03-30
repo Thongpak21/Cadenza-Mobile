@@ -22,7 +22,6 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
     private let LeftAndRightPadding: CGFloat = 24.0
     private let numberOfItemsPerRow: CGFloat = 2.0
     private let heightAdjustment:CGFloat = 30.0
-    
     private let JSONResultsKey = "data"
     private let JSONNumPagesKey = "per_page"
     

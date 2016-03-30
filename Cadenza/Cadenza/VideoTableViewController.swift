@@ -12,6 +12,7 @@ import AVKit
 import AVFoundation
 
 class VideoTableViewController: UITableViewController {
+  //  @IBOutlet weak var web: UIWebView!
     
     var data_model = [model]()
     override func viewDidLoad() {
@@ -65,14 +66,34 @@ class VideoTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! VideoTableViewCell
         let data_cell = data_model[indexPath.row]
-        cell.textLabel?.text = data_cell.videoTitle
+        cell.title.text = data_cell.videoTitle
+       // let link:String?
         if data_cell.videoType == 1 {
+          //  link = "https://www.youtube.com/watch?v=\(data_cell.videoURL!)"
             mystruct.video.append("https://www.youtube.com/watch?v=\(data_cell.videoURL!)")
+            Alamofire.request(.GET, "https://www.youtube.com/watch?v=\(data_cell.videoURL!)")
+                .response { request, response, data, error in
+                    cell.web.loadRequest(request!)
+//                    dispatch_async(dispatch_get_main_queue(),{
+//                        self.tableView.reloadData()
+//                    })
+            }
+
         } else {
+      //      link = "https://vimeo.com/channels/staffpicks/\(data_cell.videoURL!)"
             mystruct.video.append("https://vimeo.com/channels/staffpicks/\(data_cell.videoURL!)")
+            Alamofire.request(.GET, "https://vimeo.com/channels/staffpicks/\(data_cell.videoURL!)")
+                .response { request, response, data, error in
+                    cell.web.loadRequest(request!)
+//                    dispatch_async(dispatch_get_main_queue(),{
+//                        self.tableView.reloadData()
+//                    })
+            }
+
         }
+        cell.web.scrollView.scrollEnabled = false
         return cell
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -81,16 +102,16 @@ class VideoTableViewController: UITableViewController {
 //        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Avplayer")
 //        self.presentViewController(viewController, animated: true, completion: nil)
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destination = segue.destinationViewController as! AVPlayerViewController
-        self.tabBarController!.tabBar.hidden = true
-//        destination.
-//        self.navigationController!.navigationBar.hidden = true
-//        self.tabBarController?.tabBar.items
-        let url = NSURL(string:
-            "http://www.ebookfrenzy.com/ios_book/movie/movie.mov")
-        destination.player = AVPlayer(URL: url!)
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let destination = segue.destinationViewController as! AVPlayerViewController
+//        self.tabBarController!.tabBar.hidden = true
+////        destination.
+////        self.navigationController!.navigationBar.hidden = true
+////        self.tabBarController?.tabBar.items
+//        let url = NSURL(string:
+//            "http://www.ebookfrenzy.com/ios_book/movie/movie.mov")
+//        destination.player = AVPlayer(URL: url!)
+//    }
     
     
 }
