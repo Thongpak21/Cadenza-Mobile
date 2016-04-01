@@ -21,7 +21,7 @@ class VideoTableViewController: UITableViewController {
         //        print(mystruct.secID)
         //        print(mystruct.lectureID)
         if mystruct.secID == nil {
-            alamo_Video("http://www.cadenza.in.th/v2/api/mobile/courses/1/sections/7/videos?access_token=\(Token().getToken())")
+            alamo_Video("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.json_instruct![0,"SectionID"])/videos?access_token=\(Token().getToken())")
             
         }else{
             alamo_Video("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.secID!)/videos?access_token=\(Token().getToken())")
@@ -34,7 +34,7 @@ class VideoTableViewController: UITableViewController {
                 UIApplication.sharedApplication().startNetworkActivity()
                 if let results = response.result.value as? [[String: AnyObject]] {
                     for i in results {
-                        //           print("\(model(i).LessonID)   --->  \(model(i).LessonTitle)")
+                  //      print("\(model(i).videoType)   --->  \(model(i).videoTitle)")
                         self.data_model.append(model(i))
                     }
                     self.tableView.reloadData()
@@ -69,6 +69,7 @@ class VideoTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! VideoTableViewCell
         let data_cell = data_model[indexPath.row]
         cell.title.text = data_cell.videoTitle
+     //   print(data_cell.videoType)
        // let link:String?
         if data_cell.videoType == 1 {
           //  link = "https://www.youtube.com/watch?v=\(data_cell.videoURL!)"
@@ -91,6 +92,7 @@ class VideoTableViewController: UITableViewController {
 //                        self.tableView.reloadData()
 //                    })
             }
+        
 
         }
         cell.web.scrollView.scrollEnabled = false
@@ -98,6 +100,7 @@ class VideoTableViewController: UITableViewController {
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         mystruct.indexpath_video = indexPath.row
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
 //        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Avplayer")
 //        self.presentViewController(viewController, animated: true, completion: nil)

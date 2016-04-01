@@ -284,9 +284,6 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEz-DN-2zy">
                                                     <rect key="frame" x="0.0" y="0.0" width="559" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="559" id="orQ-FJ-rcf"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -294,10 +291,6 @@
                                                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1M-lI-Wwq">
                                                     <rect key="frame" x="0.0" y="21" width="559" height="183"/>
                                                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="183" id="KHE-nz-iiJ"/>
-                                                        <constraint firstAttribute="width" constant="559" id="f2n-qM-C93"/>
-                                                    </constraints>
                                                 </webView>
                                             </subviews>
                                         </stackView>
@@ -312,7 +305,6 @@
                                 <connections>
                                     <outlet property="title" destination="TEz-DN-2zy" id="MSh-pe-suB"/>
                                     <outlet property="web" destination="z1M-lI-Wwq" id="C9G-5I-jHV"/>
-                                    <segue destination="gC1-8L-btw" kind="show" id="V1k-dg-ijm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -330,8 +322,8 @@
         <!--AV Player View Controller-->
         <scene sceneID="u04-VS-0B5">
             <objects>
-                <avPlayerViewController storyboardIdentifier="Avplayer" videoGravity="AVLayerVideoGravityResizeAspect" id="gC1-8L-btw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mV1-Q3-Nvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <avPlayerViewController storyboardIdentifier="Avplayer" videoGravity="AVLayerVideoGravityResizeAspect" id="gC1-8L-btw" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="6927" y="852"/>
         </scene>

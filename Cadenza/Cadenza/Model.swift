@@ -60,7 +60,7 @@ class model : NSObject {
         videoID = dictionary["VideoID"] as? Int
         videoTitle = dictionary["VideoTitle"] as? String
         videoURL = dictionary["VideoURL"] as? String
-        videoType = dictionary["VideoType"] as? Int
+        videoType = dictionary["VideoTypeID"] as? Int
         update = dictionary["updated_at"] as? String
     }
 }
