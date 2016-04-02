@@ -22,6 +22,8 @@ struct mystruct {
     static var lectureID:Int?
     static var video = [String]()
     static var indexpath_video:Int?
+    static var Lessondes:String?
+    static var Annodes:String?
 }
 class getAPI {
     func alamo_Anno(url:String) {

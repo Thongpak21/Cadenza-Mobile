@@ -66,10 +66,11 @@ class LessonTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let data_cell = data_model[indexPath.row]
         cell.textLabel?.text = data_cell.LessonTitle
-        cell.detailTextLabel?.text = data_cell.LessonDes
         return cell
     }
- 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        mystruct.Lessondes = data_model[indexPath.row].LessonDes
+    }
 
 
 }

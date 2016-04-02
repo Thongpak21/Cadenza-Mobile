@@ -115,6 +115,7 @@ class AnnouncementTableViewController: UITableViewController,UIWebViewDelegate {
         return cell
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        mystruct.Annodes = data_model[indexPath.row].annoDes
 //        let pre = selectedIndexPath
 //        if indexPath == selectedIndexPath {
 //            selectedIndexPath = nil
