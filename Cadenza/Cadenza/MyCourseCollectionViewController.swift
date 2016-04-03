@@ -23,10 +23,9 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
     private let LeftAndRightPadding: CGFloat = 24.0
     private let numberOfItemsPerRow: CGFloat = 2.0
     private let heightAdjustment:CGFloat = 30.0
-    
+
     private let JSONResultsKey = "data"
     private let JSONNumPagesKey = "per_page"
-    
     private var currentPage = 1
     private var numPages = 0
     override func viewDidLoad() {
@@ -36,7 +35,7 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
         let width = (CGRectGetWidth((collectionView?.bounds)!) - LeftAndRightPadding) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSizeMake(width, width + heightAdjustment)
-        
+
 //        // Set custom indicator
 //        collectionView?.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
 //        // Set 1custom indicator margin
@@ -50,6 +49,12 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
 //        
 //        fetchData(nil)
         
+    }
+    
+    @IBAction func refresh(sender: AnyObject) {
+        data_model = [model]()
+        data(Token().getToken())
+        collectionView?.reloadData()
     }
     func data(token:String) {
         Alamofire.request(.GET,"http://www.cadenza.in.th/v2/api/mobile/mycourses?access_token=\(token)")
@@ -118,10 +123,6 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
             mystruct.json_instruct = json["data",indexPath.row,"sectioninstructor"]
         }
      //   print(data_cell.title)
-    }
-    override func viewWillAppear(animated: Bool) {
-      //   viewDidLoad()
-      //  collectionView?.reloadData()
     }
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
