@@ -241,7 +241,12 @@
 				TargetAttributes = {
 					379B17671BF8EC9C00B18E12 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = AUBG48CJZ6;
+						DevelopmentTeam = XN599A8TAU;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -473,7 +478,7 @@
 				INFOPLIST_FILE = Cadenza/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gim.Cadenza;
+				PRODUCT_BUNDLE_IDENTIFIER = gim.cadenzaframework.cadenza;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cadenza/Cadenza-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -497,7 +502,7 @@
 				INFOPLIST_FILE = Cadenza/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gim.Cadenza;
+				PRODUCT_BUNDLE_IDENTIFIER = gim.cadenzaframework.cadenza;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cadenza/Cadenza-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
