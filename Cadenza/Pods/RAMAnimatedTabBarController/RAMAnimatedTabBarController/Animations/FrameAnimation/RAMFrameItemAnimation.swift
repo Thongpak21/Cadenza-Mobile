@@ -23,22 +23,28 @@
 import UIKit
 import QuartzCore
 
-class RAMFrameItemAnimation: RAMItemAnimation {
+public class RAMFrameItemAnimation: RAMItemAnimation {
 
-    var animationImages : Array<CGImage> = Array()
+    public var animationImages : Array<CGImage> = Array()
 
-    var selectedImage : UIImage!
+    public var selectedImage : UIImage!
 
-    @IBInspectable var isDeselectAnimation: Bool = true
-    @IBInspectable var imagesPath: String!
+    @IBInspectable public var isDeselectAnimation: Bool = true
+    @IBInspectable public var imagesPath: String!
 
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
 
-        let path = NSBundle.mainBundle().pathForResource(imagesPath, ofType:"plist")
+        guard let path = NSBundle.mainBundle().pathForResource(imagesPath, ofType:"plist") else {
+            fatalError("don't found plist")
+        }
 
-        let dict : NSDictionary = NSDictionary(contentsOfFile: path!)!
+        guard let dict : NSDictionary = NSDictionary(contentsOfFile: path) else {
+            fatalError()
+        }
 
-        let animationImagesName = dict["images"] as! Array<String>
+        guard let animationImagesName = dict["images"] as? Array<String> else {
+            fatalError()
+        }
         createImagesArray(animationImagesName)
 
         // selected image
@@ -49,8 +55,9 @@ class RAMFrameItemAnimation: RAMItemAnimation {
 
     func createImagesArray(imageNames : Array<String>) {
         for name : String in imageNames {
-            let image = UIImage(named: name)?.CGImage
-            animationImages.append(image!)
+            if let image = UIImage(named: name)?.CGImage {
+                animationImages.append(image)
+            }
         }
     }
 
@@ -74,13 +81,13 @@ class RAMFrameItemAnimation: RAMItemAnimation {
     }
 
     func playFrameAnimation(icon : UIImageView, images : Array<CGImage>) {
-        let frameAnimation = CAKeyframeAnimation(keyPath: "contents")
+        let frameAnimation = CAKeyframeAnimation(keyPath: Constants.AnimationKeys.KeyFrame)
         frameAnimation.calculationMode = kCAAnimationDiscrete
         frameAnimation.duration = NSTimeInterval(duration)
         frameAnimation.values = images
         frameAnimation.repeatCount = 1
         frameAnimation.removedOnCompletion = false
         frameAnimation.fillMode = kCAFillModeForwards
-        icon.layer.addAnimation(frameAnimation, forKey: "frameAnimation")
+        icon.layer.addAnimation(frameAnimation, forKey: nil)
     }
 }

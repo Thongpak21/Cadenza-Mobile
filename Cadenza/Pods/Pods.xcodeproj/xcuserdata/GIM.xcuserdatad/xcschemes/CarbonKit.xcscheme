@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2FA0B0B1CBCA9CBEE5532F7E'
+               BlueprintIdentifier = 'F2035208F4C89273AE3DC2BA'
                BlueprintName = 'CarbonKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'CarbonKit.framework'>

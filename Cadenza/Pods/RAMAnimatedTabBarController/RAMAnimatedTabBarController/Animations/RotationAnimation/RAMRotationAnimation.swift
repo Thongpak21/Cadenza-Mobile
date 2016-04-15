@@ -23,14 +23,14 @@
 import UIKit
 import QuartzCore
 
-enum RAMRotationDirection {
+public enum RAMRotationDirection {
     case Left
     case Right
 }
 
-class RAMRotationAnimation : RAMItemAnimation {
+public class RAMRotationAnimation : RAMItemAnimation {
 
-    var direction : RAMRotationDirection!
+    public var direction : RAMRotationDirection!
 
     override func playAnimation(icon : UIImageView, textLabel : UILabel) {
         playRoatationAnimation(icon)
@@ -61,7 +61,7 @@ class RAMRotationAnimation : RAMItemAnimation {
 
     func playRoatationAnimation(icon : UIImageView) {
 
-        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        let rotateAnimation = CABasicAnimation(keyPath: Constants.AnimationKeys.Rotation)
         rotateAnimation.fromValue = 0.0
 
         var toValue = CGFloat(M_PI * 2.0)
@@ -72,7 +72,7 @@ class RAMRotationAnimation : RAMItemAnimation {
         rotateAnimation.toValue = toValue
         rotateAnimation.duration = NSTimeInterval(duration)
 
-        icon.layer.addAnimation(rotateAnimation, forKey: "rotation360")
+        icon.layer.addAnimation(rotateAnimation, forKey: nil)
       
         if let iconImage = icon.image {
             let renderImage = iconImage.imageWithRenderingMode(.AlwaysTemplate)
