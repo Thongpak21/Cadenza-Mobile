@@ -25,6 +25,7 @@
 		376597491CAAC7D600D9542F /* AvPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376597481CAAC7D600D9542F /* AvPlayerViewController.swift */; };
 		376F32A41CAC09FE000F1725 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F32A31CAC09FE000F1725 /* VideoTableViewCell.swift */; };
 		377A8ADA1C6338260070426B /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */; };
+		377AB4F11CC6200F004BC327 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 377AB4EF1CC6200F004BC327 /* Model.xcdatamodeld */; };
 		3785EDAB1CA156BC00A4A641 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3785EDAA1CA156BC00A4A641 /* Token.swift */; };
 		379B17D81BF8ED9000B18E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379B17D71BF8ED9000B18E12 /* Assets.xcassets */; };
 		379B17F01BF8F2BA00B18E12 /* TableCourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */; };
@@ -63,6 +64,7 @@
 		3765974C1CAAD13500D9542F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		376F32A31CAC09FE000F1725 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfiniteIndicator.swift; sourceTree = "<group>"; };
+		377AB4F01CC6200F004BC327 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		3785EDAA1CA156BC00A4A641 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		379B17681BF8EC9C00B18E12 /* Cadenza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadenza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379B177A1BF8EC9C00B18E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */,
 				379B177A1BF8EC9C00B18E12 /* Info.plist */,
 				37F71EEB1BF9989E004D4815 /* MenuCell.swift */,
+				377AB4EF1CC6200F004BC327 /* Model.xcdatamodeld */,
 				371FCE181C08D130002406F6 /* LogoutController.swift */,
 				37C465C61C625BC0002F64E7 /* webview.swift */,
 				37D4F6561CA1AEB70037EE87 /* Course Group */,
@@ -351,6 +354,7 @@
 				37BBA1B51CB04CDA00C35683 /* AnnoDesViewController.swift in Sources */,
 				373B046B1C7B2A4300150958 /* MyCourseTableViewController.swift in Sources */,
 				37C465C71C625BC0002F64E7 /* webview.swift in Sources */,
+				377AB4F11CC6200F004BC327 /* Model.xcdatamodeld in Sources */,
 				37FA39021C994C6F0037D521 /* NewsTableViewCell.swift in Sources */,
 				37F71F5C1C021D1B004D4815 /* Login.swift in Sources */,
 				376F32A41CAC09FE000F1725 /* VideoTableViewCell.swift in Sources */,
@@ -531,6 +535,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		377AB4EF1CC6200F004BC327 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				377AB4F01CC6200F004BC327 /* Model.xcdatamodel */,
+			);
+			currentVersion = 377AB4F01CC6200F004BC327 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 379B17601BF8EC9C00B18E12 /* Project object */;
 }
