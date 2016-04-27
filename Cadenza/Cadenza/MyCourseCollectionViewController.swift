@@ -117,8 +117,8 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
         let data_cell = data_model[indexPath.row]
         mystruct.courseID = data_cell.courseID
         if let json:JSON = mystruct.json {
-      //      print(json["data",indexPath.row,"courseenroll"].count)
-     //       print(json["data",indexPath.row,"courseenroll",0,"SectionID"])
+//            print(json["data",indexPath.row,"courseenroll"].count)
+//            print(json["data",indexPath.row,"courseenroll",0,"SectionID"])
             mystruct.secID = json["data",indexPath.row,"courseenroll",0,"SectionID"].int
             mystruct.json_instruct = json["data",indexPath.row,"sectioninstructor"]
         }

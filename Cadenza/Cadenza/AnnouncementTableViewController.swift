@@ -24,6 +24,7 @@ class AnnouncementTableViewController: UITableViewController,UIWebViewDelegate {
     var selectedIndexPath:NSIndexPath?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0)
         tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
         
         tableView.infiniteScrollIndicatorMargin = 40

@@ -35,7 +35,7 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         super.viewDidLoad()
         layout()
         tableview.scrollEnabled = false
-
+        
         webview()
         
         imgheight.constant = 150
@@ -81,6 +81,7 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
     }
     func webViewDidFinishLoad(webview: UIWebView){
         UIApplication.sharedApplication().stopNetworkActivity()
+
         MBProgressHUD.hideAllHUDsForView(view, animated: true)
         height.constant = WebCourseDes.scrollView.contentSize.height
         getSection()

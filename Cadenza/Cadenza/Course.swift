@@ -24,6 +24,11 @@ struct mystruct {
     static var indexpath_video:Int?
     static var Lessondes:String?
     static var Annodes:String?
+    static var topicID:Int?
+    static var reply:Int?
+    static var topictitle:String?
+    static var topic_postby:String?
+    static var topicdes:String?
 }
 class getAPI {
     func alamo_Anno(url:String) {
