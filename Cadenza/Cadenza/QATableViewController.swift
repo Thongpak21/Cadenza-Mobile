@@ -12,8 +12,9 @@ class QATableViewController: UITableViewController {
     var data_model = [model]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0)
 
-
+        
         if mystruct.secID == nil {
             alamo_Lecture("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.json_instruct![0,"SectionID"])/topics?access_token=\(Token().getToken())")
             

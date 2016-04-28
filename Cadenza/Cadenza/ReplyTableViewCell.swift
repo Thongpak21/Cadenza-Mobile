@@ -9,7 +9,10 @@
 import UIKit
 
 class ReplyTableViewCell: UITableViewCell {
+    @IBOutlet weak var display: UIImageView!
+    @IBOutlet weak var message: UILabel!
 
+    @IBOutlet weak var postby: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

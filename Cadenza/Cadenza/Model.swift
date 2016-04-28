@@ -40,6 +40,7 @@ class model : NSObject {
     var numreply:Int?
     var topicReplyID:Int?
     var topicReplyDes:String?
+    var displaythumnail:String?
     init(_ dictionary:[String: AnyObject]) {
         super.init()
         title = dictionary["CourseName"] as? String
@@ -74,5 +75,6 @@ class model : NSObject {
         numreply = dictionary["countReply"] as? Int
         topicReplyID = dictionary["TopicReplyID"] as? Int
         topicReplyDes = dictionary["TopicReplyDescription"] as? String
+        displaythumnail = dictionary["display_thumbnail"] as? String
     }
 }

@@ -13,6 +13,7 @@ class ReplyTableViewController: UITableViewController {
     var data_model = [model]()
     var titlename:String?
     var postby:String?
+    var topicdes:String?
     override func viewDidLoad() {
         super.viewDidLoad()
         postby = mystruct.topic_postby!
@@ -25,6 +26,9 @@ class ReplyTableViewController: UITableViewController {
             alamo_Lecture("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.secID!)/topics/\(mystruct.topicID!)?access_token=\(Token().getToken())")
         }
      //   self.automaticallyAdjustsScrollViewInsets = false
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 10
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,10 +42,11 @@ class ReplyTableViewController: UITableViewController {
             .responseJSON{ response in
                 UIApplication.sharedApplication().startNetworkActivity()
              //   print(response.result.value!["TopicTitle"])
+                self.topicdes = response.result.value!["TopicDescription"] as? String
                 if let results = response.result.value!["topicreply"] as? [[String: AnyObject]] {
                     for i in results {
                 //        print(i)
-          //                  print("\(model(i).topicTitle)   --->  \(model(i).topicID)")
+                     //       print("\(model(i).topicTitle)   --->  \(model(i).topicID)")
                         self.data_model.append(model(i))
                     }
                 }
@@ -64,33 +69,53 @@ class ReplyTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return data_model.count+3
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("Topic", forIndexPath: indexPath)
-            // Configure the cell...
-            cell.textLabel!.text = titlename
-            cell.detailTextLabel!.text = postby
-        
-            cell.layer.cornerRadius = 1.0
-            cell.layer.borderWidth = 1
-            cell.layer.borderColor = UIColor.clearColor().CGColor
-            cell.layer.masksToBounds = true
-        
-            cell.layer.shadowColor = UIColor.blackColor().CGColor
-            cell.layer.shadowOffset = CGSizeMake(0, 1)
-            cell.layer.shadowRadius = 1.0
-            cell.layer.shadowOpacity = 1.0
-            cell.layer.masksToBounds = false
+            return topic(indexPath)
+        }else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("blank", forIndexPath: indexPath)
+      //      cell.layer.rowhe
+
+            cell.textLabel?.text = ""
+            return cell
+        }else if indexPath.row == 1{
+            let cell = tableView.dequeueReusableCellWithIdentifier("message", forIndexPath: indexPath)
+            cell.textLabel?.text = topicdes
             return cell
         }else{
-            let cell = tableView.dequeueReusableCellWithIdentifier("Reply", forIndexPath: indexPath)
-            // Configure the cell...
-           // cell.textLabel?.text = data_model[indexPath.row].topicTitle
+            let cell = tableView.dequeueReusableCellWithIdentifier("reply", forIndexPath: indexPath) as! ReplyTableViewCell
+            
+            Alamofire.request(.GET, "http://cadenza.in.th\(data_model[indexPath.row-3].displaythumnail!)")
+                .responseImage { response in
+                    if let image = response.result.value {
+                        cell.display.image = image
+                    }
+            }
+            cell.message.text = data_model[indexPath.row-3].topicReplyDes!
+            cell.postby.text = "\(data_model[indexPath.row-3].author_fname!) \(data_model[indexPath.row-3].author_lname!)"
             return cell
+        }
+    }
+    
+    func topic(indexpPath:NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Topic")
+        // Configure the cell...
+        cell!.textLabel!.text = titlename
+        cell!.detailTextLabel!.text = postby
+
+        return cell!
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 2 {
+            return 10
+        }else {
+          //  print(UITableViewAutomaticDimension)
+            return UITableViewAutomaticDimension
         }
     }
     
