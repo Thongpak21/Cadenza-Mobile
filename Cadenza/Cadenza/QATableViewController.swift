@@ -12,6 +12,7 @@ class QATableViewController: UITableViewController {
     var data_model = [model]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0)
 
         

@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,17 +62,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0AB5B89263F7842F3C74658439905439</key>
+		<key>1520003FEBEC114D6C84F832AFEDB994</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>17E33295F6F451C1F97B0729CC6E1293</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>30ECF94BC20CE800749B47E2EB45437D</key>
+		<key>49E049E27432B2E60D800E2DC58773EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,22 +77,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6822D33D73EE0513CED05A1570A66779</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>75E4A1F3F010862A26E4AE90A261629E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>94230FF207088C443586D141ABA54DB7</key>
+		<key>7DC2F20AAAD49C2701F2B02730675B3C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>806C4E6E643FD17E36A60960A8CC5DF7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E61CE3B6DFA1FE6B3E296965C76C0E10</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ED49C4BE52AA4631B83525882DE24CDF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

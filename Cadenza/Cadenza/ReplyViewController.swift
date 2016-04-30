@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
-
+import IQKeyboardManagerSwift
 class ReplyViewController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var message: UITextField!
     @IBOutlet weak var tableview: UITableView!
@@ -20,8 +20,12 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
        // self.clearsSelectionOnViewWillAppear = true
+        message.delegate = self
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ReplyViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         postby = mystruct.topic_postby!
         titlename = mystruct.topictitle!
+        IQKeyboardManager.sharedManager().disabledToolbarClasses.insert(NSStringFromClass(ReplyViewController))
         self.tableview.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0)
         if mystruct.secID == nil {
             alamo_Lecture("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.json_instruct![0,"SectionID"])/topics/\(mystruct.topicID!)?access_token=\(Token().getToken())")
@@ -34,9 +38,17 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
         self.tableview.rowHeight = UITableViewAutomaticDimension
         self.tableview.estimatedRowHeight = 8
         tableview.delegate = self
-
     }
-
+    override func viewWillDisappear(animated : Bool) {
+        super.viewWillDisappear(animated)
+        
+       // IQKeyboardManager.sharedManager().shouldToolbarUsesTextFieldTintColor = false
+        
+    }
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     @IBAction func post(sender: AnyObject) {
         if message.text == "" {
             

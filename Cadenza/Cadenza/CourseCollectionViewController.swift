@@ -10,7 +10,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import AlamofireImage
-import SwiftSpinner
 
 class CourseCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
     
