@@ -102,18 +102,29 @@ class AnnouncementTableViewController: UITableViewController,UIWebViewDelegate {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return data_model.count
+        if data_model.count == 0 {
+            return 1
+        }else{
+            return data_model.count
+        }
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cellAnno", forIndexPath: indexPath) as! AnnoTableViewCell
-        let data_cell = data_model[indexPath.row]
-        cell.textLabel?.text = data_cell.annoTitle
+        if data_model.count == 0 {
+            cell.textLabel?.text = "No Announcement!!!"
+            cell.detailTextLabel?.text = ""
+            return cell
+        }else {
+            let data_cell = data_model[indexPath.row]
+            cell.textLabel?.text = data_cell.annoTitle
+            return cell
+        }
       //  cell.web.scrollView.scrollEnabled = false
     //    cell.loadwebview(data_cell.annoDes!)
        // cell.height_web.constant = 500
      //   print(tableView.rowHeight)
 //        print(cell.web.scrollView.contentSize.height)
-        return cell
+        
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         mystruct.Annodes = data_model[indexPath.row].annoDes

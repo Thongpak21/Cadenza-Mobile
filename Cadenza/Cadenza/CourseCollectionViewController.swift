@@ -29,6 +29,7 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Token().getProfile()
     //    tabBarItem.badgeValue = "2"
    //    tabBarController?.tabBar.items?[1].badgeValue = "1"
         let width = (CGRectGetWidth((collectionView?.bounds)!) - LeftAndRightPadding) / numberOfItemsPerRow

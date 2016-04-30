@@ -59,15 +59,24 @@ class LessonTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data_model.count
+        if data_model.count == 0 {
+            return 1
+        }else{
+            return data_model.count
+        }
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        let data_cell = data_model[indexPath.row]
-        cell.textLabel?.text = data_cell.LessonTitle
-        return cell
+        if data_model.count == 0 {
+            cell.textLabel?.text = ""
+            return cell
+        }else{
+            let data_cell = data_model[indexPath.row]
+            cell.textLabel?.text = data_cell.LessonTitle
+            return cell
+        }
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         mystruct.Lessondes = data_model[indexPath.row].LessonDes

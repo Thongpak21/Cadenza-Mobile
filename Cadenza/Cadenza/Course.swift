@@ -29,6 +29,10 @@ struct mystruct {
     static var topictitle:String?
     static var topic_postby:String?
     static var topicdes:String?
+    static var pro_fname:String?
+    static var pro_lname:String?
+    static var pro_display:String?
+    static var pro_display_thumbnail:String?
 }
 class getAPI {
     func alamo_Anno(url:String) {

@@ -11,6 +11,7 @@ import Alamofire
 import AlamofireImage
 
 class ReplyViewController: UIViewController,UITextFieldDelegate{
+    @IBOutlet weak var message: UITextField!
     @IBOutlet weak var tableview: UITableView!
     var data_model = [model]()
     var titlename:String?
@@ -18,7 +19,6 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
     var topicdes:String?
     override func viewDidLoad() {
         super.viewDidLoad()
-
        // self.clearsSelectionOnViewWillAppear = true
         postby = mystruct.topic_postby!
         titlename = mystruct.topictitle!
@@ -36,17 +36,30 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
         tableview.delegate = self
 
     }
+
     @IBAction func post(sender: AnyObject) {
-        let a = ["TopicReplyID": 108, "TopicReplyDescription": "สวัสดี", "TopicID": 5, "UserID": 2, "lastname": "Uengpaporn", "display_thumbnail": "/images/avatar/thumb_jhrldNOJrhvEkthS.jpg", "firstname": "Tachakorn"]
-        data_model.append(model(a))
-        //  print(model(a).topicReplyDes)
-        //  let rth = tableView.dequeueReusableCellWithIdentifier("postreply") as! PostReplyTableViewCell
-        //  print(rth.textfield.text)
-        tableview.beginUpdates()
-        tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: data_model.count, inSection: 0)
-            ], withRowAnimation: UITableViewRowAnimation.Bottom)
-        tableview.endUpdates()
-        
+        if message.text == "" {
+            
+        }else{
+         //   print(message.text)
+            if mystruct.secID == nil {
+                alamo_reply("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.json_instruct![0,"SectionID"])/topics/\(mystruct.topicID!)",data: message.text!)
+                
+            }else{
+                alamo_reply("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.secID!)/topics/\(mystruct.topicID!)",data: message.text!)
+            }
+            print(mystruct.pro_display_thumbnail)
+            let a = ["TopicReplyDescription":message.text!, "TopicID": 5, "UserID": 2, "lastname": mystruct.pro_lname!, "display_thumbnail": mystruct.pro_display_thumbnail!, "firstname": mystruct.pro_fname!]
+           // print(a)
+            data_model.append(model(a as! [String : AnyObject]))
+            message.text = ""
+            //  print(model(a).topicReplyDes)
+            //  let rth = tableView.dequeueReusableCellWithIdentifier("postreply") as! PostReplyTableViewCell
+            //  print(rth.textfield.text)
+            tableview.beginUpdates()
+            tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: data_model.count, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Bottom)
+            tableview.endUpdates()
+        }
     }
     func alamo_Lecture(url:String){
         // print(url)
@@ -70,6 +83,33 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
                     self.tableview.dataSource = self
                 })
         }
+        
+    }
+    func alamo_reply(url:String,data:String){
+        // print(url)
+        let reply = ["access_token":Token().getToken(),
+                     "TopicReplyDescription":data]
+        Alamofire.request(.POST,url,parameters:reply)
+            .responseJSON{ response in
+                UIApplication.sharedApplication().startNetworkActivity()
+               //   print(response.result.value!)
+//                self.topicdes = response.result.value!["TopicDescription"] as? String
+//                if let results = response.result.value!["topicreply"] as? [[String: AnyObject]] {
+//                    for i in results {
+//                        //       print(i)
+//                        //    print("\(model(i))   --->  \(model(i).topicID)")
+//                        self.data_model.append(model(i))
+//                    }
+//                }
+                UIApplication.sharedApplication().stopNetworkActivity()
+                
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.tableview.reloadData()
+                    
+                    self.tableview.dataSource = self
+                })
+        }
+      //  message.text = ""
         
     }
 

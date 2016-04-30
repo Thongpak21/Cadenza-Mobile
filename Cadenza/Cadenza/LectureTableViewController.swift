@@ -66,19 +66,32 @@ class LectureTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return data_model.count
+        if data_model.count == 0{
+            return 1
+        }else{
+            return data_model.count
+        }
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        cell.textLabel?.text = data_model[indexPath.row].lectureTitle
-        
-        cell.detailTextLabel?.text = data_model[indexPath.row].update
-        return cell
+        if data_model.count == 0 {
+            cell.textLabel?.text = "No Lecture!!!"
+            cell.detailTextLabel?.text = ""
+            return cell
+        }else {
+            cell.textLabel?.text = data_model[indexPath.row].lectureTitle
+            cell.detailTextLabel?.text = data_model[indexPath.row].update
+            return cell
+        }
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        mystruct.lectureID = data_model[indexPath.row].lectureID
+        if data_model.count == 0 {
+            
+        }else{
+            mystruct.lectureID = data_model[indexPath.row].lectureID
+        }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 

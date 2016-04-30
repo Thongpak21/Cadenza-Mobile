@@ -55,6 +55,7 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         tableview.backgroundView = nil
         WebCourseDes.delegate = self
     }
+    
     func getSection() {
         Alamofire.request(.GET, "http://cadenza.in.th/api/mobile/course/show/\(courseID!)")
             .responseJSON{ response in
