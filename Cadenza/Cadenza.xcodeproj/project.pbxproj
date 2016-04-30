@@ -31,7 +31,9 @@
 		376F32A41CAC09FE000F1725 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F32A31CAC09FE000F1725 /* VideoTableViewCell.swift */; };
 		377A8ADA1C6338260070426B /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */; };
 		377AB4F11CC6200F004BC327 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 377AB4EF1CC6200F004BC327 /* Model.xcdatamodeld */; };
+		377D5F0C1CD234AA00A4FC7E /* PostReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377D5F0B1CD234AA00A4FC7E /* PostReplyTableViewCell.swift */; };
 		3785EDAB1CA156BC00A4A641 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3785EDAA1CA156BC00A4A641 /* Token.swift */; };
+		3797F0E01CD3E52A0071FCE2 /* LessonDesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797F0DF1CD3E52A0071FCE2 /* LessonDesTableViewCell.swift */; };
 		379B17D81BF8ED9000B18E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379B17D71BF8ED9000B18E12 /* Assets.xcassets */; };
 		379B17F01BF8F2BA00B18E12 /* TableCourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */; };
 		379B17F51BF8F2BA00B18E12 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */; };
@@ -76,7 +78,9 @@
 		376F32A31CAC09FE000F1725 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfiniteIndicator.swift; sourceTree = "<group>"; };
 		377AB4F01CC6200F004BC327 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		377D5F0B1CD234AA00A4FC7E /* PostReplyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostReplyTableViewCell.swift; sourceTree = "<group>"; };
 		3785EDAA1CA156BC00A4A641 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		3797F0DF1CD3E52A0071FCE2 /* LessonDesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonDesTableViewCell.swift; sourceTree = "<group>"; };
 		379B17681BF8EC9C00B18E12 /* Cadenza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadenza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379B177A1BF8EC9C00B18E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		379B17D71BF8ED9000B18E12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				37513A0D1C60CCF5009B9451 /* Main.storyboard */,
 				37256A391CD0CD0D0024C2C8 /* TopicReplyTableViewCell.swift */,
 				37256A3B1CD0CD180024C2C8 /* ReplyTableViewCell.swift */,
+				377D5F0B1CD234AA00A4FC7E /* PostReplyTableViewCell.swift */,
+				3797F0DF1CD3E52A0071FCE2 /* LessonDesTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -395,6 +401,7 @@
 				376F32A41CAC09FE000F1725 /* VideoTableViewCell.swift in Sources */,
 				373B04691C7AFE9C00150958 /* MyCourseCollectionViewController.swift in Sources */,
 				370CC9781CA83B0E0050D6B7 /* AnnoTableViewCell.swift in Sources */,
+				377D5F0C1CD234AA00A4FC7E /* PostReplyTableViewCell.swift in Sources */,
 				37F71EEC1BF9989E004D4815 /* MenuCell.swift in Sources */,
 				37DB2B3D1C62971B000A39AE /* Model.swift in Sources */,
 				37256A381CD0CCE00024C2C8 /* ReplyTableViewController.swift in Sources */,
@@ -402,6 +409,7 @@
 				37D4F6551CA1AE9F0037EE87 /* LectureTableViewController.swift in Sources */,
 				37DB8E3F1CCBFE7100FC7F11 /* QATableViewCell.swift in Sources */,
 				37DB2B3F1C629E5A000A39AE /* uiapp+networkindicator.swift in Sources */,
+				3797F0E01CD3E52A0071FCE2 /* LessonDesTableViewCell.swift in Sources */,
 				37424BF51CC76AE3009F01E9 /* QATableViewController.swift in Sources */,
 				372F6A161CA3D490008FB3A9 /* AnnouncementTableViewController.swift in Sources */,
 				377A8ADA1C6338260070426B /* CustomInfiniteIndicator.swift in Sources */,
