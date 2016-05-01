@@ -41,6 +41,9 @@ class model : NSObject {
     var topicReplyID:Int?
     var topicReplyDes:String?
     var displaythumnail:String?
+    var resourceID:Int?
+    var resourceTitle:String?
+    var resourceFile:String?
     init(_ dictionary:[String: AnyObject]) {
         super.init()
         title = dictionary["CourseName"] as? String
@@ -76,5 +79,8 @@ class model : NSObject {
         topicReplyID = dictionary["TopicReplyID"] as? Int
         topicReplyDes = dictionary["TopicReplyDescription"] as? String
         displaythumnail = dictionary["display_thumbnail"] as? String
+        resourceID = dictionary["ResourceID"] as? Int
+        resourceTitle = dictionary["ResourceTitle"] as? String
+        resourceFile = dictionary["ResourceFile"] as? String
     }
 }

@@ -14,7 +14,7 @@ class SegmentViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
       //  self.tabBarController?.tabBar.hidden = true
-        let items = ["Lecture","Announcement","Video","Topic","Assignment"]
+        let items = ["Lecture","Announcement","Board","Video","Resource","Assignment"]
         let carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: items, delegate: self)
         carbonTabSwipeNavigation.insertIntoRootViewController(self)
 //        print(mystruct.courseID)
@@ -37,10 +37,12 @@ class SegmentViewController: UIViewController{
             return UIStoryboard(name: "Main",bundle: nil).instantiateViewControllerWithIdentifier("Anno")
             
         case 2:
-            return UIStoryboard(name: "Main",bundle: nil).instantiateViewControllerWithIdentifier("video")
+            return UIStoryboard(name: "Main",bundle: nil).instantiateViewControllerWithIdentifier("qa")
             
         case 3:
-            return UIStoryboard(name: "Main",bundle: nil).instantiateViewControllerWithIdentifier("qa")
+            return UIStoryboard(name: "Main",bundle: nil).instantiateViewControllerWithIdentifier("video")
+        case 4:
+            return UIStoryboard(name: "Main",bundle: nil).instantiateViewControllerWithIdentifier("Resource")
         default:
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("21")
             return  viewController

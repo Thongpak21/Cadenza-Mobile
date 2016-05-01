@@ -37,6 +37,7 @@
 		379B17D81BF8ED9000B18E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379B17D71BF8ED9000B18E12 /* Assets.xcassets */; };
 		379B17F01BF8F2BA00B18E12 /* TableCourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */; };
 		379B17F51BF8F2BA00B18E12 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */; };
+		37AEAC0F1CD66B70005A2F66 /* ResourceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AEAC0E1CD66B70005A2F66 /* ResourceTableViewController.swift */; };
 		37BBA1B31CB02D3C00C35683 /* LessonDes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBA1B21CB02D3C00C35683 /* LessonDes.swift */; };
 		37BBA1B51CB04CDA00C35683 /* AnnoDesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBA1B41CB04CDA00C35683 /* AnnoDesViewController.swift */; };
 		37C465C71C625BC0002F64E7 /* webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C465C61C625BC0002F64E7 /* webview.swift */; };
@@ -88,6 +89,7 @@
 		379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCourseList.swift; sourceTree = "<group>"; };
 		379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		379B17FA1BF8F54300B18E12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		37AEAC0E1CD66B70005A2F66 /* ResourceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceTableViewController.swift; sourceTree = "<group>"; };
 		37BBA1B21CB02D3C00C35683 /* LessonDes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonDes.swift; sourceTree = "<group>"; };
 		37BBA1B41CB04CDA00C35683 /* AnnoDesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnoDesViewController.swift; sourceTree = "<group>"; };
 		37C465C61C625BC0002F64E7 /* webview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webview.swift; sourceTree = "<group>"; };
@@ -200,12 +202,12 @@
 				372D0EF51CA96E760024CD14 /* LessonTableViewController.swift */,
 				376597461CAABE6A00D9542F /* VideoTableViewController.swift */,
 				376597481CAAC7D600D9542F /* AvPlayerViewController.swift */,
-				376F32A31CAC09FE000F1725 /* VideoTableViewCell.swift */,
 				37BBA1B21CB02D3C00C35683 /* LessonDes.swift */,
 				37BBA1B41CB04CDA00C35683 /* AnnoDesViewController.swift */,
 				37424BF41CC76AE3009F01E9 /* QATableViewController.swift */,
 				376287F31CCE77F300E020C1 /* ReplyViewController.swift */,
 				37256A371CD0CCE00024C2C8 /* ReplyTableViewController.swift */,
+				37AEAC0E1CD66B70005A2F66 /* ResourceTableViewController.swift */,
 			);
 			name = "Course Group Controller";
 			sourceTree = "<group>";
@@ -219,6 +221,7 @@
 				37513A0D1C60CCF5009B9451 /* Main.storyboard */,
 				37256A391CD0CD0D0024C2C8 /* TopicReplyTableViewCell.swift */,
 				37256A3B1CD0CD180024C2C8 /* ReplyTableViewCell.swift */,
+				376F32A31CAC09FE000F1725 /* VideoTableViewCell.swift */,
 				377D5F0B1CD234AA00A4FC7E /* PostReplyTableViewCell.swift */,
 				3797F0DF1CD3E52A0071FCE2 /* LessonDesTableViewCell.swift */,
 			);
@@ -286,6 +289,9 @@
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = XN599A8TAU;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -401,6 +407,7 @@
 				376F32A41CAC09FE000F1725 /* VideoTableViewCell.swift in Sources */,
 				373B04691C7AFE9C00150958 /* MyCourseCollectionViewController.swift in Sources */,
 				370CC9781CA83B0E0050D6B7 /* AnnoTableViewCell.swift in Sources */,
+				37AEAC0F1CD66B70005A2F66 /* ResourceTableViewController.swift in Sources */,
 				377D5F0C1CD234AA00A4FC7E /* PostReplyTableViewCell.swift in Sources */,
 				37F71EEC1BF9989E004D4815 /* MenuCell.swift in Sources */,
 				37DB2B3D1C62971B000A39AE /* Model.swift in Sources */,

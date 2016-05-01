@@ -99,14 +99,13 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
         }
         
     }
-    func alamo_reply(url:String,data:String){
+    func alamo_delete(url:String){
         // print(url)
-        let reply = ["access_token":Token().getToken(),
-                     "TopicReplyDescription":data]
-        Alamofire.request(.POST,url,parameters:reply)
+        let data = ["access_token":Token().getToken(),"_method":"delete"]
+        Alamofire.request(.POST,url,parameters:data)
             .responseJSON{ response in
                 UIApplication.sharedApplication().startNetworkActivity()
-               //   print(response.result.value!)
+                //   print(response.result.value!["TopicTitle"])
 //                self.topicdes = response.result.value!["TopicDescription"] as? String
 //                if let results = response.result.value!["topicreply"] as? [[String: AnyObject]] {
 //                    for i in results {
@@ -120,6 +119,23 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
                 dispatch_async(dispatch_get_main_queue(),{
                     self.tableview.reloadData()
                     
+                    self.tableview.dataSource = self
+                })
+        }
+        
+    }
+    func alamo_reply(url:String,data:String){
+        // print(url)
+        let reply = ["access_token":Token().getToken(),
+                     "TopicReplyDescription":data]
+        Alamofire.request(.POST,url,parameters:reply)
+            .responseJSON{ response in
+                UIApplication.sharedApplication().startNetworkActivity()
+               // print(response.result.value!["TopidID"])
+        //        self.data_model[self.data_model.count].topicReplyID = response.result.value!["TopicReplyID"]
+                UIApplication.sharedApplication().stopNetworkActivity()
+                dispatch_async(dispatch_get_main_queue(),{
+                   // self.tableview.reloadData()
                     self.tableview.dataSource = self
                 })
         }
@@ -140,7 +156,6 @@ extension ReplyViewController : UITableViewDataSource{
             return topic(indexPath)
         }else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCellWithIdentifier("blank", forIndexPath: indexPath)
-            //      cell.layer.rowhe
             
             cell.textLabel?.text = ""
             return cell
@@ -173,7 +188,7 @@ extension ReplyViewController : UITableViewDataSource{
         let cell:UITableViewCell = tableview.dequeueReusableCellWithIdentifier("Topic")!
         // Configure the cell...
         cell.textLabel!.text = titlename
-        cell.detailTextLabel!.text = postby
+        cell.detailTextLabel!.text = "Post by \(postby!)"
         
         return cell
     }
@@ -191,23 +206,36 @@ extension ReplyViewController : UITableViewDataSource{
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath)->[UITableViewRowAction]?{
-        if indexPath.row > 2 {
-            let more = UITableViewRowAction(style: .Normal, title: "More") { action, index in
-                print("more button tapped")
+        if indexPath.row-3 > 0{
+            if data_model[indexPath.row-3].author_fname == mystruct.pro_fname {
+                //            let more = UITableViewRowAction(style: .Normal, title: "More") { action, index in
+                //                print("more button tapped")
+                //            }
+                //            more.backgroundColor = UIColor.lightGrayColor()
+                
+                let Edit = UITableViewRowAction(style:.Normal, title: "Edit") { action, index in
+                    //  print("Edit button tapped")
+                    self.data_model[indexPath.row-3].topicDes = "edit"
+                    print(self.data_model[indexPath.row-3].topicDes)
+                }
+                Edit.backgroundColor = UIColor.blueColor()
+                
+                let Delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
+                    if mystruct.secID == nil {
+                        self.alamo_delete("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.json_instruct![0,"SectionID"])/topics/\(mystruct.topicID!)/topicreplys/\(self.data_model[indexPath.row-3].topicReplyID!)")
+                    }else{
+                        self.alamo_delete("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.secID!)/topics/\(mystruct.topicID!)/topicreplys/\(self.data_model[indexPath.row-3].topicReplyID!)")
+                    }
+                    self.data_model.removeAtIndex(indexPath.row-3)
+                    self.tableview.reloadData()
+                    //   print("share button tapped")
+                }
+                Delete.backgroundColor = UIColor.redColor()
+                
+                return [Delete, Edit]
+            }else{
+                return nil
             }
-            more.backgroundColor = UIColor.lightGrayColor()
-            
-            let favorite = UITableViewRowAction(style: .Normal, title: "Favorite") { action, index in
-                print("favorite button tapped")
-            }
-            favorite.backgroundColor = UIColor.orangeColor()
-            
-            let share = UITableViewRowAction(style: .Normal, title: "Share") { action, index in
-                print("share button tapped")
-            }
-            share.backgroundColor = UIColor.blueColor()
-            
-            return [share, favorite, more]
         }else{
             return nil
         }

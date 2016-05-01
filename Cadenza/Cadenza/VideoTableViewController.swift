@@ -20,6 +20,8 @@ class VideoTableViewController: UITableViewController {
         //        print(mystruct.courseID)
         //        print(mystruct.secID)
         //        print(mystruct.lectureID)
+//        self.tableView.rowHeight = UITableViewAutomaticDimension
+//        self.tableView.estimatedRowHeight = 8
         if mystruct.secID == nil {
             alamo_Video("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.json_instruct![0,"SectionID"])/videos?access_token=\(Token().getToken())")
             
@@ -61,42 +63,57 @@ class VideoTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data_model.count
+        if data_model.count == 0{
+            return 1
+        }else{
+            return data_model.count
+        }
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! VideoTableViewCell
-        let data_cell = data_model[indexPath.row]
-        cell.title.text = data_cell.videoTitle
+
      //   print(data_cell.videoType)
        // let link:String?
-        if data_cell.videoType == 1 {
-          //  link = "https://www.youtube.com/watch?v=\(data_cell.videoURL!)"
-            mystruct.video.append("https://www.youtube.com/watch?v=\(data_cell.videoURL!)")
-            Alamofire.request(.GET, "https://www.youtube.com/watch?v=\(data_cell.videoURL!)")
-                .response { request, response, data, error in
-                    cell.web.loadRequest(request!)
-//                    dispatch_async(dispatch_get_main_queue(),{
-//                        self.tableView.reloadData()
-//                    })
-            }
+        if data_model.count == 0{
+            let cell = tableView.dequeueReusableCellWithIdentifier("no", forIndexPath: indexPath)
+            cell.textLabel!.text = "No Video"
+            return cell
+        }else{
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! VideoTableViewCell
+            let data_cell = data_model[indexPath.row]
 
-        } else {
-      //      link = "https://vimeo.com/channels/staffpicks/\(data_cell.videoURL!)"
-            mystruct.video.append("https://vimeo.com/channels/staffpicks/\(data_cell.videoURL!)")
-            Alamofire.request(.GET, "https://vimeo.com/channels/staffpicks/\(data_cell.videoURL!)")
-                .response { request, response, data, error in
-                    cell.web.loadRequest(request!)
-//                    dispatch_async(dispatch_get_main_queue(),{
-//                        self.tableView.reloadData()
-//                    })
+            if data_cell.videoType == 1 {
+                cell.title.text = data_cell.videoTitle
+                //  link = "https://www.youtube.com/watch?v=\(data_cell.videoURL!)"
+                mystruct.video.append("https://www.youtube.com/watch?v=\(data_cell.videoURL!)")
+                Alamofire.request(.GET, "https://www.youtube.com/watch?v=\(data_cell.videoURL!)")
+                    .response { request, response, data, error in
+                        cell.web.loadRequest(request!)
+                        //                    dispatch_async(dispatch_get_main_queue(),{
+                        //                        self.tableView.reloadData()
+                        //                    })
+                        
+                }
+                
+            } else {
+                
+                cell.title.text = data_cell.videoTitle
+                //      link = "https://vimeo.com/channels/staffpicks/\(data_cell.videoURL!)"
+                mystruct.video.append("https://vimeo.com/channels/staffpicks/\(data_cell.videoURL!)")
+                Alamofire.request(.GET, "https://vimeo.com/channels/staffpicks/\(data_cell.videoURL!)")
+                    .response { request, response, data, error in
+                        cell.web.loadRequest(request!)
+                        //                    dispatch_async(dispatch_get_main_queue(),{
+                        //                        self.tableView.reloadData()
+                        //                    })
+                }
             }
-        
-
+            cell.web.scrollView.scrollEnabled = false
+            return cell
         }
-        cell.web.scrollView.scrollEnabled = false
-        return cell
+        
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         mystruct.indexpath_video = indexPath.row
