@@ -1,0 +1,18 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, ‘9.0’
+
+target ‘Cadenza’ do
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, ‘9.0’
+use_frameworks!
+pod 'Alamofire', '~> 3.0'
+pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+pod 'AlamofireImage', '~> 2.0'
+pod 'RAMAnimatedTabBarController', '~> 1.0.6'
+pod 'UIScrollView-InfiniteScroll'
+pod 'CarbonKit', '~>2.1'
+pod 'MBProgressHUD', '~> 0.9.2'
+pod ’IQKeyboardManagerSwift'
+pod 'SDWebImage', '~>3.7'
+end
+
