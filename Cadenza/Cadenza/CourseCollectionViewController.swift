@@ -8,8 +8,8 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
-import AlamofireImage
+//import SwiftyJSON
+//import AlamofireImage
 
 class CourseCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
     
@@ -83,13 +83,18 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         cell.titleLabel.text = data_cell.title
         cell.authorLabel.text = "\(data_cell.author_fname!) \(data_cell.author_lname!)"
         let string = "http://cadenza.in.th"+"\(data_cell.courseCoverFull!)"
-        let url = NSURL(string:string)
-        Alamofire.request(.GET, url!)
-            .responseImage { response in
-                if let image = response.result.value {
-                    cell.imagecell.image = image
-                }
-        }
+        let url:NSURL? = NSURL(string:string)
+        cell.imagecell.sd_setImageWithURL(url)
+//        Alamofire.request(.GET, url!)
+//            .responseImage { response in
+//                if let image = response.result.value {
+//                    dispatch_async(dispatch_get_main_queue(),{
+//                        //  self.tableview.reloadData()
+//                        cell.imagecell.image = image
+//                    })
+//                    
+//                }
+//        }
         cell.contentView.layer.cornerRadius = 1.0
         cell.contentView.layer.borderWidth = 1
         cell.contentView.layer.borderColor = UIColor.clearColor().CGColor
@@ -103,7 +108,6 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         return cell
         
     }
-    
     
     private func apiURL(page:Int) ->  NSURL{
         let string = "http://cadenza.in.th/api/mobile/course?page=\(page)"

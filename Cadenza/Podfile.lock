@@ -6,7 +6,9 @@ PODS:
   - IQKeyboardManagerSwift (4.0.2)
   - MBProgressHUD (0.9.2)
   - RAMAnimatedTabBarController (1.0.9)
-  - SwiftSpinner (0.9.5)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
   - SwiftyJSON (2.3.2)
   - UIScrollView-InfiniteScroll (0.7.3)
 
@@ -17,7 +19,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - MBProgressHUD (~> 0.9.2)
   - RAMAnimatedTabBarController (~> 1.0.6)
-  - SwiftSpinner
+  - SDWebImage (~> 3.7)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - UIScrollView-InfiniteScroll
 
@@ -37,7 +39,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 2f2c19c509f67c4c0df2826db54033d3e090ce65
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   RAMAnimatedTabBarController: a45ddb56afd08502a1247613d7ad32bfd49fa294
-  SwiftSpinner: c6585a0ae5c67eb33e737695cce88f0262008cce
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   UIScrollView-InfiniteScroll: b6c7d6d155dca7f9c5dd43813ecffeb301b3d50c
 

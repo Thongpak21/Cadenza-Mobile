@@ -39,7 +39,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftSpinner.xcscheme</key>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,7 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>49E049E27432B2E60D800E2DC58773EE</key>
+		<key>513813A9AD0B6D0047E8A5A8E380DAC6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,32 +77,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6822D33D73EE0513CED05A1570A66779</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>75E4A1F3F010862A26E4AE90A261629E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7DC2F20AAAD49C2701F2B02730675B3C</key>
+		<key>8283737C51CB45567E290E5CE5433D53</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>806C4E6E643FD17E36A60960A8CC5DF7</key>
+		<key>C769A70C07CCEEF970633A8A4EEFA9D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D32B83BDB53B969732A50C4C5382A676</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E61CE3B6DFA1FE6B3E296965C76C0E10</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5AD55D9777E38BEFFCCB95CE7BCF69C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

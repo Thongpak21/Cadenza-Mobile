@@ -136,13 +136,20 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
         let data_cell = data_model[indexPath.row]
         cell.titleLabel.text = data_cell.title
         cell.authorLabel.text = "\(data_cell.author_fname!) \(data_cell.author_lname!)"
+        let string = "http://cadenza.in.th"+"\(data_cell.courseCoverFull!)"
+        let url:NSURL? = NSURL(string:string)
+        cell.imagecell.sd_setImageWithURL(url)
        // print(cell.authorLabel.text)
-        Alamofire.request(.GET, "http://cadenza.in.th"+"\(data_cell.courseCoverFull!)")
-            .responseImage { response in
-                if let image = response.result.value {
-                    cell.imagecell.image = image
-                }
-        }
+//        Alamofire.request(.GET, "http://cadenza.in.th"+"\(data_cell.courseCoverFull!)")
+//            .responseImage { response in
+//                if let image = response.result.value {
+//                    dispatch_async(dispatch_get_main_queue(),{
+//                        //  self.tableview.reloadData()
+//                        cell.imagecell.image = image
+//                    })
+//
+//                }
+//        }
         cell.contentView.layer.cornerRadius = 1.0
         cell.contentView.layer.borderWidth = 1
         cell.contentView.layer.borderColor = UIColor.clearColor().CGColor

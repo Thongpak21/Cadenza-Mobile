@@ -19,14 +19,19 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
     var topicdes:String?
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.clearsSelectionOnViewWillAppear = true
+        
+        
         message.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ReplyViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         postby = mystruct.topic_postby!
         titlename = mystruct.topictitle!
+        
+        
         IQKeyboardManager.sharedManager().disabledToolbarClasses.insert(NSStringFromClass(ReplyViewController))
         self.tableview.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0)
+        
+        
         if mystruct.secID == nil {
             alamo_Lecture("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.json_instruct![0,"SectionID"])/topics/\(mystruct.topicID!)?access_token=\(Token().getToken())")
             
@@ -60,14 +65,11 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
             }else{
                 alamo_reply("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.secID!)/topics/\(mystruct.topicID!)",data: message.text!)
             }
-            print(mystruct.pro_display_thumbnail)
+      //      print(mystruct.pro_display_thumbnail)
             let a = ["TopicReplyDescription":message.text!, "TopicID": 5, "UserID": 2, "lastname": mystruct.pro_lname!, "display_thumbnail": mystruct.pro_display_thumbnail!, "firstname": mystruct.pro_fname!]
            // print(a)
             data_model.append(model(a as! [String : AnyObject]))
             message.text = ""
-            //  print(model(a).topicReplyDes)
-            //  let rth = tableView.dequeueReusableCellWithIdentifier("postreply") as! PostReplyTableViewCell
-            //  print(rth.textfield.text)
             tableview.beginUpdates()
             tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: data_model.count, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Bottom)
             tableview.endUpdates()
@@ -148,12 +150,19 @@ extension ReplyViewController : UITableViewDataSource{
             return cell
         }else{
             let cell = tableView.dequeueReusableCellWithIdentifier("reply", forIndexPath: indexPath) as! ReplyTableViewCell
-            Alamofire.request(.GET, "http://cadenza.in.th/\(data_model[indexPath.row-3].displaythumnail!)")
-                .responseImage { response in
-                    if let image = response.result.value {
-                        cell.display.image = image
-                    }
-            }
+            let string = "http://cadenza.in.th/\(data_model[indexPath.row-3].displaythumnail!)"
+            let url:NSURL? = NSURL(string:string)
+            cell.display.sd_setImageWithURL(url)
+//            Alamofire.request(.GET, "http://cadenza.in.th/\(data_model[indexPath.row-3].displaythumnail!)")
+//                .responseImage { response in
+//                    if let image = response.result.value {
+//                        dispatch_async(dispatch_get_main_queue(),{
+//                          //  self.tableview.reloadData()
+//                            cell.display.image = image
+//                        })
+//                        
+//                    }
+//            }
             cell.message.text = data_model[indexPath.row-3].topicReplyDes!
             cell.postby.text = "\(data_model[indexPath.row-3].author_fname!) \(data_model[indexPath.row-3].author_lname!)"
             return cell
@@ -180,6 +189,38 @@ extension ReplyViewController : UITableViewDataSource{
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath)->[UITableViewRowAction]?{
+        if indexPath.row > 2 {
+            let more = UITableViewRowAction(style: .Normal, title: "More") { action, index in
+                print("more button tapped")
+            }
+            more.backgroundColor = UIColor.lightGrayColor()
+            
+            let favorite = UITableViewRowAction(style: .Normal, title: "Favorite") { action, index in
+                print("favorite button tapped")
+            }
+            favorite.backgroundColor = UIColor.orangeColor()
+            
+            let share = UITableViewRowAction(style: .Normal, title: "Share") { action, index in
+                print("share button tapped")
+            }
+            share.backgroundColor = UIColor.blueColor()
+            
+            return [share, favorite, more]
+        }else{
+            return nil
+        }
+        
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // the cells you would like the actions to appear needs to be editable
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // you need to implement this method too or you can't swipe to display the actions
     }
 
 }

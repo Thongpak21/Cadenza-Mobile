@@ -8,9 +8,10 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
+//import SwiftyJSON
 import AlamofireImage
 import MBProgressHUD
+import SDWebImage
 class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
     @IBOutlet var tableview: UITableView!
     @IBOutlet weak var imgheight: NSLayoutConstraint!
@@ -43,12 +44,14 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
         height_layout.constant = height_layout.constant - 70
         WebCourseDes.scrollView.scrollEnabled = false
         viaSegueLabel.text = Name
-        Alamofire.request(.GET, coveimg!)
-            .responseImage { response in
-                if let image = response.result.value {
-                    self.imgcov.image = image
-                }
-        }
+        let imageurl:NSURL? = NSURL(string: coveimg!)
+        imgcov.sd_setImageWithURL(imageurl)
+//        Alamofire.request(.GET, coveimg!)
+//            .responseImage { response in
+//                if let image = response.result.value {
+//                    self.imgcov.image = image
+//                }
+//        }
  
         tableview.delegate = self
         tableview.dataSource = self
@@ -184,7 +187,7 @@ extension ShowCourseDetail : UITableViewDataSource{
                 print("hello")
                 Alamofire.request(.POST, "http://www.cadenza.in.th/v2/api/mobile/courses/\(self.courseID!)/sections/\(data_cell.sectionID!)/enroll", parameters: data)
                     .responseJSON{ response in
-                        print(response.result.value!)
+                      //  print(response.result.value!)
                 }
 
             case .Cancel:

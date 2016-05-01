@@ -42,7 +42,7 @@ class SegmentViewController: UIViewController{
         case 3:
             return UIStoryboard(name: "Main",bundle: nil).instantiateViewControllerWithIdentifier("qa")
         default:
-            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home")
+            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("21")
             return  viewController
         }
     }
