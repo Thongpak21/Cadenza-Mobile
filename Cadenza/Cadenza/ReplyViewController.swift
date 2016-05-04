@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import AlamofireImage
 import IQKeyboardManagerSwift
+import SwiftyJSON
 class ReplyViewController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var message: UITextField!
     @IBOutlet weak var tableview: UITableView!
@@ -66,13 +67,13 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
                 alamo_reply("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.secID!)/topics/\(mystruct.topicID!)",data: message.text!)
             }
       //      print(mystruct.pro_display_thumbnail)
-            let a = ["TopicReplyDescription":message.text!, "TopicID": 5, "UserID": 2, "lastname": mystruct.pro_lname!, "display_thumbnail": mystruct.pro_display_thumbnail!, "firstname": mystruct.pro_fname!]
-           // print(a)
-            data_model.append(model(a as! [String : AnyObject]))
-            message.text = ""
-            tableview.beginUpdates()
-            tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: data_model.count, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Bottom)
-            tableview.endUpdates()
+//            let a = ["TopicReplyDescription":message.text!, "TopicID": 5, "UserID": 2, "lastname": mystruct.pro_lname!, "display_thumbnail": mystruct.pro_display_thumbnail!, "firstname": mystruct.pro_fname!]
+//           // print(a)
+//            data_model.append(model(a as! [String : AnyObject]))
+//            message.text = ""
+//            tableview.beginUpdates()
+//            tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: data_model.count, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Bottom)
+//            tableview.endUpdates()
         }
     }
     func alamo_Lecture(url:String){
@@ -80,7 +81,7 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
         Alamofire.request(.GET,url)
             .responseJSON{ response in
                 UIApplication.sharedApplication().startNetworkActivity()
-                //   print(response.result.value!["TopicTitle"])
+            //    print(response.result.value!)
                 self.topicdes = response.result.value!["TopicDescription"] as? String
                 if let results = response.result.value!["topicreply"] as? [[String: AnyObject]] {
                     for i in results {
@@ -89,14 +90,15 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
                         self.data_model.append(model(i))
                     }
                 }
-                UIApplication.sharedApplication().stopNetworkActivity()
                 
+                UIApplication.sharedApplication().stopNetworkActivity()
                 dispatch_async(dispatch_get_main_queue(),{
                     self.tableview.reloadData()
 
                     self.tableview.dataSource = self
                 })
         }
+        
         
     }
     func alamo_delete(url:String){
@@ -105,17 +107,7 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
         Alamofire.request(.POST,url,parameters:data)
             .responseJSON{ response in
                 UIApplication.sharedApplication().startNetworkActivity()
-                //   print(response.result.value!["TopicTitle"])
-//                self.topicdes = response.result.value!["TopicDescription"] as? String
-//                if let results = response.result.value!["topicreply"] as? [[String: AnyObject]] {
-//                    for i in results {
-//                        //       print(i)
-//                        //    print("\(model(i))   --->  \(model(i).topicID)")
-//                        self.data_model.append(model(i))
-//                    }
-//                }
                 UIApplication.sharedApplication().stopNetworkActivity()
-                
                 dispatch_async(dispatch_get_main_queue(),{
                     self.tableview.reloadData()
                     
@@ -131,6 +123,17 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
         Alamofire.request(.POST,url,parameters:reply)
             .responseJSON{ response in
                 UIApplication.sharedApplication().startNetworkActivity()
+                let json = JSON(response.result.value!)
+             //   print(json["TopicReplyID"])
+                let a = ["TopicReplyID":"\(json["TopicReplyID"].int)","TopicReplyDescription":self.message.text!, "TopicID": 5, "UserID": 2, "lastname": mystruct.pro_lname!, "display_thumbnail": mystruct.pro_display_thumbnail!, "firstname": mystruct.pro_fname!]
+           //      print(a)
+                self.data_model.append(model(a as! [String : AnyObject]))
+                self.data_model[self.data_model.count-1].topicReplyID = json["TopicReplyID"].int
+            //    print(self.data_model[self.data_model.count-1].topicReplyID)
+                self.message.text = ""
+                self.tableview.beginUpdates()
+                self.tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: self.data_model.count, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Bottom)
+                self.tableview.endUpdates()
                // print(response.result.value!["TopidID"])
         //        self.data_model[self.data_model.count].topicReplyID = response.result.value!["TopicReplyID"]
                 UIApplication.sharedApplication().stopNetworkActivity()
@@ -227,7 +230,7 @@ extension ReplyViewController : UITableViewDataSource{
                         self.alamo_delete("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.secID!)/topics/\(mystruct.topicID!)/topicreplys/\(self.data_model[indexPath.row-3].topicReplyID!)")
                     }
                     self.data_model.removeAtIndex(indexPath.row-3)
-                    self.tableview.reloadData()
+            //        self.tableview.reloadData()
                     //   print("share button tapped")
                 }
                 Delete.backgroundColor = UIColor.redColor()

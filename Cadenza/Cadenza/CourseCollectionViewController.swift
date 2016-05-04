@@ -28,13 +28,11 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Token().getProfile()
     //    tabBarItem.badgeValue = "2"
    //    tabBarController?.tabBar.items?[1].badgeValue = "1"
         let width = (CGRectGetWidth((collectionView?.bounds)!) - LeftAndRightPadding) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSizeMake(width, width + heightAdjustment)
-        
         // Set custom indicator
         collectionView?.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
         // Set custom indicator margin
@@ -43,10 +41,10 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         collectionView?.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
             self?.fetchData() {
                 self!.collectionView?.finishInfiniteScroll()
-
             }
         }
         fetchData(nil)
+        Token().getProfile()
         
     }
 
@@ -85,16 +83,7 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         let string = "http://cadenza.in.th"+"\(data_cell.courseCoverFull!)"
         let url:NSURL? = NSURL(string:string)
         cell.imagecell.sd_setImageWithURL(url)
-//        Alamofire.request(.GET, url!)
-//            .responseImage { response in
-//                if let image = response.result.value {
-//                    dispatch_async(dispatch_get_main_queue(),{
-//                        //  self.tableview.reloadData()
-//                        cell.imagecell.image = image
-//                    })
-//                    
-//                }
-//        }
+
         cell.contentView.layer.cornerRadius = 1.0
         cell.contentView.layer.borderWidth = 1
         cell.contentView.layer.borderColor = UIColor.clearColor().CGColor
@@ -121,7 +110,7 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         //      let firstIndex = data_model.count
         let task = Alamofire.request(.GET, requestURL)
             .responseJSON{ response in
-                //    print(response.result.value)
+               //     print(response.result.error)
                 if let _ = response.result.error {
                     self.showAlertWithError(response.result.error!)
                     return;

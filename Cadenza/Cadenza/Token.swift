@@ -18,7 +18,6 @@ class Token: NSObject {
         do {
             let result = try context.executeFetchRequest(request)
             
-            // print(result)
             return result
         } catch {
             print(error)

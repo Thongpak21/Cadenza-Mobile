@@ -45,7 +45,7 @@ class Login: UIViewController,UITextFieldDelegate {
 //             for res in result {
 //                 print(res)
 //               }
-            print("login")
+      //      print("login")
             print(result)
             if result.count != 0 {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -67,39 +67,39 @@ class Login: UIViewController,UITextFieldDelegate {
             "grant_type": "password",
             "client_id":"client1id",
             "client_secret":"client1secret",
-              "username":"demo3@cadenza.in.th",
-              "password":"demo3"
-//            "username":username.text!,
-//            "password":password.text!
+//              "username":"demo3@cadenza.in.th",
+//              "password":"demo3"
+            "username":username.text!,
+            "password":password.text!
         ]
         Alamofire.request(.POST, "http://cadenza.in.th/oauth/access_token",parameters:data )
             .responseJSON { response in
 //                print("Response JSON: \(response.result.value)")
                 let json = JSON(response.result.value!)
-          //      print(json["access_token"])
-//                for (key,json):(String, JSON) in json {
-//                    print("\(key) -> \(json)")
-//                }
+
                 if json["access_token"] == nil {
+                    let alert = UIAlertController(title: "Warning", message: "Username or Password is wrong.", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
                     
                 } else {
+                    let appdel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+                    let context:NSManagedObjectContext = appdel.managedObjectContext
+                    
+                    let newtoken = NSEntityDescription.insertNewObjectForEntityForName("Users", inManagedObjectContext: context) // as NSManagedObject
+                    newtoken.setValue("\(json["access_token"])", forKey: "token")
+                    
+                    do {
+                        try context.save()
+                    } catch let error as NSError {
+                        print("could not save \(error)")
+                    }
+                    print(newtoken)
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home")
                         self.presentViewController(viewController, animated: true, completion: nil)
                     })
                 }
-                let appdel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-                let context:NSManagedObjectContext = appdel.managedObjectContext
-                
-                let newtoken = NSEntityDescription.insertNewObjectForEntityForName("Users", inManagedObjectContext: context) // as NSManagedObject
-                newtoken.setValue("\(json["access_token"])", forKey: "token")
-                
-                do {
-                    try context.save()
-                } catch let error as NSError {
-                    print("could not save \(error)")
-                }
-                print(newtoken)
         }
         
     }

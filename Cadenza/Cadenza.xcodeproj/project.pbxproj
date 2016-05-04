@@ -81,11 +81,11 @@
 		377AB4F01CC6200F004BC327 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		377D5F0B1CD234AA00A4FC7E /* PostReplyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostReplyTableViewCell.swift; sourceTree = "<group>"; };
 		3785EDAA1CA156BC00A4A641 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		378BEDDB1CDA32C500AACF0C /* Cadenza-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Cadenza-Bridging-Header.h"; sourceTree = "<group>"; };
 		3797F0DF1CD3E52A0071FCE2 /* LessonDesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonDesTableViewCell.swift; sourceTree = "<group>"; };
 		379B17681BF8EC9C00B18E12 /* Cadenza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadenza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379B177A1BF8EC9C00B18E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		379B17D71BF8ED9000B18E12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		379B17DC1BF8EE0A00B18E12 /* Cadenza-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cadenza-Bridging-Header.h"; sourceTree = "<group>"; };
 		379B17E51BF8F2BA00B18E12 /* TableCourseList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCourseList.swift; sourceTree = "<group>"; };
 		379B17EA1BF8F2BA00B18E12 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		379B17FA1BF8F54300B18E12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -176,7 +176,7 @@
 		379B17DB1BF8EDD800B18E12 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				379B17DC1BF8EE0A00B18E12 /* Cadenza-Bridging-Header.h */,
+				378BEDDB1CDA32C500AACF0C /* Cadenza-Bridging-Header.h */,
 			);
 			name = Header;
 			sourceTree = "<group>";
