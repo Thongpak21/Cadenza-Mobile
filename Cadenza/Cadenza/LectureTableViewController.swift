@@ -10,10 +10,13 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import CarbonKit
+import MBProgressHUD
 class LectureTableViewController: UITableViewController {
     var data_model = [model]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        hud.labelText = "Loading"
         self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0)
        // print(mystruct.secID)
  //       print(mystruct.json_instruct![0,"SectionID"])
@@ -48,6 +51,7 @@ class LectureTableViewController: UITableViewController {
                 dispatch_async(dispatch_get_main_queue(),{
                     self.tableView.reloadData()
                 })
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
         }
         
     }

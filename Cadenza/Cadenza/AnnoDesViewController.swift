@@ -58,7 +58,8 @@ extension AnnoDesViewController:UITableViewDataSource{
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("lesson", forIndexPath: indexPath)
-        cell.textLabel!.text = mystruct.Annodes!
+        let str = mystruct.Annodes!.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+        cell.textLabel!.text = str
         //   self.tableview.rowHeight = UITableViewAutomaticDimension
         return cell
     }

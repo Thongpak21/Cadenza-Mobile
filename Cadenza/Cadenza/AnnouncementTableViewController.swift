@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-
+import MBProgressHUD
 class AnnouncementTableViewController: UITableViewController,UIWebViewDelegate {
 
     private let cellIdentifier = "Cell"
@@ -24,6 +24,8 @@ class AnnouncementTableViewController: UITableViewController,UIWebViewDelegate {
     var selectedIndexPath:NSIndexPath?
     override func viewDidLoad() {
         super.viewDidLoad()
+        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        hud.labelText = "Loading"
         self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0)
         tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
         
@@ -75,6 +77,7 @@ class AnnouncementTableViewController: UITableViewController,UIWebViewDelegate {
                     }
                     self.tableView.reloadData()
                 }
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 UIApplication.sharedApplication().stopNetworkActivity()
                 handler?()
                 
@@ -116,6 +119,7 @@ class AnnouncementTableViewController: UITableViewController,UIWebViewDelegate {
             return cell
         }else {
             let data_cell = data_model[indexPath.row]
+
             cell.textLabel?.text = data_cell.annoTitle
             return cell
         }

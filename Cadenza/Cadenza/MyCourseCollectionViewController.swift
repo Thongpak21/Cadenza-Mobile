@@ -30,6 +30,8 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
     private var numPages = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        hud.labelText = "Loading"
         self.tabBarItem.badgeValue = "5"
         data(Token().getToken())
         let width = (CGRectGetWidth((collectionView?.bounds)!) - LeftAndRightPadding) / numberOfItemsPerRow
@@ -73,8 +75,10 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
                     for i in results {
               //          print("\(model(i).courseID)")
                         self.data_model.append(model(i))
-                        UIApplication.sharedApplication().stopNetworkActivity()
+                       
                     }
+                    UIApplication.sharedApplication().stopNetworkActivity()
+                    MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                     
                    
                 }

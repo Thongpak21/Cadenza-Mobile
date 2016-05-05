@@ -33,6 +33,7 @@ struct mystruct {
     static var pro_lname:String?
     static var pro_display:String?
     static var pro_display_thumbnail:String?
+    static var devicetoken:String?
 }
 class getAPI {
     func alamo_Anno(url:String) {

@@ -43,5 +43,13 @@ class Token: NSObject {
                 UIApplication.sharedApplication().stopNetworkActivity()
         }
     }
+    func notification() {
+        let data = ["access_token":"\(Token().getToken())","DeviceToken":"\(mystruct.devicetoken)","DeviceOS":"ios"]
+        Alamofire.request(.POST,"http://www.cadenza.in.th/v2/api/mobile/signin",parameters:data)
+    }
+    func notification_logout() {
+        let data = ["access_token":"\(Token().getToken())","DeviceToken":"\(mystruct.devicetoken)"]
+        Alamofire.request(.POST,"http://www.cadenza.in.th/v2/api/mobile/signout",parameters:data)
+    }
 
 }

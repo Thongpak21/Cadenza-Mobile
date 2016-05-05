@@ -8,12 +8,14 @@
 
 import UIKit
 import Alamofire
-
+import MBProgressHUD
 class LessonTableViewController: UITableViewController {
 
     var data_model = [model]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        hud.labelText = "Loading"
         self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0)
 //        print(mystruct.courseID)
 //        print(mystruct.secID)
@@ -39,7 +41,7 @@ class LessonTableViewController: UITableViewController {
                 }
                 
                 UIApplication.sharedApplication().stopNetworkActivity()
-                
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 dispatch_async(dispatch_get_main_queue(),{
                     self.tableView.reloadData()
                 })
@@ -73,7 +75,9 @@ class LessonTableViewController: UITableViewController {
             cell.textLabel?.text = ""
             return cell
         }else{
+            
             let data_cell = data_model[indexPath.row]
+
             cell.textLabel?.text = data_cell.LessonTitle
             return cell
         }

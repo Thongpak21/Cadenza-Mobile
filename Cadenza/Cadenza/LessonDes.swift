@@ -21,6 +21,7 @@ class LessonDes: UIViewController,UIScrollViewDelegate {
         tableview.backgroundView = nil
         self.tableview.rowHeight = UITableViewAutomaticDimension
         self.tableview.estimatedRowHeight = 10
+        self.tableview.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0)
 
    //     webview()
    //     web.delegate = self
@@ -59,8 +60,19 @@ extension LessonDes:UITableViewDataSource{
         return 1
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("lesson", forIndexPath: indexPath)
-        cell.textLabel!.text = mystruct.Lessondes!
+        let str = mystruct.Lessondes!.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+        
+//        let regex = try! NSRegularExpression(pattern: "<.*?>", options: [.CaseInsensitive])
+//        
+//        let range = NSMakeRange(0, mystruct.Lessondes!.characters.count)
+//        let htmlLessString :String = regex.stringByReplacingMatchesInString(mystruct.Lessondes!, options: [],
+//                                                                            range:range ,
+//                                                                            withTemplate: "")
+        
+//        print(str)
+      cell.textLabel!.text = str
      //   self.tableview.rowHeight = UITableViewAutomaticDimension
         return cell
     }

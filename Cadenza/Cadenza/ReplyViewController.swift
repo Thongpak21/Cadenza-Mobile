@@ -11,6 +11,7 @@ import Alamofire
 import AlamofireImage
 import IQKeyboardManagerSwift
 import SwiftyJSON
+import MBProgressHUD
 class ReplyViewController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var message: UITextField!
     @IBOutlet weak var tableview: UITableView!
@@ -20,7 +21,8 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
     var topicdes:String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        hud.labelText = "Loading"
         
         message.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ReplyViewController.dismissKeyboard))
@@ -92,11 +94,13 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
                 }
                 
                 UIApplication.sharedApplication().stopNetworkActivity()
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 dispatch_async(dispatch_get_main_queue(),{
                     self.tableview.reloadData()
 
                     self.tableview.dataSource = self
                 })
+                
         }
         
         
@@ -164,7 +168,8 @@ extension ReplyViewController : UITableViewDataSource{
             return cell
         }else if indexPath.row == 1{
             let cell = tableView.dequeueReusableCellWithIdentifier("message", forIndexPath: indexPath)
-            cell.textLabel?.text = topicdes
+            let str = topicdes!.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+            cell.textLabel?.text = str
             return cell
         }else{
             let cell = tableView.dequeueReusableCellWithIdentifier("reply", forIndexPath: indexPath) as! ReplyTableViewCell

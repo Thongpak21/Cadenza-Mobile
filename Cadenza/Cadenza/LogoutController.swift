@@ -12,8 +12,8 @@ class LogoutController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Token().notification_logout()
         removetoken()
-       
     }
 
     override func didReceiveMemoryWarning() {

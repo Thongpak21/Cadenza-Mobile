@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-//import SwiftyJSON
+import SwiftyJSON
 import AlamofireImage
 import MBProgressHUD
 import SDWebImage
@@ -173,9 +173,9 @@ extension ShowCourseDetail : UITableViewDataSource{
             "access_token":gToken,
             "EnrollToken":data_cell.sectionToken!
         ]
-        print(data_cell.sectionID)
-        print(data_cell.sectionName)
-        print(data_cell.sectionToken)
+//        print(data_cell.sectionID)
+//        print(data_cell.sectionName)
+//        print(data_cell.sectionToken)
         let alert = UIAlertController(title: viaSegueLabel.text, message:"Sec : \(data_cell.sectionName!)",preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
 //        alert.addTextFieldWithConfigurationHandler(configTextField)
@@ -184,10 +184,16 @@ extension ShowCourseDetail : UITableViewDataSource{
         alert.addAction(UIAlertAction(title: "Enroll", style: .Default, handler: { action in
             switch action.style{
             case .Default:
-                print("hello")
+              //  print("hello")
                 Alamofire.request(.POST, "http://www.cadenza.in.th/v2/api/mobile/courses/\(self.courseID!)/sections/\(data_cell.sectionID!)/enroll", parameters: data)
                     .responseJSON{ response in
                       //  print(response.result.value!)
+                        let json = JSON(response.result.value!)
+                        mystruct.secID = json["SectionID"].int
+                        mystruct.courseID = json["CourseID"].int
+                        let secondViewController = self.storyboard!.instantiateViewControllerWithIdentifier("segment") as! SegmentViewController
+                        
+                        self.navigationController!.pushViewController(secondViewController, animated: true)
                 }
 
             case .Cancel:

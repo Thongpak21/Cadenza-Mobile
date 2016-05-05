@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         for i in 0..<deviceToken.length {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
-        
+        mystruct.devicetoken = tokenString
         print("Device Token:", tokenString)
     }
     

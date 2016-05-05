@@ -100,11 +100,8 @@ class Login: UIViewController,UITextFieldDelegate {
                         self.presentViewController(viewController, animated: true, completion: nil)
                     })
                 }
-        }
-        
+            }
     }
-
-    
     
     
     
