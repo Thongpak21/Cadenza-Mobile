@@ -11,16 +11,29 @@ import AlamofireImage
 import Alamofire
 import SwiftyJSON
 import CoreData
+import IQKeyboardManagerSwift
 class Login: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        checktoken()
-        LoginController()
         username.delegate = self
         password.delegate = self
+        username.attributedPlaceholder = NSAttributedString(string:"Username",
+                                                               attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        password.attributedPlaceholder = NSAttributedString(string:"Password",
+                                                            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(Login.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        IQKeyboardManager.sharedManager().disabledToolbarClasses.insert(NSStringFromClass(Login))
+        checktoken()
+        LoginController()
+        
+    }
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
     //    textField.resignFirstResponder()
@@ -95,6 +108,10 @@ class Login: UIViewController,UITextFieldDelegate {
                         print("could not save \(error)")
                     }
                     print(newtoken)
+                    if let _:String! = Token().getToken() {
+                        Token().notification()
+                    }
+
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home")
                         self.presentViewController(viewController, animated: true, completion: nil)

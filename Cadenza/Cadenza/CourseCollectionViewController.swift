@@ -28,6 +28,8 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.navigationController?.navigationBar.barTintColor = UIColor.blueColor()
+//        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         let width = (CGRectGetWidth((collectionView?.bounds)!) - LeftAndRightPadding) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSizeMake(width, width + heightAdjustment)
@@ -43,8 +45,6 @@ class CourseCollectionViewController: UICollectionViewController,UICollectionVie
         }
         fetchData(nil)
         Token().getProfile()
-        Token().notification()
-        
     }
 
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {

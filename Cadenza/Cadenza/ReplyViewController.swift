@@ -31,7 +31,7 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
         titlename = mystruct.topictitle!
         
         
-        IQKeyboardManager.sharedManager().disabledToolbarClasses.insert(NSStringFromClass(ReplyViewController))
+     //   IQKeyboardManager.sharedManager().disabledToolbarClasses.insert(NSStringFromClass(ReplyViewController))
         self.tableview.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0)
         
         

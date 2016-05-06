@@ -19,6 +19,8 @@
 		37256A3C1CD0CD180024C2C8 /* ReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37256A3B1CD0CD180024C2C8 /* ReplyTableViewCell.swift */; };
 		372D0EF61CA96E760024CD14 /* LessonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372D0EF51CA96E760024CD14 /* LessonTableViewController.swift */; };
 		372F6A161CA3D490008FB3A9 /* AnnouncementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F6A151CA3D490008FB3A9 /* AnnouncementTableViewController.swift */; };
+		3739BBB21CDCBEC000A2ACF0 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3739BBB11CDCBEC000A2ACF0 /* SettingTableViewController.swift */; };
+		3739BBB41CDCE47300A2ACF0 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3739BBB31CDCE47300A2ACF0 /* ProfileTableViewCell.swift */; };
 		373B04691C7AFE9C00150958 /* MyCourseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373B04681C7AFE9C00150958 /* MyCourseCollectionViewController.swift */; };
 		373B046B1C7B2A4300150958 /* MyCourseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373B046A1C7B2A4300150958 /* MyCourseTableViewController.swift */; };
 		37424BF51CC76AE3009F01E9 /* QATableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37424BF41CC76AE3009F01E9 /* QATableViewController.swift */; };
@@ -65,6 +67,8 @@
 		37256A3B1CD0CD180024C2C8 /* ReplyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyTableViewCell.swift; sourceTree = "<group>"; };
 		372D0EF51CA96E760024CD14 /* LessonTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonTableViewController.swift; sourceTree = "<group>"; };
 		372F6A151CA3D490008FB3A9 /* AnnouncementTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementTableViewController.swift; sourceTree = "<group>"; };
+		3739BBB11CDCBEC000A2ACF0 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		3739BBB31CDCE47300A2ACF0 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		373B04681C7AFE9C00150958 /* MyCourseCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCourseCollectionViewController.swift; sourceTree = "<group>"; };
 		373B046A1C7B2A4300150958 /* MyCourseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCourseTableViewController.swift; sourceTree = "<group>"; };
 		37424BF41CC76AE3009F01E9 /* QATableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QATableViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				373B04681C7AFE9C00150958 /* MyCourseCollectionViewController.swift */,
 				373B046A1C7B2A4300150958 /* MyCourseTableViewController.swift */,
 				374385D21CA0BD2E00FA90C8 /* CourseCollectionViewController.swift */,
+				3739BBB11CDCBEC000A2ACF0 /* SettingTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 				37FA39011C994C6F0037D521 /* NewsTableViewCell.swift */,
 				377D5F0B1CD234AA00A4FC7E /* PostReplyTableViewCell.swift */,
 				3797F0DF1CD3E52A0071FCE2 /* LessonDesTableViewCell.swift */,
+				3739BBB31CDCE47300A2ACF0 /* ProfileTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -406,7 +412,9 @@
 				37F71F5C1C021D1B004D4815 /* Login.swift in Sources */,
 				376F32A41CAC09FE000F1725 /* VideoTableViewCell.swift in Sources */,
 				373B04691C7AFE9C00150958 /* MyCourseCollectionViewController.swift in Sources */,
+				3739BBB41CDCE47300A2ACF0 /* ProfileTableViewCell.swift in Sources */,
 				370CC9781CA83B0E0050D6B7 /* AnnoTableViewCell.swift in Sources */,
+				3739BBB21CDCBEC000A2ACF0 /* SettingTableViewController.swift in Sources */,
 				37AEAC0F1CD66B70005A2F66 /* ResourceTableViewController.swift in Sources */,
 				377D5F0C1CD234AA00A4FC7E /* PostReplyTableViewCell.swift in Sources */,
 				37F71EEC1BF9989E004D4815 /* MenuCell.swift in Sources */,
