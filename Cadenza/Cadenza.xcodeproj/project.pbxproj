@@ -34,6 +34,11 @@
 		377A8ADA1C6338260070426B /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */; };
 		377AB4F11CC6200F004BC327 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 377AB4EF1CC6200F004BC327 /* Model.xcdatamodeld */; };
 		377D5F0C1CD234AA00A4FC7E /* PostReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377D5F0B1CD234AA00A4FC7E /* PostReplyTableViewCell.swift */; };
+		377E5A0E1CE1FC68009AC34C /* ResouceFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E5A0D1CE1FC68009AC34C /* ResouceFileViewController.swift */; };
+		377E5A101CE33915009AC34C /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E5A0F1CE33915009AC34C /* StudentViewController.swift */; };
+		377E5A121CE350D5009AC34C /* AssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E5A111CE350D5009AC34C /* AssignmentViewController.swift */; };
+		377E5A141CE3656B009AC34C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E5A131CE3656B009AC34C /* RegisterViewController.swift */; };
+		377E5A161CE3AF7F009AC34C /* AssignmentByCourseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E5A151CE3AF7F009AC34C /* AssignmentByCourseTableViewController.swift */; };
 		3785EDAB1CA156BC00A4A641 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3785EDAA1CA156BC00A4A641 /* Token.swift */; };
 		3797F0E01CD3E52A0071FCE2 /* LessonDesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797F0DF1CD3E52A0071FCE2 /* LessonDesTableViewCell.swift */; };
 		379B17D81BF8ED9000B18E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379B17D71BF8ED9000B18E12 /* Assets.xcassets */; };
@@ -84,6 +89,11 @@
 		377A8AD91C6338260070426B /* CustomInfiniteIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfiniteIndicator.swift; sourceTree = "<group>"; };
 		377AB4F01CC6200F004BC327 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		377D5F0B1CD234AA00A4FC7E /* PostReplyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostReplyTableViewCell.swift; sourceTree = "<group>"; };
+		377E5A0D1CE1FC68009AC34C /* ResouceFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResouceFileViewController.swift; sourceTree = "<group>"; };
+		377E5A0F1CE33915009AC34C /* StudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
+		377E5A111CE350D5009AC34C /* AssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentViewController.swift; sourceTree = "<group>"; };
+		377E5A131CE3656B009AC34C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		377E5A151CE3AF7F009AC34C /* AssignmentByCourseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentByCourseTableViewController.swift; sourceTree = "<group>"; };
 		3785EDAA1CA156BC00A4A641 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		378BEDDB1CDA32C500AACF0C /* Cadenza-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Cadenza-Bridging-Header.h"; sourceTree = "<group>"; };
 		3797F0DF1CD3E52A0071FCE2 /* LessonDesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonDesTableViewCell.swift; sourceTree = "<group>"; };
@@ -135,6 +145,10 @@
 				373B046A1C7B2A4300150958 /* MyCourseTableViewController.swift */,
 				374385D21CA0BD2E00FA90C8 /* CourseCollectionViewController.swift */,
 				3739BBB11CDCBEC000A2ACF0 /* SettingTableViewController.swift */,
+				377E5A0D1CE1FC68009AC34C /* ResouceFileViewController.swift */,
+				377E5A0F1CE33915009AC34C /* StudentViewController.swift */,
+				377E5A111CE350D5009AC34C /* AssignmentViewController.swift */,
+				377E5A131CE3656B009AC34C /* RegisterViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -210,6 +224,7 @@
 				376287F31CCE77F300E020C1 /* ReplyViewController.swift */,
 				37256A371CD0CCE00024C2C8 /* ReplyTableViewController.swift */,
 				37AEAC0E1CD66B70005A2F66 /* ResourceTableViewController.swift */,
+				377E5A151CE3AF7F009AC34C /* AssignmentByCourseTableViewController.swift */,
 			);
 			name = "Course Group Controller";
 			sourceTree = "<group>";
@@ -404,14 +419,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				37BBA1B51CB04CDA00C35683 /* AnnoDesViewController.swift in Sources */,
+				377E5A141CE3656B009AC34C /* RegisterViewController.swift in Sources */,
 				373B046B1C7B2A4300150958 /* MyCourseTableViewController.swift in Sources */,
 				37C465C71C625BC0002F64E7 /* webview.swift in Sources */,
 				377AB4F11CC6200F004BC327 /* Model.xcdatamodeld in Sources */,
 				376287F41CCE77F300E020C1 /* ReplyViewController.swift in Sources */,
+				377E5A121CE350D5009AC34C /* AssignmentViewController.swift in Sources */,
 				37FA39021C994C6F0037D521 /* NewsTableViewCell.swift in Sources */,
 				37F71F5C1C021D1B004D4815 /* Login.swift in Sources */,
 				376F32A41CAC09FE000F1725 /* VideoTableViewCell.swift in Sources */,
 				373B04691C7AFE9C00150958 /* MyCourseCollectionViewController.swift in Sources */,
+				377E5A101CE33915009AC34C /* StudentViewController.swift in Sources */,
 				3739BBB41CDCE47300A2ACF0 /* ProfileTableViewCell.swift in Sources */,
 				370CC9781CA83B0E0050D6B7 /* AnnoTableViewCell.swift in Sources */,
 				3739BBB21CDCBEC000A2ACF0 /* SettingTableViewController.swift in Sources */,
@@ -430,6 +448,7 @@
 				377A8ADA1C6338260070426B /* CustomInfiniteIndicator.swift in Sources */,
 				37256A3A1CD0CD0D0024C2C8 /* TopicReplyTableViewCell.swift in Sources */,
 				37D4F6531CA16ABC0037EE87 /* SegmentViewController.swift in Sources */,
+				377E5A161CE3AF7F009AC34C /* AssignmentByCourseTableViewController.swift in Sources */,
 				37256A3C1CD0CD180024C2C8 /* ReplyTableViewCell.swift in Sources */,
 				372D0EF61CA96E760024CD14 /* LessonTableViewController.swift in Sources */,
 				37D4F6581CA1B92B0037EE87 /* Course.swift in Sources */,
@@ -442,6 +461,7 @@
 				371FCDAD1C0894FD002406F6 /* AppDelegate.swift in Sources */,
 				37BBA1B31CB02D3C00C35683 /* LessonDes.swift in Sources */,
 				3785EDAB1CA156BC00A4A641 /* Token.swift in Sources */,
+				377E5A0E1CE1FC68009AC34C /* ResouceFileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

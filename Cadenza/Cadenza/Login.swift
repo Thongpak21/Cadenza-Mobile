@@ -35,6 +35,10 @@ class Login: UIViewController,UITextFieldDelegate {
     func dismissKeyboard() {
         view.endEditing(true)
     }
+    @IBAction func signup() {
+        let secondViewController = self.storyboard!.instantiateViewControllerWithIdentifier("register") as! RegisterViewController
+        self.navigationController!.pushViewController(secondViewController, animated: true)
+    }
     func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
     //    textField.resignFirstResponder()
         if textField == self.username {

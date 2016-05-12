@@ -30,8 +30,8 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
         postby = mystruct.topic_postby!
         titlename = mystruct.topictitle!
         
-        
-     //   IQKeyboardManager.sharedManager().disabledToolbarClasses.insert(NSStringFromClass(ReplyViewController))
+    
+        IQKeyboardManager.sharedManager().disabledToolbarClasses.insert(NSStringFromClass(ReplyViewController))
         self.tableview.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0)
         
         
@@ -95,9 +95,10 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
                 
                 UIApplication.sharedApplication().stopNetworkActivity()
                 MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                
+                
                 dispatch_async(dispatch_get_main_queue(),{
                     self.tableview.reloadData()
-
                     self.tableview.dataSource = self
                 })
                 
@@ -109,6 +110,21 @@ class ReplyViewController: UIViewController,UITextFieldDelegate{
         // print(url)
         let data = ["access_token":Token().getToken(),"_method":"delete"]
         Alamofire.request(.POST,url,parameters:data)
+            .responseJSON{ response in
+                UIApplication.sharedApplication().startNetworkActivity()
+                UIApplication.sharedApplication().stopNetworkActivity()
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.tableview.reloadData()
+                    
+                    self.tableview.dataSource = self
+                })
+        }
+        
+    }
+    func alamo_update(url:String,data:String){
+         print(data)
+        let data2 = ["access_token":Token().getToken(),"_method":"put","TopicReplyDescription":data]
+        Alamofire.request(.POST,url,parameters:data2)
             .responseJSON{ response in
                 UIApplication.sharedApplication().startNetworkActivity()
                 UIApplication.sharedApplication().stopNetworkActivity()
@@ -176,16 +192,6 @@ extension ReplyViewController : UITableViewDataSource{
             let string = "http://cadenza.in.th/\(data_model[indexPath.row-3].displaythumnail!)"
             let url:NSURL? = NSURL(string:string)
             cell.display.sd_setImageWithURL(url)
-//            Alamofire.request(.GET, "http://cadenza.in.th/\(data_model[indexPath.row-3].displaythumnail!)")
-//                .responseImage { response in
-//                    if let image = response.result.value {
-//                        dispatch_async(dispatch_get_main_queue(),{
-//                          //  self.tableview.reloadData()
-//                            cell.display.image = image
-//                        })
-//                        
-//                    }
-//            }
             cell.message.text = data_model[indexPath.row-3].topicReplyDes!
             cell.postby.text = "\(data_model[indexPath.row-3].author_fname!) \(data_model[indexPath.row-3].author_lname!)"
             return cell
@@ -223,9 +229,39 @@ extension ReplyViewController : UITableViewDataSource{
                 
                 let Edit = UITableViewRowAction(style:.Normal, title: "Edit") { action, index in
                     //  print("Edit button tapped")
-                    self.data_model[indexPath.row-3].topicDes = "edit"
-                    print(self.data_model[indexPath.row-3].topicDes)
-                }
+//                    self.data_model[indexPath.row-3].topicReplyDes = "edit"
+//                    print(self.data_model[indexPath.row-3].topicReplyDes)
+                    
+                    let alertController = UIAlertController(title: "Edit", message: "", preferredStyle: .Alert)
+                    
+                    let confirmAction = UIAlertAction(title: "Confirm", style: .Default) { (_) in
+                        if let field = alertController.textFields?[0] {
+                            // store your data
+                          //  print(field.text)
+                            self.data_model[indexPath.row-3].topicReplyDes! = field.text!
+                            if mystruct.secID == nil {
+                                self.alamo_update("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.json_instruct![0,"SectionID"])/topics/\(mystruct.topicID!)/topicreplys/\(self.data_model[indexPath.row-3].topicReplyID!)?access_token=\(Token().getToken())",data: field.text!)
+                            }else{
+                                self.alamo_update("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.secID!)/topics/\(mystruct.topicID!)/topicreplys/\(self.data_model[indexPath.row-3].topicReplyID!)?access_token=\(Token().getToken())",data: field.text!)
+                            }
+                            tableView.reloadData()
+                            NSUserDefaults.standardUserDefaults().setObject(field.text, forKey: "userEmail")
+                            NSUserDefaults.standardUserDefaults().synchronize()
+                        } else {
+                            // user did not fill field
+                        }
+                    }
+                    
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+                    
+                    alertController.addTextFieldWithConfigurationHandler { (textField) in
+                        textField.text = self.data_model[indexPath.row-3].topicReplyDes!
+                    }
+                    
+                    alertController.addAction(confirmAction)
+                    alertController.addAction(cancelAction)
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)                }
                 Edit.backgroundColor = UIColor.blueColor()
                 
                 let Delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
@@ -239,7 +275,6 @@ extension ReplyViewController : UITableViewDataSource{
                     //   print("share button tapped")
                 }
                 Delete.backgroundColor = UIColor.redColor()
-                
                 return [Delete, Edit]
             }else{
                 return nil

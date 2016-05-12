@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import MBProgressHUD
 class ResourceTableViewController: UITableViewController {
     var data_model = [model]()
     override func viewDidLoad() {
@@ -15,6 +16,9 @@ class ResourceTableViewController: UITableViewController {
         self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0)
         // print(mystruct.secID)
         //       print(mystruct.json_instruct![0,"SectionID"])
+        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        //   hud.mode = MBProgressHUDMode.Indeterminate
+        hud.labelText = "Loading"
         if mystruct.secID == nil {
             alamo_Lecture("http://www.cadenza.in.th/v2/api/mobile/courses/\(mystruct.courseID!)/sections/\(mystruct.json_instruct![0,"SectionID"])/resources?access_token=\(Token().getToken())")
             
@@ -46,6 +50,7 @@ class ResourceTableViewController: UITableViewController {
                 dispatch_async(dispatch_get_main_queue(),{
                     self.tableView.reloadData()
                 })
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
         }
         
     }
@@ -88,7 +93,37 @@ class ResourceTableViewController: UITableViewController {
         if data_model.count == 0 {
             
         }else{
-          //  mystruct.lectureID = data_model[indexPath.row].resourceID
+            let secondViewController = self.storyboard!.instantiateViewControllerWithIdentifier("resoucefile") as! ResouceFileViewController
+            
+            self.navigationController!.pushViewController(secondViewController, animated: true)
+//            print("http://cadenza.in.th/download/\(data_model[indexPath.row].resourceFile!)")
+//            Alamofire.download(.GET, "http://cadenza.in.th/download/\(data_model[indexPath.row].resourceFile!)") { temporaryURL, response in
+//                let fileManager = NSFileManager.defaultManager()
+//                let directoryURL = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+//                let pathComponent = response.suggestedFilename
+//                
+//                return directoryURL.URLByAppendingPathComponent(pathComponent!)
+//            }
+           // print(data_model[indexPath.row].resourceFile)
+            mystruct.resourceFile = "http://cadenza.in.th/download/\(data_model[indexPath.row].resourceFile!)"
+//            let destination = Alamofire.Request.suggestedDownloadDestination(directory: .DocumentDirectory, domain: .UserDomainMask)
+//            Alamofire.download(.GET, "http://cadenza.in.th/download/\(data_model[indexPath.row].resourceFile!)", destination: destination)
+//                .progress { bytesRead, totalBytesRead, totalBytesExpectedToRead in
+//                    print(totalBytesRead)
+//                    
+//                    // This closure is NOT called on the main queue for performance
+//                    // reasons. To update your ui, dispatch to the main queue.
+//                    dispatch_async(dispatch_get_main_queue()) {
+//                        print("Total bytes read on main queue: \(totalBytesRead)")
+//                    }
+//                }
+//                .response { _, _, _, error in
+//                    if let error = error {
+//                        print("Failed with error: \(error)")
+//                    } else {
+//                        print("Downloaded file successfully")
+//                    }
+//            }
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }

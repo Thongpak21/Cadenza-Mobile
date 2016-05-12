@@ -79,6 +79,7 @@ class ShowCourseDetail: UIViewController,UIScrollViewDelegate,UIWebViewDelegate{
    
     func webViewDidStartLoad(webview: UIWebView){
         let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+     //   hud.mode = MBProgressHUDMode.Indeterminate
         hud.labelText = "Loading"
         UIApplication.sharedApplication().startNetworkActivity()
         

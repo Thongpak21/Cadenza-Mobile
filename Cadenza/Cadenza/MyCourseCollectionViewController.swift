@@ -82,9 +82,12 @@ class MyCourseCollectionViewController: UICollectionViewController,UICollectionV
                     
                    
                 }
-                dispatch_async(dispatch_get_main_queue(),{
-                    self.collectionView?.reloadData()
-                })
+                self.collectionView?.reloadData()
+
+//                dispatch_async(dispatch_get_main_queue(),{
+//                    self.collectionView?.reloadData()
+//
+//                })
                 
                 
                 

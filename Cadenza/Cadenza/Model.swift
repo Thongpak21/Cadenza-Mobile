@@ -44,6 +44,9 @@ class model : NSObject {
     var resourceID:Int?
     var resourceTitle:String?
     var resourceFile:String?
+    var courseAcademyID:Int?
+    var courseAcademyName:String?
+    var assignmentTitle:String?
     init(_ dictionary:[String: AnyObject]) {
         super.init()
         title = dictionary["CourseName"] as? String
@@ -82,5 +85,8 @@ class model : NSObject {
         resourceID = dictionary["ResourceID"] as? Int
         resourceTitle = dictionary["ResourceTitle"] as? String
         resourceFile = dictionary["ResourceFile"] as? String
+        courseAcademyID = dictionary["CourseAcademyID"] as? Int
+        courseAcademyName = dictionary["CoueseAcademyName"] as? String
+        assignmentTitle = dictionary["AssignmentTitle"] as? String
     }
 }

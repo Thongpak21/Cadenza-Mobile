@@ -131,7 +131,16 @@ class AnnouncementTableViewController: UITableViewController,UIWebViewDelegate {
         
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        mystruct.Annodes = data_model[indexPath.row].annoDes
+        if data_model.count == 0 {
+            
+        }else{
+            mystruct.Annodes = data_model[indexPath.row].annoDes
+            
+            let secondViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AnnoDes") as! AnnoDesViewController
+            
+            self.navigationController!.pushViewController(secondViewController, animated: true)
+        }
+        
 //        let pre = selectedIndexPath
 //        if indexPath == selectedIndexPath {
 //            selectedIndexPath = nil

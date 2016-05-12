@@ -95,6 +95,10 @@ class LectureTableViewController: UITableViewController {
             
         }else{
             mystruct.lectureID = data_model[indexPath.row].lectureID
+            
+            let secondViewController = self.storyboard!.instantiateViewControllerWithIdentifier("Lesson") as! LessonTableViewController
+            
+            self.navigationController!.pushViewController(secondViewController, animated: true)
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
