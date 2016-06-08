@@ -29,14 +29,14 @@ class HappinessViewController: UIViewController,FaceViewDataSource {
     @IBOutlet weak var faceView: FaceView!{
         didSet{
             faceView.dataSource = self
-            faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action: "scale:"))
-            //faceView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "changeHappiness:"))
+        //    faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action: Selector("scale:")))
+            faceView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "changeHappiness:"))
         }
     }
     var happiness:Int  = 75 { // 0 = very sad. 100 = ecstatic
         didSet {
             happiness = min(max(happiness,0),100)
-            print("happiness = \(happiness)")
+           // print("happiness = \(happiness)")
             updateUI()
         }
     }
