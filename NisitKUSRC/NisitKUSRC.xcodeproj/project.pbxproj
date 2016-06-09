@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		370FD4671D0977C300DF05DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FD4661D0977C300DF05DC /* AppDelegate.swift */; };
+		370FD4691D0977C300DF05DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FD4681D0977C300DF05DC /* ViewController.swift */; };
+		370FD46C1D0977C300DF05DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 370FD46A1D0977C300DF05DC /* Main.storyboard */; };
+		370FD46F1D0977C300DF05DC /* NisitKUSRC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 370FD46D1D0977C300DF05DC /* NisitKUSRC.xcdatamodeld */; };
+		370FD4711D0977C300DF05DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 370FD4701D0977C300DF05DC /* Assets.xcassets */; };
+		370FD4741D0977C300DF05DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 370FD4721D0977C300DF05DC /* LaunchScreen.storyboard */; };
+		370FD47F1D0977C300DF05DC /* NisitKUSRCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FD47E1D0977C300DF05DC /* NisitKUSRCTests.swift */; };
+		370FD48A1D0977C300DF05DC /* NisitKUSRCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FD4891D0977C300DF05DC /* NisitKUSRCUITests.swift */; };
+		CF2557DA4B23D52F34D3D088 /* Pods_NisitKUSRC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46C0D63A6D6903F8DDB9337 /* Pods_NisitKUSRC.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		370FD47B1D0977C300DF05DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 370FD45B1D0977C300DF05DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 370FD4621D0977C300DF05DC;
+			remoteInfo = NisitKUSRC;
+		};
+		370FD4861D0977C300DF05DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 370FD45B1D0977C300DF05DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 370FD4621D0977C300DF05DC;
+			remoteInfo = NisitKUSRC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		370FD4631D0977C300DF05DC /* NisitKUSRC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NisitKUSRC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		370FD4661D0977C300DF05DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		370FD4681D0977C300DF05DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		370FD46B1D0977C300DF05DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		370FD46E1D0977C300DF05DC /* NisitKUSRC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NisitKUSRC.xcdatamodel; sourceTree = "<group>"; };
+		370FD4701D0977C300DF05DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		370FD4731D0977C300DF05DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		370FD4751D0977C300DF05DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		370FD47A1D0977C300DF05DC /* NisitKUSRCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NisitKUSRCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		370FD47E1D0977C300DF05DC /* NisitKUSRCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NisitKUSRCTests.swift; sourceTree = "<group>"; };
+		370FD4801D0977C300DF05DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		370FD4851D0977C300DF05DC /* NisitKUSRCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NisitKUSRCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		370FD4891D0977C300DF05DC /* NisitKUSRCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NisitKUSRCUITests.swift; sourceTree = "<group>"; };
+		370FD48B1D0977C300DF05DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52A8849FAAA63F55AAC20A17 /* Pods-NisitKUSRC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NisitKUSRC.release.xcconfig"; path = "Pods/Target Support Files/Pods-NisitKUSRC/Pods-NisitKUSRC.release.xcconfig"; sourceTree = "<group>"; };
+		AEE3C148B329F814C907C4B4 /* Pods-NisitKUSRC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NisitKUSRC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NisitKUSRC/Pods-NisitKUSRC.debug.xcconfig"; sourceTree = "<group>"; };
+		D46C0D63A6D6903F8DDB9337 /* Pods_NisitKUSRC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NisitKUSRC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		370FD4601D0977C300DF05DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF2557DA4B23D52F34D3D088 /* Pods_NisitKUSRC.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		370FD4771D0977C300DF05DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		370FD4821D0977C300DF05DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		154A1173CA2E021AB2E7E698 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D46C0D63A6D6903F8DDB9337 /* Pods_NisitKUSRC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		370FD45A1D0977C300DF05DC = {
+			isa = PBXGroup;
+			children = (
+				370FD4651D0977C300DF05DC /* NisitKUSRC */,
+				370FD47D1D0977C300DF05DC /* NisitKUSRCTests */,
+				370FD4881D0977C300DF05DC /* NisitKUSRCUITests */,
+				370FD4641D0977C300DF05DC /* Products */,
+				4737AA132A0B2F08BBE4A2C3 /* Pods */,
+				154A1173CA2E021AB2E7E698 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		370FD4641D0977C300DF05DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				370FD4631D0977C300DF05DC /* NisitKUSRC.app */,
+				370FD47A1D0977C300DF05DC /* NisitKUSRCTests.xctest */,
+				370FD4851D0977C300DF05DC /* NisitKUSRCUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		370FD4651D0977C300DF05DC /* NisitKUSRC */ = {
+			isa = PBXGroup;
+			children = (
+				370FD4661D0977C300DF05DC /* AppDelegate.swift */,
+				370FD4681D0977C300DF05DC /* ViewController.swift */,
+				370FD46A1D0977C300DF05DC /* Main.storyboard */,
+				370FD4701D0977C300DF05DC /* Assets.xcassets */,
+				370FD4721D0977C300DF05DC /* LaunchScreen.storyboard */,
+				370FD4751D0977C300DF05DC /* Info.plist */,
+				370FD46D1D0977C300DF05DC /* NisitKUSRC.xcdatamodeld */,
+			);
+			path = NisitKUSRC;
+			sourceTree = "<group>";
+		};
+		370FD47D1D0977C300DF05DC /* NisitKUSRCTests */ = {
+			isa = PBXGroup;
+			children = (
+				370FD47E1D0977C300DF05DC /* NisitKUSRCTests.swift */,
+				370FD4801D0977C300DF05DC /* Info.plist */,
+			);
+			path = NisitKUSRCTests;
+			sourceTree = "<group>";
+		};
+		370FD4881D0977C300DF05DC /* NisitKUSRCUITests */ = {
+			isa = PBXGroup;
+			children = (
+				370FD4891D0977C300DF05DC /* NisitKUSRCUITests.swift */,
+				370FD48B1D0977C300DF05DC /* Info.plist */,
+			);
+			path = NisitKUSRCUITests;
+			sourceTree = "<group>";
+		};
+		4737AA132A0B2F08BBE4A2C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AEE3C148B329F814C907C4B4 /* Pods-NisitKUSRC.debug.xcconfig */,
+				52A8849FAAA63F55AAC20A17 /* Pods-NisitKUSRC.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		370FD4621D0977C300DF05DC /* NisitKUSRC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 370FD48E1D0977C300DF05DC /* Build configuration list for PBXNativeTarget "NisitKUSRC" */;
+			buildPhases = (
+				4F5AFF5FE14F0F51A51AF018 /* [CP] Check Pods Manifest.lock */,
+				370FD45F1D0977C300DF05DC /* Sources */,
+				370FD4601D0977C300DF05DC /* Frameworks */,
+				370FD4611D0977C300DF05DC /* Resources */,
+				1EDD5E7CFD37FCEA4E3A58A6 /* [CP] Embed Pods Frameworks */,
+				DEC60DCD88CA0015B6E56C60 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NisitKUSRC;
+			productName = NisitKUSRC;
+			productReference = 370FD4631D0977C300DF05DC /* NisitKUSRC.app */;
+			productType = "com.apple.product-type.application";
+		};
+		370FD4791D0977C300DF05DC /* NisitKUSRCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 370FD4911D0977C300DF05DC /* Build configuration list for PBXNativeTarget "NisitKUSRCTests" */;
+			buildPhases = (
+				370FD4761D0977C300DF05DC /* Sources */,
+				370FD4771D0977C300DF05DC /* Frameworks */,
+				370FD4781D0977C300DF05DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				370FD47C1D0977C300DF05DC /* PBXTargetDependency */,
+			);
+			name = NisitKUSRCTests;
+			productName = NisitKUSRCTests;
+			productReference = 370FD47A1D0977C300DF05DC /* NisitKUSRCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		370FD4841D0977C300DF05DC /* NisitKUSRCUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 370FD4941D0977C300DF05DC /* Build configuration list for PBXNativeTarget "NisitKUSRCUITests" */;
+			buildPhases = (
+				370FD4811D0977C300DF05DC /* Sources */,
+				370FD4821D0977C300DF05DC /* Frameworks */,
+				370FD4831D0977C300DF05DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				370FD4871D0977C300DF05DC /* PBXTargetDependency */,
+			);
+			name = NisitKUSRCUITests;
+			productName = NisitKUSRCUITests;
+			productReference = 370FD4851D0977C300DF05DC /* NisitKUSRCUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		370FD45B1D0977C300DF05DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Thongpak;
+				TargetAttributes = {
+					370FD4621D0977C300DF05DC = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = XN599A8TAU;
+					};
+					370FD4791D0977C300DF05DC = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 370FD4621D0977C300DF05DC;
+					};
+					370FD4841D0977C300DF05DC = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 370FD4621D0977C300DF05DC;
+					};
+				};
+			};
+			buildConfigurationList = 370FD45E1D0977C300DF05DC /* Build configuration list for PBXProject "NisitKUSRC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 370FD45A1D0977C300DF05DC;
+			productRefGroup = 370FD4641D0977C300DF05DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				370FD4621D0977C300DF05DC /* NisitKUSRC */,
+				370FD4791D0977C300DF05DC /* NisitKUSRCTests */,
+				370FD4841D0977C300DF05DC /* NisitKUSRCUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		370FD4611D0977C300DF05DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				370FD4741D0977C300DF05DC /* LaunchScreen.storyboard in Resources */,
+				370FD4711D0977C300DF05DC /* Assets.xcassets in Resources */,
+				370FD46C1D0977C300DF05DC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		370FD4781D0977C300DF05DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		370FD4831D0977C300DF05DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1EDD5E7CFD37FCEA4E3A58A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NisitKUSRC/Pods-NisitKUSRC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F5AFF5FE14F0F51A51AF018 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DEC60DCD88CA0015B6E56C60 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NisitKUSRC/Pods-NisitKUSRC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		370FD45F1D0977C300DF05DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				370FD4691D0977C300DF05DC /* ViewController.swift in Sources */,
+				370FD4671D0977C300DF05DC /* AppDelegate.swift in Sources */,
+				370FD46F1D0977C300DF05DC /* NisitKUSRC.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		370FD4761D0977C300DF05DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				370FD47F1D0977C300DF05DC /* NisitKUSRCTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		370FD4811D0977C300DF05DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				370FD48A1D0977C300DF05DC /* NisitKUSRCUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		370FD47C1D0977C300DF05DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 370FD4621D0977C300DF05DC /* NisitKUSRC */;
+			targetProxy = 370FD47B1D0977C300DF05DC /* PBXContainerItemProxy */;
+		};
+		370FD4871D0977C300DF05DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 370FD4621D0977C300DF05DC /* NisitKUSRC */;
+			targetProxy = 370FD4861D0977C300DF05DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		370FD46A1D0977C300DF05DC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				370FD46B1D0977C300DF05DC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		370FD4721D0977C300DF05DC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				370FD4731D0977C300DF05DC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		370FD48C1D0977C300DF05DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		370FD48D1D0977C300DF05DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		370FD48F1D0977C300DF05DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEE3C148B329F814C907C4B4 /* Pods-NisitKUSRC.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = NisitKUSRC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gim.NisitKUSRC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		370FD4901D0977C300DF05DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52A8849FAAA63F55AAC20A17 /* Pods-NisitKUSRC.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = NisitKUSRC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gim.NisitKUSRC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		370FD4921D0977C300DF05DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NisitKUSRCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gim.NisitKUSRCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NisitKUSRC.app/NisitKUSRC";
+			};
+			name = Debug;
+		};
+		370FD4931D0977C300DF05DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NisitKUSRCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gim.NisitKUSRCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NisitKUSRC.app/NisitKUSRC";
+			};
+			name = Release;
+		};
+		370FD4951D0977C300DF05DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NisitKUSRCUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gim.NisitKUSRCUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = NisitKUSRC;
+			};
+			name = Debug;
+		};
+		370FD4961D0977C300DF05DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NisitKUSRCUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gim.NisitKUSRCUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = NisitKUSRC;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		370FD45E1D0977C300DF05DC /* Build configuration list for PBXProject "NisitKUSRC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				370FD48C1D0977C300DF05DC /* Debug */,
+				370FD48D1D0977C300DF05DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		370FD48E1D0977C300DF05DC /* Build configuration list for PBXNativeTarget "NisitKUSRC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				370FD48F1D0977C300DF05DC /* Debug */,
+				370FD4901D0977C300DF05DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		370FD4911D0977C300DF05DC /* Build configuration list for PBXNativeTarget "NisitKUSRCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				370FD4921D0977C300DF05DC /* Debug */,
+				370FD4931D0977C300DF05DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		370FD4941D0977C300DF05DC /* Build configuration list for PBXNativeTarget "NisitKUSRCUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				370FD4951D0977C300DF05DC /* Debug */,
+				370FD4961D0977C300DF05DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		370FD46D1D0977C300DF05DC /* NisitKUSRC.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				370FD46E1D0977C300DF05DC /* NisitKUSRC.xcdatamodel */,
+			);
+			currentVersion = 370FD46E1D0977C300DF05DC /* NisitKUSRC.xcdatamodel */;
+			path = NisitKUSRC.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 370FD45B1D0977C300DF05DC /* Project object */;
+}

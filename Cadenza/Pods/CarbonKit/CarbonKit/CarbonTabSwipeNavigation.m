@@ -142,7 +142,6 @@
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [self.pageViewController.view layoutSubviews];
     isSwipeLocked = NO;
 }
 
@@ -232,9 +231,8 @@
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
        viewControllerAfterViewController:(UIViewController *)viewController {
-
-    NSInteger index = selectedIndex + 1;
-
+    NSInteger index = [self.viewControllers allKeysForObject:viewController].firstObject.integerValue;
+	index += 1;
     if (index < self.carbonSegmentedControl.numberOfSegments) {
         return [self viewControllerAtIndex:index];
     }
@@ -243,9 +241,8 @@
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
       viewControllerBeforeViewController:(UIViewController *)viewController {
-
-    NSInteger index = selectedIndex - 1;
-
+    NSInteger index = [self.viewControllers allKeysForObject:viewController].firstObject.integerValue;
+	index -= 1;
     if (index >= 0) {
         return [self viewControllerAtIndex:index];
     }
@@ -255,10 +252,14 @@
 #pragma mark - PageViewController Delegate
 
 - (void)pageViewController:(UIPageViewController *)pageViewController
+willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
+	[self callDelegateForStartingTransition];
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController
         didFinishAnimating:(BOOL)finished
    previousViewControllers:(NSArray *)previousViewControllers
-       transitionCompleted:(BOOL)completed {
-
+	   transitionCompleted:(BOOL)completed {
     if (completed) {
         id currentView = pageViewController.viewControllers.firstObject;
         selectedIndex =
@@ -268,7 +269,9 @@
         [self.carbonSegmentedControl updateIndicatorWithAnimation:NO];
 
         [self callDelegateForCurrentIndex];
-    }
+	}
+	
+	[self callDelegateForFinishingTransition];
 }
 
 #pragma mark - ScrollView Delegate
@@ -283,15 +286,16 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 
-    CGPoint offset = scrollView.contentOffset;
-    CGFloat segmentedWidth = [self.carbonSegmentedControl getWidth];
+    CGPoint offset			= scrollView.contentOffset;
+    CGFloat segmentedWidth	= [self.carbonSegmentedControl getWidth];
     CGFloat scrollViewWidth = CGRectGetWidth(scrollView.frame);
+	CGFloat toolbarWidth	= CGRectGetWidth(self.toolbar.frame);
 
     if (selectedIndex < 0 || selectedIndex > self.carbonSegmentedControl.numberOfSegments - 1) {
         return;
     }
 
-    if (!isSwipeLocked) {
+    if (isSwipeLocked == false) {
 
         if (offset.x < scrollViewWidth) {
             // we are moving back
@@ -389,8 +393,7 @@
         }
     }
 
-    CGFloat indicatorMaxOriginX =
-        scrollViewWidth / 2 - self.carbonSegmentedControl.indicatorWidth / 2;
+    CGFloat indicatorMaxOriginX = toolbarWidth / 2 - self.carbonSegmentedControl.indicatorWidth / 2;
     CGFloat offsetX = self.carbonSegmentedControl.indicatorMinX - indicatorMaxOriginX;
 
     if (segmentedWidth <= scrollViewWidth) {
@@ -400,8 +403,8 @@
             offsetX = 0;
         }
 
-        if (offsetX > segmentedWidth - scrollViewWidth) {
-            offsetX = segmentedWidth - scrollViewWidth;
+        if (offsetX > segmentedWidth - toolbarWidth) {
+            offsetX = segmentedWidth - toolbarWidth;
         }
     }
 
@@ -638,6 +641,20 @@
     }
 }
 
+- (void)callDelegateForStartingTransition {
+	if ([self.delegate respondsToSelector:@selector(carbonTabSwipeNavigation:willBeginTransitionFromIndex:)]) {
+		NSInteger index = self.carbonSegmentedControl.selectedSegmentIndex;
+		[self.delegate carbonTabSwipeNavigation:self willBeginTransitionFromIndex:index];
+	}
+}
+
+- (void)callDelegateForFinishingTransition {
+	if ([self.delegate respondsToSelector:@selector(carbonTabSwipeNavigation:didFinishTransitionToIndex:)]) {
+		NSInteger index = self.carbonSegmentedControl.selectedSegmentIndex;
+		[self.delegate carbonTabSwipeNavigation:self didFinishTransitionToIndex:index];
+	}
+}
+
 - (void)setTabBarHeight:(CGFloat)height {
     self.toolbarHeight.constant = height;
     [self.carbonSegmentedControl updateIndicatorWithAnimation:NO];
@@ -664,6 +681,7 @@
     if (currentTabIndex != selectedIndex && currentTabIndex < numberOfSegments) {
         self.carbonSegmentedControl.selectedSegmentIndex = currentTabIndex;
         [self moveToIndex:currentTabIndex withAnimation:animate];
+		[self syncIndicator];
     }
 }
 

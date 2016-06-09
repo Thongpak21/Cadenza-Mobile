@@ -1,0 +1,6 @@
+framework module Pods_NisitKUSRC {
+  umbrella header "Pods-NisitKUSRC-umbrella.h"
+
+  export *
+  module * { export * }
+}
