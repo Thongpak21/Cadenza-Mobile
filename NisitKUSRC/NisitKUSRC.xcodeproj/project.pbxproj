@@ -15,6 +15,8 @@
 		370FD4741D0977C300DF05DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 370FD4721D0977C300DF05DC /* LaunchScreen.storyboard */; };
 		370FD47F1D0977C300DF05DC /* NisitKUSRCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FD47E1D0977C300DF05DC /* NisitKUSRCTests.swift */; };
 		370FD48A1D0977C300DF05DC /* NisitKUSRCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FD4891D0977C300DF05DC /* NisitKUSRCUITests.swift */; };
+		370FD4991D0A612900DF05DC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FD4971D0A612900DF05DC /* TestViewController.swift */; };
+		370FD49A1D0A612900DF05DC /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370FD4981D0A612900DF05DC /* TestViewController.xib */; };
 		CF2557DA4B23D52F34D3D088 /* Pods_NisitKUSRC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46C0D63A6D6903F8DDB9337 /* Pods_NisitKUSRC.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,8 @@
 		370FD4851D0977C300DF05DC /* NisitKUSRCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NisitKUSRCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		370FD4891D0977C300DF05DC /* NisitKUSRCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NisitKUSRCUITests.swift; sourceTree = "<group>"; };
 		370FD48B1D0977C300DF05DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		370FD4971D0A612900DF05DC /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		370FD4981D0A612900DF05DC /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		52A8849FAAA63F55AAC20A17 /* Pods-NisitKUSRC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NisitKUSRC.release.xcconfig"; path = "Pods/Target Support Files/Pods-NisitKUSRC/Pods-NisitKUSRC.release.xcconfig"; sourceTree = "<group>"; };
 		AEE3C148B329F814C907C4B4 /* Pods-NisitKUSRC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NisitKUSRC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NisitKUSRC/Pods-NisitKUSRC.debug.xcconfig"; sourceTree = "<group>"; };
 		D46C0D63A6D6903F8DDB9337 /* Pods_NisitKUSRC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NisitKUSRC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +120,8 @@
 			children = (
 				370FD4661D0977C300DF05DC /* AppDelegate.swift */,
 				370FD4681D0977C300DF05DC /* ViewController.swift */,
+				370FD4971D0A612900DF05DC /* TestViewController.swift */,
+				370FD4981D0A612900DF05DC /* TestViewController.xib */,
 				370FD46A1D0977C300DF05DC /* Main.storyboard */,
 				370FD4701D0977C300DF05DC /* Assets.xcassets */,
 				370FD4721D0977C300DF05DC /* LaunchScreen.storyboard */,
@@ -262,6 +268,7 @@
 			files = (
 				370FD4741D0977C300DF05DC /* LaunchScreen.storyboard in Resources */,
 				370FD4711D0977C300DF05DC /* Assets.xcassets in Resources */,
+				370FD49A1D0A612900DF05DC /* TestViewController.xib in Resources */,
 				370FD46C1D0977C300DF05DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +344,7 @@
 			files = (
 				370FD4691D0977C300DF05DC /* ViewController.swift in Sources */,
 				370FD4671D0977C300DF05DC /* AppDelegate.swift in Sources */,
+				370FD4991D0A612900DF05DC /* TestViewController.swift in Sources */,
 				370FD46F1D0977C300DF05DC /* NisitKUSRC.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
