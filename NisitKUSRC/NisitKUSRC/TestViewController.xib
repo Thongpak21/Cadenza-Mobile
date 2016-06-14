@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestViewController" customModule="NisitKUSRC" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GradeViewController" customModule="NisitKUSRC" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -13,7 +13,19 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nDp-wP-fJb">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="nDp-wP-fJb" secondAttribute="bottom" id="7cC-uX-xIN"/>
+                <constraint firstItem="nDp-wP-fJb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="An5-TA-1ec"/>
+                <constraint firstItem="nDp-wP-fJb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Blw-Zx-tq0"/>
+                <constraint firstAttribute="trailing" secondItem="nDp-wP-fJb" secondAttribute="trailing" id="WbM-uf-qGg"/>
+            </constraints>
         </view>
     </objects>
 </document>
