@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AlamofireObjectMapper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,32 +52,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>2C4A40323C15F9C2EA7918399D61C02B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B0E52D8697C568F87B4D4D5E7FDD963D</key>
+		<key>8FA15FE4A4A7AB2BCF606764EF52286A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BD9553EB5847238BD7A9C0EA09DBD310</key>
+		<key>C5CBCAA97E951CC882334464FBDF983D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D5D6200D4BE741574DBD4FB768A6F55B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DA55B86069B156A74051C6BAF946C923</key>
+		<key>E36F58EC4DB573AB781C41D0E2DBBD39</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E61CE3B6DFA1FE6B3E296965C76C0E10</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FBD082A0D35F7917EAB9DD9D3CCA9976</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,9 +7,18 @@
 //
 
 import Foundation
-class Grade:NSObject {
-    
-    
-    
-    
+import ObjectMapper
+
+class GradeModel : Mappable {
+
+    var grade:String?
+    var id:String?
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    func mapping(map: Map) {
+
+        grade <- map["grade"]
+        id <- map["id"]
+    }
 }

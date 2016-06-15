@@ -21,6 +21,7 @@
 		371C250C1D0FA15F00C6A594 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371C250B1D0FA15F00C6A594 /* ViewModel.swift */; };
 		371C25111D0FA5A300C6A594 /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371C25101D0FA5A200C6A594 /* RestAPI.swift */; };
 		371C25141D0FA85300C6A594 /* GradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371C25131D0FA85300C6A594 /* GradeViewController.swift */; };
+		371C25161D0FF09E00C6A594 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371C25151D0FF09E00C6A594 /* URL.swift */; };
 		CF2557DA4B23D52F34D3D088 /* Pods_NisitKUSRC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46C0D63A6D6903F8DDB9337 /* Pods_NisitKUSRC.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		371C250B1D0FA15F00C6A594 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		371C25101D0FA5A200C6A594 /* RestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestAPI.swift; sourceTree = "<group>"; };
 		371C25131D0FA85300C6A594 /* GradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeViewController.swift; sourceTree = "<group>"; };
+		371C25151D0FF09E00C6A594 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		52A8849FAAA63F55AAC20A17 /* Pods-NisitKUSRC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NisitKUSRC.release.xcconfig"; path = "Pods/Target Support Files/Pods-NisitKUSRC/Pods-NisitKUSRC.release.xcconfig"; sourceTree = "<group>"; };
 		AEE3C148B329F814C907C4B4 /* Pods-NisitKUSRC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NisitKUSRC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NisitKUSRC/Pods-NisitKUSRC.debug.xcconfig"; sourceTree = "<group>"; };
 		D46C0D63A6D6903F8DDB9337 /* Pods_NisitKUSRC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NisitKUSRC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				371C25101D0FA5A200C6A594 /* RestAPI.swift */,
+				371C25151D0FF09E00C6A594 /* URL.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 			files = (
 				371C250A1D0FA12C00C6A594 /* Model.swift in Sources */,
 				370FD4691D0977C300DF05DC /* ViewController.swift in Sources */,
+				371C25161D0FF09E00C6A594 /* URL.swift in Sources */,
 				371C25111D0FA5A300C6A594 /* RestAPI.swift in Sources */,
 				371C25141D0FA85300C6A594 /* GradeViewController.swift in Sources */,
 				370FD4671D0977C300DF05DC /* AppDelegate.swift in Sources */,

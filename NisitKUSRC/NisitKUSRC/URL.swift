@@ -1,5 +1,5 @@
 //
-//  ViewModel.swift
+//  URL.swift
 //  NisitKUSRC
 //
 //  Created by Thongpak on 6/14/2559 BE.
@@ -7,6 +7,5 @@
 //
 
 import Foundation
-//class GradeViewModel : GradeModel {
-//    
-//}
+
+var Grade_URL = "http://158.108.97.15:5000/registrations/?student.id=5530300308"
