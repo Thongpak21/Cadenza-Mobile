@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var data = [Model]()
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< HEAD
         Alamofire.request(.GET,"https://thingspeak.com/channels/9/field/1.json")
             .responseJSON{ response in
                 if let result = response.result.value!["feeds"] as? [[String: AnyObject]] {
@@ -24,6 +25,16 @@ class ViewController: UIViewController {
                 }
         }
        // print(data[1].field)
+=======
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        let vc = GradeViewController(nibName: "TestViewController", bundle: nil);
+        navigationController?.pushViewController(vc, animated: true);
+        
+     //   self.navigationController!.pushViewController(GradeViewController(nibName: "TestViewController", bundle: nil), animated: true );
+        
+
+>>>>>>> b7bc532b043b29d4c0712cecba7d865e48a47d86
     }
 
     

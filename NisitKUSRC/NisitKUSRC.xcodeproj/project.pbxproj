@@ -15,8 +15,17 @@
 		370FD4741D0977C300DF05DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 370FD4721D0977C300DF05DC /* LaunchScreen.storyboard */; };
 		370FD47F1D0977C300DF05DC /* NisitKUSRCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FD47E1D0977C300DF05DC /* NisitKUSRCTests.swift */; };
 		370FD48A1D0977C300DF05DC /* NisitKUSRCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FD4891D0977C300DF05DC /* NisitKUSRCUITests.swift */; };
+<<<<<<< HEAD
 		376074B31D0C05B50012E6F9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376074B21D0C05B50012E6F9 /* Model.swift */; };
 		376074B51D0C11200012E6F9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376074B41D0C11200012E6F9 /* API.swift */; };
+=======
+		370FD4991D0A612900DF05DC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FD4971D0A612900DF05DC /* TestViewController.swift */; };
+		370FD49A1D0A612900DF05DC /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370FD4981D0A612900DF05DC /* TestViewController.xib */; };
+		371C250A1D0FA12C00C6A594 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371C25091D0FA12C00C6A594 /* Model.swift */; };
+		371C250C1D0FA15F00C6A594 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371C250B1D0FA15F00C6A594 /* ViewModel.swift */; };
+		371C25111D0FA5A300C6A594 /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371C25101D0FA5A200C6A594 /* RestAPI.swift */; };
+		371C25141D0FA85300C6A594 /* GradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371C25131D0FA85300C6A594 /* GradeViewController.swift */; };
+>>>>>>> b7bc532b043b29d4c0712cecba7d865e48a47d86
 		CF2557DA4B23D52F34D3D088 /* Pods_NisitKUSRC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46C0D63A6D6903F8DDB9337 /* Pods_NisitKUSRC.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,8 +61,17 @@
 		370FD4851D0977C300DF05DC /* NisitKUSRCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NisitKUSRCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		370FD4891D0977C300DF05DC /* NisitKUSRCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NisitKUSRCUITests.swift; sourceTree = "<group>"; };
 		370FD48B1D0977C300DF05DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		376074B21D0C05B50012E6F9 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		376074B41D0C11200012E6F9 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+=======
+		370FD4971D0A612900DF05DC /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		370FD4981D0A612900DF05DC /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		371C25091D0FA12C00C6A594 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		371C250B1D0FA15F00C6A594 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		371C25101D0FA5A200C6A594 /* RestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestAPI.swift; sourceTree = "<group>"; };
+		371C25131D0FA85300C6A594 /* GradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeViewController.swift; sourceTree = "<group>"; };
+>>>>>>> b7bc532b043b29d4c0712cecba7d865e48a47d86
 		52A8849FAAA63F55AAC20A17 /* Pods-NisitKUSRC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NisitKUSRC.release.xcconfig"; path = "Pods/Target Support Files/Pods-NisitKUSRC/Pods-NisitKUSRC.release.xcconfig"; sourceTree = "<group>"; };
 		AEE3C148B329F814C907C4B4 /* Pods-NisitKUSRC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NisitKUSRC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NisitKUSRC/Pods-NisitKUSRC.debug.xcconfig"; sourceTree = "<group>"; };
 		D46C0D63A6D6903F8DDB9337 /* Pods_NisitKUSRC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NisitKUSRC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,14 +137,26 @@
 			isa = PBXGroup;
 			children = (
 				370FD4661D0977C300DF05DC /* AppDelegate.swift */,
+<<<<<<< HEAD
 				370FD4681D0977C300DF05DC /* ViewController.swift */,
+=======
+				371C250D1D0FA16700C6A594 /* Model */,
+				371C250E1D0FA17300C6A594 /* ViewModel */,
+				370FD4971D0A612900DF05DC /* TestViewController.swift */,
+				370FD4981D0A612900DF05DC /* TestViewController.xib */,
+				371C250F1D0FA17B00C6A594 /* Controller */,
+>>>>>>> b7bc532b043b29d4c0712cecba7d865e48a47d86
 				370FD46A1D0977C300DF05DC /* Main.storyboard */,
-				370FD4701D0977C300DF05DC /* Assets.xcassets */,
+				371C25121D0FA5AB00C6A594 /* API */,
 				370FD4721D0977C300DF05DC /* LaunchScreen.storyboard */,
 				370FD4751D0977C300DF05DC /* Info.plist */,
 				370FD46D1D0977C300DF05DC /* NisitKUSRC.xcdatamodeld */,
+<<<<<<< HEAD
 				376074B21D0C05B50012E6F9 /* Model.swift */,
 				376074B41D0C11200012E6F9 /* API.swift */,
+=======
+				370FD4701D0977C300DF05DC /* Assets.xcassets */,
+>>>>>>> b7bc532b043b29d4c0712cecba7d865e48a47d86
 			);
 			path = NisitKUSRC;
 			sourceTree = "<group>";
@@ -147,6 +177,39 @@
 				370FD48B1D0977C300DF05DC /* Info.plist */,
 			);
 			path = NisitKUSRCUITests;
+			sourceTree = "<group>";
+		};
+		371C250D1D0FA16700C6A594 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				371C25091D0FA12C00C6A594 /* Model.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		371C250E1D0FA17300C6A594 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				371C250B1D0FA15F00C6A594 /* ViewModel.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		371C250F1D0FA17B00C6A594 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				370FD4681D0977C300DF05DC /* ViewController.swift */,
+				371C25131D0FA85300C6A594 /* GradeViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		371C25121D0FA5AB00C6A594 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				371C25101D0FA5A200C6A594 /* RestAPI.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 		4737AA132A0B2F08BBE4A2C3 /* Pods */ = {
@@ -341,10 +404,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				376074B31D0C05B50012E6F9 /* Model.swift in Sources */,
+=======
+				371C250A1D0FA12C00C6A594 /* Model.swift in Sources */,
+>>>>>>> b7bc532b043b29d4c0712cecba7d865e48a47d86
 				370FD4691D0977C300DF05DC /* ViewController.swift in Sources */,
+				371C25111D0FA5A300C6A594 /* RestAPI.swift in Sources */,
+				371C25141D0FA85300C6A594 /* GradeViewController.swift in Sources */,
 				370FD4671D0977C300DF05DC /* AppDelegate.swift in Sources */,
+<<<<<<< HEAD
 				376074B51D0C11200012E6F9 /* API.swift in Sources */,
+=======
+				370FD4991D0A612900DF05DC /* TestViewController.swift in Sources */,
+				371C250C1D0FA15F00C6A594 /* ViewModel.swift in Sources */,
+>>>>>>> b7bc532b043b29d4c0712cecba7d865e48a47d86
 				370FD46F1D0977C300DF05DC /* NisitKUSRC.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

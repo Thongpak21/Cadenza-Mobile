@@ -14,7 +14,11 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+<<<<<<< HEAD
                BlueprintIdentifier = "E8221C456D50D3F496D7DD6238BED96F"
+=======
+               BlueprintIdentifier = "BD9553EB5847238BD7A9C0EA09DBD310"
+>>>>>>> b7bc532b043b29d4c0712cecba7d865e48a47d86
                BuildableName = "Pods_NisitKUSRC.framework"
                BlueprintName = "Pods-NisitKUSRC"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +49,11 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
+<<<<<<< HEAD
             BlueprintIdentifier = "E8221C456D50D3F496D7DD6238BED96F"
+=======
+            BlueprintIdentifier = "BD9553EB5847238BD7A9C0EA09DBD310"
+>>>>>>> b7bc532b043b29d4c0712cecba7d865e48a47d86
             BuildableName = "Pods_NisitKUSRC.framework"
             BlueprintName = "Pods-NisitKUSRC"
             ReferencedContainer = "container:Pods.xcodeproj">
