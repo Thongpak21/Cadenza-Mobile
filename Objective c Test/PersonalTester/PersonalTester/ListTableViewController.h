@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListTableViewModelDelegate.h"
 
-@interface ListTableViewController : UIViewController
+@interface ListTableViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, ListTableViewModelDelegate>
 
 @end

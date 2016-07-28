@@ -7,7 +7,17 @@
 //
 
 import UIKit
+import ObjectMapper
 
-class Model: NSObject {
-
+class Model: Mappable {
+    var field:String?
+    var time:String?
+    required init?(_ map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        field <- map["field1"]
+        time <- map["created_at"]
+    }
 }

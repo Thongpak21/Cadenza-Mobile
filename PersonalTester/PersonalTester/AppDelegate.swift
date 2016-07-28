@@ -36,6 +36,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+//        NSManagedObjectContext *context = [self managedObjectContext];
+//        NSError *error;
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//        NSEntityDescription *entity = [NSEntityDescription entityForName:@"CreditCard"
+//        inManagedObjectContext:context];
+//        [fetchRequest setEntity:entity];
+//        [fetchRequest setReturnsObjectsAsFaults:false];
+//        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+//        if (fetchedObjects.count > 0) {
+//            for (CreditCard*card in fetchedObjects){
+//                NSLog(@"card --> %@",card);
+//            }
+//            NSLog(@"credit card count = %lu",(unsigned long)fetchedObjects.count);
+//        }
+        
+        let appdel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context:NSManagedObjectContext = appdel.managedObjectContext
+        let fetch = NSFetchRequest(entityName: "CreditCard")
+     //   let entity = NSEntityDescription.entityForName("CreditCard", inManagedObjectContext: context)
+     //   fetch.entity = entity
+      //  let fetchObj = try context.executeFetchRequest(fetch)
+        do {
+            let result = try context.executeFetchRequest(fetch)
+            
+            print(result)
+        } catch {
+            print(error)
+        }
+
+        
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -61,6 +92,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
+        
+
+        let storeUrl:NSURL = self.applicationDocumentsDirectory.URLByAppendingPathComponent("PersonalTester.sqlite")
+        
+        let urlArray = [NSBundle.mainBundle().URLForResource("PersonalTester", withExtension: "sqlite")!,NSBundle.mainBundle().URLForResource("PersonalTester", withExtension: "sqlite-wal")!,NSBundle.mainBundle().URLForResource("PersonalTester", withExtension: "sqlite-shm")!]
+//        let urlArray:Array = [NSBundle.mainBundle().pathForResource("PersonalTester", ofType: "sqlite"),NSBundle.mainBundle().pathForResource("PersonalTester", ofType: "sqlite-wal"),NSBundle.mainBundle().pathForResource("PersonalTester", ofType: "sqlite-shm")]
+        let URL = [NSURL]()
+        let error:NSError?
+        for index in 0 ..< urlArray.count {
+//            do{
+//               try NSFileManager.defaultManager().copyItemAtURL(urlArray, toURL: storeUrl)
+//            }catch {
+//                
+//            }
+            print(urlArray[index])
+        }
+        
+        
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
@@ -79,7 +128,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
             abort()
         }
-        
         return coordinator
     }()
 

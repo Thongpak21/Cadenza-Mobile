@@ -1,0 +1,20 @@
+//
+//  PrefixHeader.pch
+//  PersonalTester
+//
+//  Created by Witawat Wanamonthon on 11/02/2016.
+//  Copyright © 2016 Witawat Wanamonthon. All rights reserved.
+//
+
+
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "People.h"
+#import "Job.h"
+#import "CreditCard.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */

@@ -7,7 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ListTableViewModelDelegate.h"
+#import "People.h"
 
 @interface ListTableViewModel : NSObject
+
+- (instancetype)initWithDelegate:(id<ListTableViewModelDelegate>)delegate;
+
+- (void)refreshData;
+
+- (NSInteger)numberOfPeoples;
+- (People *)peopleForIndex:(NSInteger)index;
+
+- (void)selectPeopleAtIndex:(NSInteger)index;
 
 @end

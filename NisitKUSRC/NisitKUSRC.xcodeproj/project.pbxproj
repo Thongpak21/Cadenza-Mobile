@@ -15,8 +15,8 @@
 		370FD4741D0977C300DF05DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 370FD4721D0977C300DF05DC /* LaunchScreen.storyboard */; };
 		370FD47F1D0977C300DF05DC /* NisitKUSRCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FD47E1D0977C300DF05DC /* NisitKUSRCTests.swift */; };
 		370FD48A1D0977C300DF05DC /* NisitKUSRCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FD4891D0977C300DF05DC /* NisitKUSRCUITests.swift */; };
-		370FD4991D0A612900DF05DC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370FD4971D0A612900DF05DC /* TestViewController.swift */; };
-		370FD49A1D0A612900DF05DC /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370FD4981D0A612900DF05DC /* TestViewController.xib */; };
+		376074B31D0C05B50012E6F9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376074B21D0C05B50012E6F9 /* Model.swift */; };
+		376074B51D0C11200012E6F9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376074B41D0C11200012E6F9 /* API.swift */; };
 		CF2557DA4B23D52F34D3D088 /* Pods_NisitKUSRC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46C0D63A6D6903F8DDB9337 /* Pods_NisitKUSRC.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,8 +52,8 @@
 		370FD4851D0977C300DF05DC /* NisitKUSRCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NisitKUSRCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		370FD4891D0977C300DF05DC /* NisitKUSRCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NisitKUSRCUITests.swift; sourceTree = "<group>"; };
 		370FD48B1D0977C300DF05DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		370FD4971D0A612900DF05DC /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		370FD4981D0A612900DF05DC /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		376074B21D0C05B50012E6F9 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		376074B41D0C11200012E6F9 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		52A8849FAAA63F55AAC20A17 /* Pods-NisitKUSRC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NisitKUSRC.release.xcconfig"; path = "Pods/Target Support Files/Pods-NisitKUSRC/Pods-NisitKUSRC.release.xcconfig"; sourceTree = "<group>"; };
 		AEE3C148B329F814C907C4B4 /* Pods-NisitKUSRC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NisitKUSRC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NisitKUSRC/Pods-NisitKUSRC.debug.xcconfig"; sourceTree = "<group>"; };
 		D46C0D63A6D6903F8DDB9337 /* Pods_NisitKUSRC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NisitKUSRC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,13 +120,13 @@
 			children = (
 				370FD4661D0977C300DF05DC /* AppDelegate.swift */,
 				370FD4681D0977C300DF05DC /* ViewController.swift */,
-				370FD4971D0A612900DF05DC /* TestViewController.swift */,
-				370FD4981D0A612900DF05DC /* TestViewController.xib */,
 				370FD46A1D0977C300DF05DC /* Main.storyboard */,
 				370FD4701D0977C300DF05DC /* Assets.xcassets */,
 				370FD4721D0977C300DF05DC /* LaunchScreen.storyboard */,
 				370FD4751D0977C300DF05DC /* Info.plist */,
 				370FD46D1D0977C300DF05DC /* NisitKUSRC.xcdatamodeld */,
+				376074B21D0C05B50012E6F9 /* Model.swift */,
+				376074B41D0C11200012E6F9 /* API.swift */,
 			);
 			path = NisitKUSRC;
 			sourceTree = "<group>";
@@ -268,7 +268,6 @@
 			files = (
 				370FD4741D0977C300DF05DC /* LaunchScreen.storyboard in Resources */,
 				370FD4711D0977C300DF05DC /* Assets.xcassets in Resources */,
-				370FD49A1D0A612900DF05DC /* TestViewController.xib in Resources */,
 				370FD46C1D0977C300DF05DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,9 +341,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				376074B31D0C05B50012E6F9 /* Model.swift in Sources */,
 				370FD4691D0977C300DF05DC /* ViewController.swift in Sources */,
 				370FD4671D0977C300DF05DC /* AppDelegate.swift in Sources */,
-				370FD4991D0A612900DF05DC /* TestViewController.swift in Sources */,
+				376074B51D0C11200012E6F9 /* API.swift in Sources */,
 				370FD46F1D0977C300DF05DC /* NisitKUSRC.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,7 +437,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -476,7 +476,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -488,12 +488,14 @@
 			baseConfigurationReference = AEE3C148B329F814C907C4B4 /* Pods-NisitKUSRC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Thongpak Pongsilathong (XN599A8TAU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Thongpak Pongsilathong (XN599A8TAU)";
 				INFOPLIST_FILE = NisitKUSRC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gim.NisitKUSRC;
+				PRODUCT_BUNDLE_IDENTIFIER = gim.NiSitKUSRC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9586a820-61b0-4ffd-9cb0-04f96c96abf1";
 			};
 			name = Debug;
 		};
@@ -502,12 +504,14 @@
 			baseConfigurationReference = 52A8849FAAA63F55AAC20A17 /* Pods-NisitKUSRC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Thongpak Pongsilathong (XN599A8TAU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Thongpak Pongsilathong (XN599A8TAU)";
 				INFOPLIST_FILE = NisitKUSRC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gim.NisitKUSRC;
+				PRODUCT_BUNDLE_IDENTIFIER = gim.NiSitKUSRC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9586a820-61b0-4ffd-9cb0-04f96c96abf1";
 			};
 			name = Release;
 		};

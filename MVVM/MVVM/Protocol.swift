@@ -11,3 +11,4 @@ protocol ViewModelDelegate {
     func onDataDidLoad() -> Void
     func onDataDidLoadErrorWithMessage(errorMessage:String) -> Void
 }
+

@@ -7,3 +7,38 @@
 //
 
 import Foundation
+class ViewModel:NSObject {
+    var interactor:Interactor?
+    var delegate:ViewModelDelegate?
+    var words = [WordModel]()
+    convenience init(delegate: ViewModelDelegate) {
+        self.init()
+        
+        self.delegate = delegate
+        self.interactor = FileInteractor()
+        self.words = [WordModel]()
+    }
+    func usingInteractor(interactor: Interactor) {
+        self.interactor = interactor
+    }
+    
+    
+    func refreshData() {
+//        self.interactor!.getWordsWithComplete({(response:AnyObject) -> Void in
+//            var words = [WordModel]()
+//            for word in response["words"] as! [[String:AnyObject]] {
+//                words.append(WordModel(word))
+//            }
+//            self.words = words
+//            self.delegate!.onDataDidLoad()
+//            }, andError: {(errorMessage: String) -> Void in
+//                self.delegate!.onDataDidLoadErrorWithMessage(errorMessage)
+//        })
+    }
+    func numberOfWords() -> Int {
+        return self.words.count
+    }
+    func wordForIndex(index: Int) -> WordModel {
+        return self.words[index]
+    }
+}

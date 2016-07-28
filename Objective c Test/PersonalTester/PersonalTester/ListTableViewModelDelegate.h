@@ -6,8 +6,13 @@
 //  Copyright © 2559 Witawat Wanamonthon. All rights reserved.
 //
 
-#ifndef ListTableViewModelDelegate_h
-#define ListTableViewModelDelegate_h
+#import "People.h"
 
+@protocol ListTableViewModelDelegate <NSObject>
 
-#endif /* ListTableViewModelDelegate_h */
+- (void)onDataDidLoad;
+- (void)onDataDidLoadWithError:(NSError *)error;
+
+- (void)showViewForPeople:(People *)people;
+
+@end

@@ -7,17 +7,29 @@
 //
 
 import UIKit
-
+import Alamofire
 class ViewController: UIViewController {
-
+    var data = [Model]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        Alamofire.request(.GET,"https://thingspeak.com/channels/9/field/1.json")
+            .responseJSON{ response in
+                if let result = response.result.value!["feeds"] as? [[String: AnyObject]] {
+                    for i in result {
+                        //     print("\((Model(i).field1?.intValue)! + 100)")
+                        self.data.append(Model(JSON: i)!)
+                        print(Model(JSON: i)!.field)
+                    }
+                    
+                }
+        }
+       // print(data[1].field)
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
 
 

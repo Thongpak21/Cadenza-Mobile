@@ -12,6 +12,9 @@
 		3719938C1D1CD7BA00699370 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3719938A1D1CD7BA00699370 /* Main.storyboard */; };
 		3719938E1D1CD7BB00699370 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3719938D1D1CD7BB00699370 /* Assets.xcassets */; };
 		371993911D1CD7BB00699370 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3719938F1D1CD7BB00699370 /* LaunchScreen.storyboard */; };
+		371993991D1CDA4900699370 /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371993981D1CDA4900699370 /* ChatTableViewController.swift */; };
+		3719939B1D1CDB8900699370 /* Message1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3719939A1D1CDB8900699370 /* Message1TableViewCell.swift */; };
+		3719939D1D1CDBA800699370 /* Message2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3719939C1D1CDBA800699370 /* Message2TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		3719938D1D1CD7BB00699370 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		371993901D1CD7BB00699370 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		371993921D1CD7BB00699370 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		371993981D1CDA4900699370 /* ChatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
+		3719939A1D1CDB8900699370 /* Message1TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message1TableViewCell.swift; sourceTree = "<group>"; };
+		3719939C1D1CDBA800699370 /* Message2TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message2TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,9 @@
 				3719938D1D1CD7BB00699370 /* Assets.xcassets */,
 				3719938F1D1CD7BB00699370 /* LaunchScreen.storyboard */,
 				371993921D1CD7BB00699370 /* Info.plist */,
+				371993981D1CDA4900699370 /* ChatTableViewController.swift */,
+				3719939A1D1CDB8900699370 /* Message1TableViewCell.swift */,
+				3719939C1D1CDBA800699370 /* Message2TableViewCell.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -96,6 +105,7 @@
 				TargetAttributes = {
 					371993821D1CD7BA00699370 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = XN599A8TAU;
 					};
 				};
 			};
@@ -137,6 +147,9 @@
 			files = (
 				371993891D1CD7BA00699370 /* ViewController.swift in Sources */,
 				371993871D1CD7BA00699370 /* AppDelegate.swift in Sources */,
+				371993991D1CDA4900699370 /* ChatTableViewController.swift in Sources */,
+				3719939D1D1CDBA800699370 /* Message2TableViewCell.swift in Sources */,
+				3719939B1D1CDB8900699370 /* Message1TableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +264,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Chat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gim.Chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -262,7 +277,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Chat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gim.Chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";

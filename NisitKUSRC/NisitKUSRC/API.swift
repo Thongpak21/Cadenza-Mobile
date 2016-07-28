@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
+
+let URL = "https://thingspeak.com/channels/9/field/1.json"
+
+
+func Alamo() {
+    
+}

@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "People.h"
 
 @interface PeopleContext : NSObject
+
++ (instancetype)sharedInstance;
+
+@property (nonatomic, strong) People *selectedPeople;
 
 @end
